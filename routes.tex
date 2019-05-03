@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+
+\selectlanguage{polish}
+
+\title{\textbf{Limit shapes of position routes}}
+\author{Mikołaj Marciniak}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Dan Romik and Piotr Śniady in \cite{RomikSniady1} were considering limit shape of bumping routes obtained from insertion tableau, when applying an RSK insertion step with a fixed input $z \in [0, 1]$ to an existing insertion tableau $P_n$, where $P_n$ is the result of $n$ previous insertion steps applying to $n$ i.i.d. $U(0, 1)$ random inputs $X_1, \ldots, X_n$.
+\\\\
+In \cite{RomikSniady2} they were considering limit shape of jeu de taquin path obtained from insertion tableau made from $n$ i.i.d. $U(0, 1)$ random inputs $X_1, \ldots, X_n$ prepending a fixed number $z \in [0, 1]$.
+\\\\
+They were looking into in the first case to $P((X_1, \ldots, X_n, z))$ and in the second case to $P((z, X_1, \ldots, X_n))$. We can merge this cases and consider $P((X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))$, where $m$ is approximately $A$ times greater than $n$ for any $A\in(1,\infty]$.
+\\\\
+After applying an RSK insertion steps consecutive for numbers $X_1, \ldots, X_n, z$ in insertion tableau will appear box with number $z$. During applying an RSK insertion steps consecutive for numbers $X_{n+1}, \ldots, X_m$ box with number $z$ can be sliding by the bumping roots. We would like to prove, that exist macroscopic limit shape of path describing the position of box with number $z$.
+
+\newpage
+
+\section{Position path}
+Let's take a fixed number $z\in[0,1]$. Let $\{X_j\}_{j=1}^\infty$ will be sequence of i.i.d. $U(0,1)$. Let $A\in(1,\infty)$, $n\in\mathbb{N}$ and let function $Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe position of box with number $z$:
+$$Pos_n(j)=(a_j^{(n)},b_j^{(n)})=box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. $\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0}$ 
+\\
+\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos_n([An])}{\sqrt{A}\sqrt{n}}||>\epsilon)=0$} 
+\begin{thebibliography}{9}
+\bibitem{RomikSniady1}
+Dan Romik, Piotr Śniady
+\textit{Limit shapes of bumping routes in the Robinson-Schensted correspondence}.
+\bibitem{RomikSniady2} 
+Dan Romik, Piotr Śniady
+\textit{Jeu de taquin dynamics on infinite Young tableaux and second class particles}. 
+The Annals of Probability
+2015, Vol. 43, No. 2: 719-724.
+\end{thebibliography}
+
+
+\end{document}
