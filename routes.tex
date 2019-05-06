@@ -29,12 +29,12 @@ After applying an RSK insertion steps consecutive for numbers $X_1, \ldots, X_n,
 \section{Position path}
 \begin{theorem}
 Let's take a fixed number $z\in[0,1]$. Let $\{X_j\}_{j=1}^\infty$ will be a  sequence of i.i.d. $U(0,1)$. Let $A\in(1,\infty)$, $n\in\mathbb{N}$ and let function $Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe position of box with number $z$:
-$$Pos_n(j)=(a_j^{(n)},b_j^{(n)})=box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. $\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0}$ 
+$$Pos(n)=(a_n,b_n)=box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))$$ for $m=[An]$. $\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0}$ 
 \\
-\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos_n([An])}{\sqrt{A}\sqrt{n}}||>\epsilon)=0$} 
+\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos(n)}{\sqrt{A}\sqrt{n}}||>\epsilon)=0$} 
 \end{theorem}
 \begin{proof}
-The probability that in our sequence there will be a repetition of numbers or numbers $z$ is equal to 0. Without losing generality, we assume that all numbers $z, X_1, X_2, \ldots$ are different. Numbers greater than $z$ do not affect to the position of the box with the number $z$, so we are only considering elements of the sequence $\{X_j\}_{j=1}^\infty$ of less than $z$. Let the sequence $\{X'_j\}_{j=1}^\infty$ be a subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $z$. Let $m=[An]$. We have: $$box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))=box_z(P(X_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'}))$$
+The probability that in our sequence there will be a repetition of numbers or numbers $z$ is equal to 0. Without losing generality, we assume that all numbers $z, X_1, X_2, \ldots$ are different. Numbers greater than $z$ do not affect to the position of the box with the number $z$, so we are only considering elements of the sequence $\{X_j\}_{j=1}^\infty$ of less than $z$. Let the sequence $\{X'_j\}_{j=1}^\infty$ be a subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $z$. We have: $$box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))=box_z(P(X_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'}))$$
 where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $U(0,z)$ and
  
 $$
@@ -52,8 +52,7 @@ $$
 \left\{
 \begin{matrix}
 z(m'+1)=z \\ 
-z(m'+\frac{1}{2})=\frac{z(n')+z(n'+1)}{2}\\
-zS_n=z(n'+\frac{1}{2})=\frac{z(n')+z(n'+1)}{2}
+S'_n=z(n'+\frac{1}{2})=\frac{z(n')+z(n'+1)}{2}
 \end{matrix}
 \right.
 $$
@@ -72,7 +71,7 @@ We will use the fact stated in [] that for any permutation $\Pi_0$ the insertion
 $$P(\Pi_0)=Q(\Pi_0^{-1})$$
 Therefore:
 \begin{dmath*}
-Pos_n(m)
+Pos(n)
 =box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))
 =box_z(P(X'_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'}))
 =box_z(P(z(\Pi(1)), \ldots, z(\Pi(n')), z, z(\Pi(n'+1)), \ldots, z(\Pi(m'))))
@@ -82,14 +81,52 @@ Pos_n(m)
 =box_{m'+1}(Q(\Pi_0^{-1}))
 =box_{m'+1}(Q(\Pi^{-1}(1)\uparrow, \ldots, \Pi^{-1}(m')\uparrow, n'+1))
 =box_{m'+1}(Q(\Pi^{-1}(1)\uparrow, \ldots, \Pi^{-1}(m')\uparrow, n'+\frac{1}{2}))
-=box(m'+1)(z\circ Q(\Pi^{-1}(1)\uparrow, \ldots, \Pi^{-1}(m')\uparrow, n'+\frac{1}{2}))
+=box_{m'+1}(z\circ Q(\Pi^{-1}(1), \ldots, \Pi^{-1}(m'), n'+\frac{1}{2}))
+=box_{m'+1}(Q(Y'_1, \ldots, Y'_{m'}, S'_n))
 =box_{m'+1}(Q(zY_1, \ldots, zY_{m'}, zS_n))
 =box_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n))
 \end{dmath*}
-since the sequence $\{zY_j\}_{j=1}^{m'}$ is the random increasing sequence with a uniform distribution permutated by the random permutation with a uniform distribution. We receive that the sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d. $U(0,1)$, $m'=Binom([An],z)$ and with probability 1 we have:
+since the sequence $\{Y'_j\}_{j=1}^{m'}$ is the random increasing sequence with a uniform distribution $U(0,z)$ permutated by the random permutation with a uniform distribution. Thus $\{Y'_j\}_{j=1}^{m'}$ is a sequence of i.i.d $U(0,z)$. In addition, we define $Y_j=\frac{Y'_j}{z}$ for each $j$ and $S_n=\frac{S'_n}{z}$. We receive that the sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d. $U(0,1)$, $m'=Binom(m,z)$ and with probability 1 there exist the limit:
 \begin{dmath*}
-\lim_{n \to \infty} S_n=\lim_{n \to \infty} \frac{n'}{m'}=\lim_{n \to \infty} \frac{\frac{Binom(n,z)}{n}}{\frac{Binom(m,z)}{m}}\frac{n}{m}=\frac{1}{A}
+\lim_{n \to \infty} S_n=\lim_{n \to \infty} \frac{S'_n}{z}=\lim_{n \to \infty} \frac{z}{z}\frac{n'}{m'}=\lim_{n \to \infty} \frac{\frac{Binom(n,z)}{n}}{\frac{Binom(m,z)}{m}}\frac{n}{m}=\frac{1}{A}
 \end{dmath*}
+$S_n\overset{p}{\to}S=\frac{1}{A}$. In accordance with the markings from \cite{RomikSniady1} we have:
+\begin{dmath*}
+Pos_(n)
+=box_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n))\hiderel{=}\qed_{m'}(S_n)
+\end{dmath*},
+where for each $x$: $\frac{\qed_{m'}(x)}{\sqrt{m'}}\overset{p}{\to}W(x)=(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2})$ as $m'\to \infty$, since $W(x)$ is the Lipschitz function. Let $W_{m'}(x)=\frac{Pos(n)}{\sqrt{m'}}$. We have:
+$$
+\left\{
+\begin{matrix}
+S_n\overset{p}{\to}S\\
+W_{m'}(x)\overset{p}{\to}W(x)
+\end{matrix}
+\right.
+$$
+Therefore $\forall_{\epsilon>0}\exists_{n_0}\forall_{n>n_0}\forall_{S\in[0,1]}$
+$$
+\left\{
+\begin{matrix}
+P(S_n>S-\epsilon )=1\\
+P(S_n<S+\epsilon )=1\\
+P(W_{m'}(s-\epsilon)>W(S-\epsilon)-\epsilon(1,-1))=1\\
+P(W_{m'}(s+\epsilon)<W(S+\epsilon)+\epsilon(1,-1))=1
+\end{matrix}
+\right.
+$$
+$$P(W_{m'}(S_n)>W_{m'}(S-\epsilon))>W(S-\epsilon)-\epsilon(1,-1)>W(S)-2\epsilon(1,-1))=1$$
+$$P(W_{m'}(S_n)<W_{m'}(S+\epsilon))<W(S+\epsilon)+\epsilon(1,-1)<W(S)+2\epsilon(1,-1))=1$$
+Then
+$P(W(S)-2\epsilon(1,-1)<W_{m'}(S_n)<W(S)+2\epsilon(1,-1))=1$ \\
+Thereby 
+$W_{m'}(S_n)\overset{p}{\to}W(S)$
+In addition:
+$$
+\frac{Pos(n)}{\sqrt{A}\sqrt{n}}=\frac{\sqrt{m'}W_{m'}(S_n)}{\sqrt{A}\sqrt{n}}=\sqrt{\frac{[An]}{An}\frac{Binom([An],z)}{[An]}}W_{m'}(S_n)\overset{p}{\to}\sqrt{z}W(S)
+$$
+Therefore there exist the fucntion $G(A)=\sqrt{z}W(\frac{1}{A})$ that 
+\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos(n)}{\sqrt{A}\sqrt{n}}||>\epsilon |(1,-1)|>\epsilon)=0$} 
 \end{proof}
 \newpage
 \begin{thebibliography}{9}
