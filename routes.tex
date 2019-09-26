@@ -5,140 +5,129 @@
 \usepackage{lmodern}
 \usepackage{amsfonts, amsthm, amsmath}
 \usepackage{breqn}
-\newtheorem{theorem}{Theorem}
 
-\title{\textbf{Limit shapes of position routes}}
-\author{Mikolaj Marciniak and Piotr Sniady}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\Pos}{Pos}
+\DeclareMathOperator{\boxi}{box}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\strzalka}{\hspace{-3pt}\uparrow}
+
+\title{\textbf{Hydrodynamic limit shape in the Young tableau}}
+\author{Miko\l{}aj Marciniak}
 \date{}
 \begin{document}
 
 \maketitle
 
 \section{Introduction}
-
-Dan Romik and Piotr Sniady in \cite{RomikSniady1} were considering limit shape of bumping routes obtained from insertion tableau, when applying an RSK insertion step with a fixed input $z \in [0, 1]$ to an existing insertion tableau $P_n$, where $P_n$ is the result of $n$ previous insertion steps applying to $n$ i.i.d. $U(0, 1)$ random inputs $X_1, \ldots, X_n$.
-\\\\
-In \cite{RomikSniady2} they were considering limit shape of jeu de taquin path obtained from insertion tableau made from $n$ i.i.d. $U(0, 1)$ random inputs $X_1, \ldots, X_n$ prepending a fixed number $z \in [0, 1]$.
-\\\\
-They were looking into in the first case to $P((X_1, \ldots, X_n, z))$ and in the second case to $P((z, X_1, \ldots, X_n))$. We can merge this cases and consider $P((X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))$, where $m$ is approximately $A$ times greater than $n$ for any $A\in(1,\infty]$.
-\\\\
-After applying an RSK insertion steps consecutive for numbers $X_1, \ldots, X_n, z$ in insertion tableau will appear box with number $z$. During applying an RSK insertion steps consecutive for numbers $X_{n+1}, \ldots, X_m$ box with number $z$ can be sliding by the bumping roots. We would like to prove, that exist macroscopic limit shape of path describing the position of box with number $z$.
-
-\newpage
-
-\section{Position path}
-\begin{theorem}
-Let's take a fixed number $z\in[0,1]$. Let $\{X_j\}_{j=1}^\infty$ will be a  sequence of i.i.d. $U(0,1)$. Let $A\in(1,\infty)$, $n\in\mathbb{N}$ and let function $Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe position of box with number $z$:
-$$Pos(n)=(a_n,b_n)=box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))$$ for $m=[An]$. $\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0}$ 
+tu bedzie streszczenie i pewnie odwołania do \cite{RS16}\cite{RS15}.
 \\
-\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos(n)}{\sqrt{A}\sqrt{n}}||>\epsilon)=0$} 
+\\
+\\
+\section{Hydrodynamic limit shape}
+\begin{theorem}
+Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$. Let $A\in(1,\infty)$, $n\in\mathbb{N}$ and let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe position of box with number $z$:
+$$Pos_n(m)=\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$. For example, let $m$ be equal to $m=\floor{An}$. Then the $\Pos_n(m)$ function, after scaling by $\sqrt{w}\sqrt{n}$ goes in probability to a certain limit shape. Namely $$\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}(\sup_{1\leq A} ||G(A)-\frac{Pos_n([An])}{\sqrt{w}\sqrt{n}}||>\epsilon)=0$$
 \end{theorem}
 \begin{proof}
-The probability that in our sequence there will be a repetition of numbers or numbers $z$ is equal to 0. Without losing generality, we assume that all numbers $z, X_1, X_2, \ldots$ are different. Numbers greater than $z$ do not affect to the position of the box with the number $z$, so we are only considering elements of the sequence $\{X_j\}_{j=1}^\infty$ of less than $z$. Let the sequence $\{X'_j\}_{j=1}^\infty$ be a subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $z$. We have: $$box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))=box_z(P(X_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'}))$$
-where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $U(0,z)$ and
- 
+The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0. Without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be a subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d$\hspace{3pt}U(0,w)$. Let $n'$ and $m'$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Namely
 $$
 \left\{
 \begin{matrix}
-\lim_{n\to \infty}\frac{m}{n}=\lim_{n\to \infty}\frac{[An]}{n}=A\\
-n'=\#\{X_j | X_j<z,j\leq n\}=Binom(n,z) \\
-m'=\#\{X_j | X_j<z,j\leq m\}=Binom(m,z) 
+n'=\#\{X_j | X_j<w,j\leq n\}, \\
+m'=\#\{X_j | X_j<w,j\leq m\}=n'+\#\{X_j | X_j<w,n<j\leq m\}, 
 \end{matrix}
 \right.
 $$
-Moreover, similarly as in [] we consider the sequence $\{z(j)\}_{j=1}^{m'}$, which is a sequence containing all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in ascending order. The sequence $\{z(j)\}_{j=1}^{m'}$ is random increasing sequence with a uniform distribution $U(0,z)$ and random variables $X'_1, \ldots, x'_{m'}$ have a uniform distribution, therefore the sequence $\{z(j)\}_{j=1}^{m'}$ is a random permutation $\Pi$ of sequence $\{X'_j\}_{j=1}^{m'}$, where random variables $\Pi$ is permutation of numbers $\{1, 2, \ldots, m'\}$ and also have a uniform distribution. For each $j\leq m'$, we have $X'_j=z(\Pi(j))$. For write legibility we put 
-
 $$
 \left\{
 \begin{matrix}
-z(m'+1)=z \\ 
-S'_n=z(n'+\frac{1}{2})=\frac{z(n')+z(n'+1)}{2}
+n'=\#\{X_j | X_j<w,j\leq n\}\sim B(n,w), \\
+m'-n'=\#\{X_j | X_j<w,n<j\leq m\}\sim B(m-n,w). 
 \end{matrix}
 \right.
 $$
-Let $\Pi_0=(\Pi(1), \ldots, \Pi(n'), m'+1)$ and \\
-
+Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
+From the Khinchin-Kolmogorov-Etemadi Strong Law of Large, we known that numbers $\frac{n'}{n}$ and $\frac{m'-n'}{m-n}$ converges almost surely to $w$. With probability $1$ exists the limits:
 $$
-\Pi^{-1}(j)\uparrow = \left\{
+\left\{
 \begin{matrix}
-\Pi^{-1}(j) & j\leq n'\\
-\Pi^{-1}(j)+1 & n'<j\leq m'\\
-n'+1 & j=m'+1
+\lim_{n\to\infty}\frac{n'}{n}=w, \\
+\lim_{n\to\infty}\frac{m'-n'}{m-n}=w. \\
 \end{matrix}
 \right.
 $$
-We will use the fact stated in [] that for any permutation $\Pi_0$ the insertion tableau of $\Pi_0$ is equal to the recording tableau of $\Pi_0^{-1}$:
-$$P(\Pi_0)=Q(\Pi_0^{-1})$$
+Therefore, with probability 1 also exist the limit:
+\begin{dmath*}
+\lim_{n\to\infty}\frac{m'}{n'}=\lim_{n\to\infty}1+\frac{m'-n'}{n'}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}(\frac{\floor{An}}{n}-1)=1+\frac{w}{w}(A-1)=A.
+\end{dmath*}
+We have: 
+\begin{dmath*}
+\boxi_w(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))=\boxi_w(P(X_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'})),
+\end{dmath*}
+where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $\hspace{3pt}U(0,z)$.
+
+We define the function $z:\{1, 2, \ldots m'\}\cup\{m', n'+\frac{1}{2}\}\to [0,1]$, that assigns to the number $t$, the $t-th$ largest number among $X'_1, X'_2, \ldots, X'_{m'}$.
+$$
+z(j)=
+\left\{
+\begin{matrix}
+\min(\{X'_1, X'_2, \ldots X'_{m'}\}\setminus\{z(1), z(2), \ldots z(j-1)\}) & j\in\{1, 2, \ldots, m'\}\\
+w & j=m'+1\\
+\frac{z(n')+z(n'+1)}{2} & j=n'+\frac{1}{2}
+\end{matrix}
+\right.
+$$
+The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. The sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a random increasing sequence with a uniform distribution on the interval $[0,1]$. Let $\Pi=(\Pi_1, \Pi_2, \ldots, \Pi_{m'})$. Then:
+$$\{X'_j\}_{j=1}^{m'}=\{z(\Pi_j)\}_{j=1}^{m'}=z\circ\Pi,$$
+where $\Pi$ is the function that acts separately on every element of the sequence $\{z(j)\}_{j=1}^{m'}$. 
+\\\\
+Similarly the function $z$ act on Young tableau by acting on each box individually. Then
+\begin{dmath*}
+\boxi_w(P(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}))
+=\boxi_w(P(z(\Pi_1), \ldots, z(\Pi_{n'}), w, z(\Pi_{n'+1}), \ldots, z(\Pi_{m'})))
+=\boxi_w(z\circ P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}))
+=\boxi_{m'+1}(P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'})).
+\end{dmath*}
+
+We define the permutation $\Pi\strzalka=(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'})$ as a natural extension of the permutation $\Pi$. In additional we will use the fact that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of $\Pi\strzalka^{-1}$:
+$$P(\Pi\strzalka)=Q(\Pi\strzalka^{-1}).$$
 Therefore:
 \begin{dmath*}
-Pos(n)
-=box_z(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))
-=box_z(P(X'_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'}))
-=box_z(P(z(\Pi(1)), \ldots, z(\Pi(n')), z, z(\Pi(n'+1)), \ldots, z(\Pi(m'))))
-=box_z(z\circ P(\Pi(1), \ldots, \Pi(n'), m'+1, \Pi(n'+1), \ldots, \Pi(m')))
-=box_{m'+1}(P(\Pi(1), \ldots, \Pi(n'), m'+1, \Pi(n'+1), \ldots, \Pi(m')))
-=box_{m'+1}(P(\Pi_0))
-=box_{m'+1}(Q(\Pi_0^{-1}))
-=box_{m'+1}(Q(\Pi^{-1}(1)\uparrow, \ldots, \Pi^{-1}(m')\uparrow, n'+1))
-=box_{m'+1}(Q(\Pi^{-1}(1)\uparrow, \ldots, \Pi^{-1}(m')\uparrow, n'+\frac{1}{2}))
-=box_{m'+1}(z\circ Q(\Pi^{-1}(1), \ldots, \Pi^{-1}(m'), n'+\frac{1}{2}))
-=box_{m'+1}(Q(Y'_1, \ldots, Y'_{m'}, S'_n))
-=box_{m'+1}(Q(zY_1, \ldots, zY_{m'}, zS_n))
-=box_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n))
+\boxi_{m'+1}(P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}))=boxi_{m'+1}(P(\Pi\strzalka))
+=\boxi_{m'+1}(Q(\Pi\strzalka^{-1}))
+=\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1)).
 \end{dmath*}
-since the sequence $\{Y'_j\}_{j=1}^{m'}$ is the random increasing sequence with a uniform distribution $U(0,z)$ permutated by the random permutation with a uniform distribution. Thus $\{Y'_j\}_{j=1}^{m'}$ is a sequence of i.i.d $U(0,z)$. In addition, we define $Y_j=\frac{Y'_j}{z}$ for each $j$ and $S_n=\frac{S'_n}{z}$. We receive that the sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d. $U(0,1)$, $m'=Binom(m,z)$ and with probability 1 there exist the limit:
+Now, using the function $z$, we will try to get the sequence of i.i.d.$\hspace{3pt}U(0,1)$ 
 \begin{dmath*}
-\lim_{n \to \infty} S_n=\lim_{n \to \infty} \frac{S'_n}{z}=\lim_{n \to \infty} \frac{z}{z}\frac{n'}{m'}=\lim_{n \to \infty} \frac{\frac{Binom(n,z)}{n}}{\frac{Binom(m,z)}{m}}\frac{n}{m}=\frac{1}{A}
+\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1))\hspace{50pt}
+=\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+\frac{1}{2}))
+=\boxi_{m'+1}(Q(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}))
+=\boxi_{m'+1}(z\circ Q(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}))
+=\boxi_{m'+1}(Q(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}), z(n'+\frac{1}{2}))).
 \end{dmath*}
-$S_n\overset{p}{\to}S=\frac{1}{A}$. In accordance with the markings from \cite{RomikSniady1} we have:
-\begin{dmath*}
-Pos_(n)
-=box_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n))\hiderel{=}\qed_{m'}(S_n)
-\end{dmath*},
-where for each $x$: $\frac{\qed_{m'}(x)}{\sqrt{m'}}\overset{p}{\to}W(x)=(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2})$ as $m'\to \infty$, since $W(x)$ is the Lipschitz function. Let $W_{m'}(x)=\frac{Pos(n)}{\sqrt{m'}}$. We have:
+$\Pi$ is the random permutation with uniform distribution, so $\Pi^{-1}$ is also random permutation with uniform distribution, then the sequence $z\circ\Pi^{-1}=(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}))$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$. We define the random variable $S_n$ and the sequence $\{Y_j\}_{j=1}^{m'}$. 
 $$
 \left\{
 \begin{matrix}
-S_n\overset{p}{\to}S\\
-W_{m'}(x)\overset{p}{\to}W(x)
+Y_j=\frac{z(\Pi_j^{-1})}{w} & for\hspace{5pt}j\in{1, 2, \ldots, m'}\\
+S_n=\frac{z(n'+\frac{1}{2})}{w}  
 \end{matrix}
 \right.
 $$
-Therefore $\forall_{\epsilon>0}\exists_{n_0}\forall_{n>n_0}\forall_{S\in[0,1]}$
-$$
-\left\{
-\begin{matrix}
-P(S_n>S-\epsilon )=1\\
-P(S_n<S+\epsilon )=1\\
-P(W_{m'}(s-\epsilon)>W(S-\epsilon)-\epsilon(1,-1))=1\\
-P(W_{m'}(s+\epsilon)<W(S+\epsilon)+\epsilon(1,-1))=1
-\end{matrix}
-\right.
-$$
-$$P(W_{m'}(S_n)>W_{m'}(S-\epsilon))>W(S-\epsilon)-\epsilon(1,-1)>W(S)-2\epsilon(1,-1))=1$$
-$$P(W_{m'}(S_n)<W_{m'}(S+\epsilon))<W(S+\epsilon)+\epsilon(1,-1)<W(S)+2\epsilon(1,-1))=1$$
-Then
-$P(W(S)-2\epsilon(1,-1)<W_{m'}(S_n)<W(S)+2\epsilon(1,-1))=1$ \\
-Thereby 
-$W_{m'}(S_n)\overset{p}{\to}W(S)$
-In addition:
-$$
-\frac{Pos(n)}{\sqrt{A}\sqrt{n}}=\frac{\sqrt{m'}W_{m'}(S_n)}{\sqrt{A}\sqrt{n}}=\sqrt{\frac{[An]}{An}\frac{Binom([An],z)}{[An]}}W_{m'}(S_n)\overset{p}{\to}\sqrt{z}W(S)
-$$
-Therefore there exist the fucntion $G(A)=\sqrt{z}W(\frac{1}{A})$ that 
-\center{$lim_{n\to\infty}\mathbb{P}(sup_{1\leq A} ||G(A)-\frac{Pos(n)}{\sqrt{A}\sqrt{n}}||>\epsilon |(1,-1)|>\epsilon)=0$} 
+The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d$\hspace{3pt}U(0,1)$. In additional random variable $S_n$ converges almost surely to $\frac{1}{Aw}$:
+\begin{dmath*}
+\lim_{n\to\infty}S_n=\lim_{n\to\infty}\frac{z(n'+\frac{1}{2})}{w}=\lim_{n\to\infty}\frac{1}{w}\frac{z(n')+z(n'+1)}{2}=\lim_{n\to\infty}\frac{z(n')}{w}+\lim_{n\to\infty}\frac{z(n'+1)-z(n')}{2w}=\frac{1}{w}\lim_{n\to\infty}z(n')=\frac{1}{w}\lim_{n\to\infty}\frac{n'}{m'}=\frac{1}{Aw}.
+\end{dmath*}
+Therefore
+\begin{dmath*}
+\boxi_{m'+1}(Q(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}), z(n'+\frac{1}{2})))
+=\boxi_{m'+1}(Q(\frac{z(\Pi^{-1}_1)}{w}, \ldots, \frac{z(\Pi^{-1}_{m'})}{w}, \frac{z(n'+\frac{1}{2})}{w})
+=\boxi_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n)).
+\end{dmath*}
 \end{proof}
-\newpage
-\begin{thebibliography}{9}
-\bibitem{RomikSniady1}
-Dan Romik, Piotr Śniady
-\textit{Limit shapes of bumping routes in the Robinson-Schensted correspondence}.
-\bibitem{RomikSniady2} 
-Dan Romik, Piotr Śniady
-\textit{Jeu de taquin dynamics on infinite Young tableaux and second class particles}. 
-The Annals of Probability
-2015, Vol. 43, No. 2: 719-724.
-\end{thebibliography}
 
+\bibliography{bib}
+\bibliographystyle{alpha}
 
 \end{document}
