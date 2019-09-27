@@ -12,25 +12,35 @@
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\strzalka}{\hspace{-3pt}\uparrow}
 
-\title{\textbf{Hydrodynamic limit shape in the Young tableau}}
+\title{\textbf{Hydrodynamic limit in the insertion tableau in the Robinson-Schensted-Knuth correspondence}}
 \author{Miko\l{}aj Marciniak}
 \date{}
 \begin{document}
 
 \maketitle
 
+[brak STRESZCZENIA]
 \section{Introduction}
-tu bedzie streszczenie i pewnie odwołania do \cite{RS16}\cite{RS15}.
+tu bedzie wstep i pewnie odwołania do \cite{RS16}\cite{RS15}.
 \\
 \\
-\\
-\section{Hydrodynamic limit shape}
+\newpage
+\section{The main result}
+The main result of the article is the proof that the random variable describing the coordinates of the box with the fixed number $w$ converges in probability to the function G(A)=[tu bedzie definicja].\\
+
+Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$ random variable. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe coordinates of box with number $w$ in the insertion tableau:
+$$Pos_n(j)=\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$, which means $\lim_{n\to\infty}\frac{m}{n}=A\in(1,\infty)$. For example, let $m$ be equal to $m=\floor{An}$. 
 \begin{theorem}
-Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$. Let $A\in(1,\infty)$, $n\in\mathbb{N}$ and let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe position of box with number $z$:
-$$Pos_n(m)=\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$. For example, let $m$ be equal to $m=\floor{An}$. Then the $\Pos_n(m)$ function, after scaling by $\sqrt{w}\sqrt{n}$ goes in probability to a certain limit shape. Namely $$\exists_{G:[1,\infty)\to\mathbb{R}_+^2}\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}(\sup_{1\leq A} ||G(A)-\frac{Pos_n([An])}{\sqrt{w}\sqrt{n}}||>\epsilon)=0$$
+The random variable $\Pos_n(m)$, after scaling by $\sqrt{w}\sqrt{n}$ converges in probability to the limit $G(A)$. Namely $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}(\sup_{A\geq 1} ||G(A)-\frac{Pos_n([An])}{\sqrt{w}\sqrt{n}}||>\epsilon)=0$$
 \end{theorem}
 \begin{proof}
-The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0. Without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be a subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d$\hspace{3pt}U(0,w)$. Let $n'$ and $m'$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Namely
+We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and think about the coordinates of the box with the number $w$ in the insertion tableau. Numbers greater than $w$ do not affect the position of the box with the number $w$. So it is enough to consider only the subsequence containing numbers no greater than $w$. 
+\\
+\\
+The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0. Without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$ random variables. Let $n'$ and $m'$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Then there is an equlity:
+\begin{dmath*}
+\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_m))=\boxi_w(P(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'})).
+\end{dmath*}Namely
 $$
 \left\{
 \begin{matrix}
@@ -61,10 +71,7 @@ Therefore, with probability 1 also exist the limit:
 \begin{dmath*}
 \lim_{n\to\infty}\frac{m'}{n'}=\lim_{n\to\infty}1+\frac{m'-n'}{n'}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}(\frac{\floor{An}}{n}-1)=1+\frac{w}{w}(A-1)=A.
 \end{dmath*}
-We have: 
-\begin{dmath*}
-\boxi_w(P(X_1, \ldots, X_n, z, X_{n+1}, \ldots, X_m))=\boxi_w(P(X_1, \ldots, X'_{n'}, z, X'_{n'+1}, \ldots, X'_{m'})),
-\end{dmath*}
+
 where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $\hspace{3pt}U(0,z)$.
 
 We define the function $z:\{1, 2, \ldots m'\}\cup\{m', n'+\frac{1}{2}\}\to [0,1]$, that assigns to the number $t$, the $t-th$ largest number among $X'_1, X'_2, \ldots, X'_{m'}$.
