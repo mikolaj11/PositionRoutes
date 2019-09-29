@@ -12,125 +12,104 @@
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\strzalka}{\hspace{-3pt}\uparrow}
 
-\title{\textbf{Hydrodynamic limit in the insertion tableau in the Robinson-Schensted-Knuth correspondence}}
+\title{\textbf{Hydrodynamic limit in the Robinson-Schensted-Knuth algorithm}}
 \author{Miko\l{}aj Marciniak}
 \date{}
 \begin{document}
 
 \maketitle
 
-[brak STRESZCZENIA]
+In this article we investigate the Robinson-Schensted-Knuth algorithm and consider the position of the box with a fixed number depending on the position of the number in the sequence. We present the limit shape and the proof of the uniform convergence in probability. 
 \section{Introduction}
-tu bedzie wstep i pewnie odwołania do \cite{RS16}\cite{RS15}.
+introduction \\
+citations \cite{RS16}\cite{RS15}. \\
+i.i.d. - Independent and identically distributed
 \\
 \\
 \newpage
 \section{The main result}
-The main result of the article is the proof that the random variable describing the coordinates of the box with the fixed number $w$ converges in probability to the function G(A)=[tu bedzie definicja].\\
+The main result of the article is the proof that when number of boxes goes to infinity, then the position of the box with the fixed number converges in probability to the function G(A)=[tu bedzie definicja].\\
 
-Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$ random variable. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe coordinates of box with number $w$ in the insertion tableau:
-$$Pos_n(j)=\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j))$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$, which means $\lim_{n\to\infty}\frac{m}{n}=A\in(1,\infty)$. For example, let $m$ be equal to $m=\floor{An}$. 
+Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$ random variables. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe coordinates of the box with number $w$ in the insertion tableau:
+$$\Pos_n\left(j\right)=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\right)$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$, which means $\lim_{n\to\infty}\frac{m}{n}=A\in(1,\infty)$. For example, let $m$ be equal to $m=m(n)=\floor{An}$. 
 \begin{theorem}
-The random variable $\Pos_n(m)$, after scaling by $\sqrt{w}\sqrt{n}$ converges in probability to the limit $G(A)$. Namely $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}(\sup_{A\geq 1} ||G(A)-\frac{Pos_n([An])}{\sqrt{w}\sqrt{n}}||>\epsilon)=0$$
+The random variable $\Pos_n(m)$, after scaling by $\sqrt{wn}$ converges in probability to the limit $G(A)$, when $n$ goes to infinity. Moreover the convergence is uniform $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\left(\sup_{A\geq 1} \left\|G\left(A\right)-\frac{\Pos_n\left(m\right)}{\sqrt{wn}}\right\|>\epsilon\right)=0$$
 \end{theorem}
 \begin{proof}
-We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and think about the coordinates of the box with the number $w$ in the insertion tableau. Numbers greater than $w$ do not affect the position of the box with the number $w$. So it is enough to consider only the subsequence containing numbers no greater than $w$. 
+We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. Numbers greater than $w$ do not affect the position of the box with the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$. Now we will give the formal proof.
 \\
 \\
-The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0. Without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$ random variables. Let $n'$ and $m'$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Then there is an equlity:
+The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$ random variables. Let $n'=n'(n)$ and $m'=m'(n)$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Then there is an equality:
 \begin{dmath*}
-\boxi_w(P(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_m))=\boxi_w(P(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'})).
-\end{dmath*}Namely
-$$
-\left\{
-\begin{matrix}
-n'=\#\{X_j | X_j<w,j\leq n\}, \\
-m'=\#\{X_j | X_j<w,j\leq m\}=n'+\#\{X_j | X_j<w,n<j\leq m\}, 
-\end{matrix}
-\right.
-$$
-$$
-\left\{
-\begin{matrix}
-n'=\#\{X_j | X_j<w,j\leq n\}\sim B(n,w), \\
-m'-n'=\#\{X_j | X_j<w,n<j\leq m\}\sim B(m-n,w). 
-\end{matrix}
-\right.
-$$
+\Pos_n\left(m\right)=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_m\right)\right)=\boxi_w\left(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\right).
+\end{dmath*}
+In addition the random variable $n'$ count how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is the random variable with binomial distribution with parameters $n$ and $w$: $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ count how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$ 
 Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
-From the Khinchin-Kolmogorov-Etemadi Strong Law of Large, we known that numbers $\frac{n'}{n}$ and $\frac{m'-n'}{m-n}$ converges almost surely to $w$. With probability $1$ exists the limits:
+From the Khinchin-Kolmogorov-Etemadi Strong Law of Large Numbers theorem, we know that if $n$ goes to infinity, then with probability $1$ exists the limits:
 $$
 \left\{
 \begin{matrix}
-\lim_{n\to\infty}\frac{n'}{n}=w, \\
-\lim_{n\to\infty}\frac{m'-n'}{m-n}=w. \\
+\lim_{n\to\infty}\frac{n'}{n}&=&w, \\
+\lim_{n\to\infty}\frac{m'-n'}{m-n}&=&w. \\
 \end{matrix}
 \right.
 $$
 Therefore, with probability 1 also exist the limit:
 \begin{dmath*}
-\lim_{n\to\infty}\frac{m'}{n'}=\lim_{n\to\infty}1+\frac{m'-n'}{n'}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}(\frac{\floor{An}}{n}-1)=1+\frac{w}{w}(A-1)=A.
+\lim_{n\to\infty}\frac{m'}{n'}=\lim_{n\to\infty}1+\frac{m'-n'}{n'}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\left(\frac{m}{n}-1\right)=1+\frac{w}{w}\left(A-1\right)=A.
 \end{dmath*}
 
-where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $\hspace{3pt}U(0,z)$.
+where the sequence $\{X'_j\}_{j=1}^\infty$ is a sequence of i.i.d. $\hspace{3pt}U(0,z)$.\\
 
-We define the function $z:\{1, 2, \ldots m'\}\cup\{m', n'+\frac{1}{2}\}\to [0,1]$, that assigns to the number $t$, the $t-th$ largest number among $X'_1, X'_2, \ldots, X'_{m'}$.
-$$
-z(j)=
-\left\{
-\begin{matrix}
-\min(\{X'_1, X'_2, \ldots X'_{m'}\}\setminus\{z(1), z(2), \ldots z(j-1)\}) & j\in\{1, 2, \ldots, m'\}\\
-w & j=m'+1\\
-\frac{z(n')+z(n'+1)}{2} & j=n'+\frac{1}{2}
-\end{matrix}
-\right.
-$$
-The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. The sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a random increasing sequence with a uniform distribution on the interval $[0,1]$. Let $\Pi=(\Pi_1, \Pi_2, \ldots, \Pi_{m'})$. Then:
+We define the function $z:\{1, 2, \ldots m'\}\cup\{m', n'+\frac{1}{2}\}\to [0,1]$, that assigns to the number $t$, the $t-th$ largest number among $X'_1, X'_2, \ldots, X'_{m'}$ and additionally $z\left(m'+1\right)=w$ and $z\left(n'+\frac{1}{2}\right)=\frac{z\left(n'\right)+z\left(n'+1\right)}{2}$. 
+\\
+
+The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. In addition the sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a random increasing sequence with a uniform distribution on the interval $[0,1]$. Let $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$. Then
 $$\{X'_j\}_{j=1}^{m'}=\{z(\Pi_j)\}_{j=1}^{m'}=z\circ\Pi,$$
-where $\Pi$ is the function that acts separately on every element of the sequence $\{z(j)\}_{j=1}^{m'}$. 
+where $z$ is the function that acts separately on every element of the permutation $\Pi$. 
 \\\\
 Similarly the function $z$ act on Young tableau by acting on each box individually. Then
 \begin{dmath*}
-\boxi_w(P(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}))
-=\boxi_w(P(z(\Pi_1), \ldots, z(\Pi_{n'}), w, z(\Pi_{n'+1}), \ldots, z(\Pi_{m'})))
-=\boxi_w(z\circ P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}))
-=\boxi_{m'+1}(P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'})).
+\Pos_n\left(m\right)=\boxi_w\left(P\left(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\right)
+=\boxi_w\left(P\left(z(\Pi_1), \ldots, z\left(\Pi_{n'}\right), w, z\left(\Pi_{n'+1}\right), \ldots, z\left(\Pi_{m'}\right)\right)\right)
+=\boxi_w\left(z\circ P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)\right)
+=\boxi_{m'+1}\left(P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)\right).
 \end{dmath*}
 
-We define the permutation $\Pi\strzalka=(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'})$ as a natural extension of the permutation $\Pi$. In additional we will use the fact that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of $\Pi\strzalka^{-1}$:
-$$P(\Pi\strzalka)=Q(\Pi\strzalka^{-1}).$$
-Therefore:
+We define the permutation $\Pi\strzalka=\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)$ as a natural extension of the permutation $\Pi$. In additional we will use the fact that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of $\Pi\strzalka^{-1}$:
+$$P\left(\Pi\strzalka\right)=Q\left(\Pi\strzalka^{-1}\right).$$
+Therefore
 \begin{dmath*}
-\boxi_{m'+1}(P(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}))=boxi_{m'+1}(P(\Pi\strzalka))
-=\boxi_{m'+1}(Q(\Pi\strzalka^{-1}))
-=\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1)).
+\Pos_n\left(m\right)=\boxi_{m'+1}\left(P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}))=boxi_{m'+1}(P(\Pi\strzalka\right)\right)
+=\boxi_{m'+1}\left(Q\left(\Pi\strzalka^{-1}\right)\right)
+=\boxi_{m'+1}\left(Q\left(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1\right)\right).
 \end{dmath*}
 Now, using the function $z$, we will try to get the sequence of i.i.d.$\hspace{3pt}U(0,1)$ 
 \begin{dmath*}
-\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1))\hspace{50pt}
-=\boxi_{m'+1}(Q(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+\frac{1}{2}))
-=\boxi_{m'+1}(Q(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}))
-=\boxi_{m'+1}(z\circ Q(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}))
-=\boxi_{m'+1}(Q(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}), z(n'+\frac{1}{2}))).
+\Pos_n\left(m\right)=\boxi_{m'+1}\left(Q\left(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+1\right)\right)\hspace{50pt}
+=\boxi_{m'+1}\left(Q\left(\Pi^{-1}_1\strzalka, \ldots, \Pi^{-1}_{m'}\strzalka, n'+\frac{1}{2}\right)\right)
+=\boxi_{m'+1}\left(Q\left(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\right)\right)
+=\boxi_{m'+1}\left(z\circ Q\left(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\right)\right)
+=\boxi_{m'+1}\left(Q\left(z\left(\Pi^{-1}_1\right), \ldots, z\left(\Pi^{-1}_{m'}\right), z\left(n'+\frac{1}{2}\right)\right)\right).
 \end{dmath*}
-$\Pi$ is the random permutation with uniform distribution, so $\Pi^{-1}$ is also random permutation with uniform distribution, then the sequence $z\circ\Pi^{-1}=(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}))$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$. We define the random variable $S_n$ and the sequence $\{Y_j\}_{j=1}^{m'}$. 
+$\Pi$ is the random permutation with uniform distribution, so $\Pi^{-1}$ is also random permutation with uniform distribution, then the sequence $z\circ\Pi^{-1}=\left(z\left(\Pi^{-1}_1\right), \ldots, z\left(\Pi^{-1}_{m'}\right)\right)$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$. We define the random variable $S_n$ and the sequence $\{Y_j\}_{j=1}^{m'}$. 
 $$
 \left\{
 \begin{matrix}
-Y_j=\frac{z(\Pi_j^{-1})}{w} & for\hspace{5pt}j\in{1, 2, \ldots, m'}\\
-S_n=\frac{z(n'+\frac{1}{2})}{w}  
+Y_j=\frac{z\left(\Pi_j^{-1}\right)}{w} & \text{for}\hspace{10pt}j\in{1, 2, \ldots, m'}\\
+S_n=\frac{z\left(n'+\frac{1}{2}\right)}{w}  
 \end{matrix}
 \right.
 $$
-The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d$\hspace{3pt}U(0,1)$. In additional random variable $S_n$ converges almost surely to $\frac{1}{Aw}$:
+The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of i.i.d$\hspace{3pt}U(0,1)$. In additional random variable $S_n$ converges with probability $1$ to $\frac{1}{A}$:
 \begin{dmath*}
-\lim_{n\to\infty}S_n=\lim_{n\to\infty}\frac{z(n'+\frac{1}{2})}{w}=\lim_{n\to\infty}\frac{1}{w}\frac{z(n')+z(n'+1)}{2}=\lim_{n\to\infty}\frac{z(n')}{w}+\lim_{n\to\infty}\frac{z(n'+1)-z(n')}{2w}=\frac{1}{w}\lim_{n\to\infty}z(n')=\frac{1}{w}\lim_{n\to\infty}\frac{n'}{m'}=\frac{1}{Aw}.
+\lim_{n\to\infty}S_n=\lim_{n\to\infty}\frac{z\left(n'+\frac{1}{2}\right)}{w}=\lim_{n\to\infty}\frac{1}{w}\frac{z\left(n'\right)+z\left(n'+1\right)}{2}=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}+\lim_{n\to\infty}\frac{z\left(n'+1\right)-z\left(n'\right)}{2w}=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}=\lim_{n\to\infty}\frac{n'}{m'}=\frac{1}{A}.
 \end{dmath*}
 Therefore
 \begin{dmath*}
-\boxi_{m'+1}(Q(z(\Pi^{-1}_1), \ldots, z(\Pi^{-1}_{m'}), z(n'+\frac{1}{2})))
-=\boxi_{m'+1}(Q(\frac{z(\Pi^{-1}_1)}{w}, \ldots, \frac{z(\Pi^{-1}_{m'})}{w}, \frac{z(n'+\frac{1}{2})}{w})
-=\boxi_{m'+1}(Q(Y_1, \ldots, Y_{m'}, S_n)).
+\Pos_n\left(m\right)=\boxi_{m'+1}\left(Q\left(z\left(\Pi^{-1}_1\right), \ldots, z\left(\Pi^{-1}_{m'}\right), z\left(n'+\frac{1}{2}\right)\right)\right)
+=\boxi_{m'+1}\left(Q\left(\frac{z\left(\Pi^{-1}_1\right)}{w}, \ldots, \frac{z\left(\Pi^{-1}_{m'}\right)}{w}, \frac{z\left(n'+\frac{1}{2}\right)}{w}\right)\right)
+=\boxi_{m'+1}\left(Q\left(Y_1, \ldots, Y_{m'}, S_n\right)\right).
 \end{dmath*}
 \end{proof}
 
