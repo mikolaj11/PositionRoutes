@@ -12,40 +12,42 @@
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\strzalka}{\hspace{-3pt}\uparrow}
 
-\title{\textbf{Hydrodynamic limit in the Robinson-Schensted-Knuth algorithm}}
+\title{\textbf{Hydrodynamic limit of Robinson--Schensted-Knuth algorithm}}
 \author{Miko\l{}aj Marciniak}
 \date{}
 \begin{document}
 
 \maketitle
 
-In this article we investigate the Robinson-Schensted-Knuth algorithm and consider the position of the box with a fixed number depending on the position of the number in the sequence. We present the limit shape and the proof of the uniform convergence in probability, when number of boxes goes to infinity.  
+\begin{abstract}
+We investigate evolution in the time of the fixed box in the insertion tableau, when the Robinson-Schensted-Knuth algorithm is applied to a finite sequence of random variables. When the length of the sequence tends to infinity, a typical trajectory after scaling converges in probability to the some limit.
+\end{abstract}
 \section{Introduction}
-introduction \\
-citations \cite{RS16}\cite{RS15}. \\
-i.i.d. - Independent and identically distributed
-\\
-\\
-\newpage
+For many years, mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson-Schensted-Knuth algorithm to random input. \\\\
+Benjamin Logan together and Lawrence Shepp in \cite{} and independently Anatoly Vershik together and Sergei Kerov in \cite{} solved to the Ulam-Hammersley problem concerning typical lenght of a longest increasing subsequence in random permutations. The longest increasing subsequence also describes the length of firs row in the insertion tableu obtained when we apply the RSK algorithm to the random finite sequence\\\\
+Dan Romik and Piotr Sniady in \cite{RS16} considered limit shape of bumping routes obtained from insertion tableau, when applying an RSK insertion step with a fixed number to an existing insertion tableau obtained from the random finite sequence. \\\\
+In \cite{RS15} they considered limit shape of jeu de taquin obtained from insertion tableau made from the random finite sequence preceded by a fixed number. \\\\
+We can merge the cases considered by Dan Romik and Piotr Śniady and consider insertion tableau obtained by using an RSK algorithm applied to a random finite sequence containing a fixed number at some index. The box with fixed number can be sliding by the bumping routes.\\\\
+What can we say about the evolution over time of insertion tableau, when we apply the RSK algorithm to the sequence of independent and identically distributed (i.i.d.)$\hspace{3pt}U(0,1)$ random variables?
+If investigate the position of a box with a fixed number, will we get a certain limit, when the number of boxes tends to infinity?
 \section{The main result}
-The main result of the article is the proof that when number of boxes goes to infinity, then the position of the box with the fixed number converges in probability to the function G(A)=[tu bedzie definicja].\\
+The main result of the article is a theorem describing asymptotic behavior of a fixed box. When the number of boxes tends to infinity then the position of the box with the fixed number converges in probability to the function G(A)=[tu bedzie definicja].\\
 
 Let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of i.i.d.$\hspace{3pt}U(0,1)$ random variables. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe coordinates of the box with number $w$ in the insertion tableau:
 $$\Pos_n\left(j\right)=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\right)$$ for $j\in\{n+1, n+2, \ldots\}$. We consider the natural number $m\in \mathbb{N}$, which is approximately $A$ times greater than $n$, which means $\lim_{n\to\infty}\frac{m}{n}=A\in(1,\infty)$. For example, let $m$ be equal to $m=m(n)=\floor{An}$. 
 \begin{theorem}
-The random variable $\Pos_n(m)$, after scaling by $\sqrt{wn}$ converges in probability to the limit $G(A)$, when $n$ goes to infinity. Moreover the convergence is uniform $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\left(\sup_{A\geq 1} \left\|G\left(A\right)-\frac{\Pos_n\left(m\right)}{\sqrt{wn}}\right\|>\epsilon\right)=0$$
+The random variable $\Pos_n(m)$, after scaling by $\sqrt{wn}$ converges in probability to the limit $G(A)$, when $n$ tends to infinity. Moreover the convergence is uniform $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\left(\sup_{A\geq 1} \left\|G\left(A\right)-\frac{\Pos_n\left(m\right)}{\sqrt{wn}}\right\|>\epsilon\right)=0$$
 \end{theorem}
 \begin{proof}
-We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. Numbers greater than $w$ do not affect the position of the box with the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$. Now we will give the formal proof.
-\\
-\\
+We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. Numbers greater than $w$ do not affect the position of the box with the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$.\\\\ 
+Now we will give the formal proof.
 The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality, we assume that all numbers $w, X_1, X_2, \ldots$ are different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of i.i.d.$\hspace{3pt}U(0,w)$ random variables. Let $n'=n'(n)$ and $m'=m'(n)$ denote the numbers of element of sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ smaller than $w$. Then there is an equality:
 \begin{dmath*}
 \Pos_n\left(m\right)=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_m\right)\right)=\boxi_w\left(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\right).
 \end{dmath*}
 In addition the random variable $n'$ count how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is the random variable with binomial distribution with parameters $n$ and $w$: $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ count how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$ 
 Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
-From the Khinchin-Kolmogorov-Etemadi Strong Law of Large Numbers theorem, we know that if $n$ goes to infinity, then with probability $1$ exists the limits:
+From the Khinchin-Kolmogorov-Etemadi Strong Law of Large Numbers theorem, we know that if $n$ tends to infinity, then with probability $1$ exists the limits:
 $$
 \left\{
 \begin{matrix}
