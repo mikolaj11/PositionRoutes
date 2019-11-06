@@ -87,16 +87,14 @@ The main result of the article is Theorem 1 describing the asymptotic behavior o
 More specifically let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe the coordinates of the box with number $w$ in the insertion tableau:
 $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$. 
 
-Let $\{m_n\}_{n=1}^{\infty}$ be a sequence of natural numbers satisfying the condition $\lim_{n\to\infty}\frac{m_n}{n}=A\in(1,\infty)$. For example, let $m_n=\floor{An}$. 
 \begin{theorem}
-The random variable $\Pos_n(m)$, after scaling by $\sqrt{wn}$ converges in probability to the limit $G(A)$, when $n$ tends to infinity. Moreover the convergence is uniform $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\left(\sup_{A\geq 1} \left\|G\left(A\right)-\frac{\Pos_n\left(m_n\right)}{\sqrt{wn}}\right\|>\epsilon\right)=0$$
+The random variable $\Pos_n(m)$, after scaling by $\sqrt{Awn}$ converges in probability to the limit $G(A)$, when $n$ tends to infinity. Moreover the convergence is uniform: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\left( \sup_{A\in(1,C]} \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(A\right)\right\|<\epsilon\right)=1$$
 \end{theorem}
 \begin{proof}
-We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number $w$ does not change the position of numbers less than $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$.\\\\ 
-Now we will give the formal proof.
-The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with uniform distribution $U(0,w)$ random variables. Let $n'=n'(n)$ and $m'=m'(m_n)$ denote the numbers of elements of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
+We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$.\\\\ 
+Now we're gonna use this observation in the proof. Let $m=\floor{An}$. The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with uniform distribution $U(0,w)$ random variables. Let $n'=n'(n)$ and $m'=m'(m)$ denote the numbers of elements of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
 \begin{align*}
-\Pos_n\left(m\right)&=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m_n}\right)\right)\\&=\boxi_w\left(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\right).
+\Pos_n\left(\floor{An}\right)&=\boxi_w\left(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m_n}\right)\right)\\&=\boxi_w\left(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\right).
 \end{align*}
 The random variable $n'$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$: $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$. Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
 From the Khinchin--Kolmogorov--Etemadi Strong Law of Large Numbers theorem, we know that if $n$ tends to infinity, then with probability $1$ exist the limits:
@@ -167,24 +165,43 @@ Therefore
 \\&=\square_{m'}(T_n),
 \end{align*}
 where with probability one $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
-From Romik and Śniady we have:
+From Romik and Śniady for each $x\in(0,1)$  we have:
 \begin{align*}
-\frac{\square_{m'}(T_n)}{\sqrt{m'}}\overset{p}{\to} G(T_n)
+\frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} F(x)
 \end{align*}
-Therefore
+Let $G_{m'}(x)=\frac{\square_{m'}(x)}{\sqrt{Anw}}$. Therefore
 \begin{align*}
-G_{m'}(T_n)=\frac{\square_{m'}(T_n)}{\sqrt{nAw}}=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(T_n)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(T_n)=G(T_n)
+G_{m'}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x)
 \end{align*}
-We know that
+We know that if $n$ tends to infinity then with probability $1$ for each $x$ occurs:
 $$
 \left\{
 \begin{matrix}
-G_{m'}(T_n)\overset{p}{\to} G(T_n) \\
+G_{m'}(x)\overset{p}{\rightrightarrows} G(x) \\
 T_n \to T 
 \end{matrix}
 \right.
 $$
+Then with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ and for each $x\in(\frac{1}{C},1)$ the following inequalities occur:
+$$
+\left\{
+\begin{matrix}
+G(x)+\epsilon(1,-1)< G_{m'}(x) < G(x)+\epsilon(1,-1) \\
+T-\epsilon< T_n < T + \epsilon
+\end{matrix}
+\right.
+$$
+In addition the function $G(x)$ is monotonic and Lipschitz function with constant $1$. Then:
+$$G_{m'}(T_n)<G_{m'}(T + \epsilon)<G_{m'}(T) + \epsilon(1,-1)<G(T) + 2\epsilon(1,-1)$$
+and
+$$G_{m'}(T_n)>G_{m'}(T - \epsilon)>G_{m'}(T) - \epsilon(1,-1)>G(T) - 2\epsilon(1,-1)$$
+Thereby:
+$$\left\|G_{m'}(T_n)-G(A)\right\|<2\sqrt{2}\epsilon<4\epsilon$$.
+Then with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ and for each $x\in(\frac{1}{C},1)$ the following inequality is true:
+ $$ \sup_{A\in(1,C)}\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(A\right)\right\|<4\frac{\epsilon}{4\sqrt{A}}$$
 
+Therefore:
+$$\lim_{n\to\infty}\mathbb{P}\left( \sup_{A\in(1,C)}\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(A\right)\right\|<\epsilon\right)=1$$
 \end{proof}
 
 
@@ -197,3 +214,4 @@ $$
 
 
 \end{document}
+
