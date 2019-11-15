@@ -65,7 +65,7 @@
 	\colorlet{CiemnoZielony}{green!50!black}
 \begin{center}
 \begin{tabular}{ccccc}
-\begin{tikzpicture}[scale=0.05]
+\begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
 \draw[red,ultra thick] plot[smooth,scale=14.142136] file {bumpingcurve.txt};
@@ -79,7 +79,7 @@
 
 \end{tikzpicture}
 &\hspace{50pt}&
-\begin{tikzpicture}[scale=0.05]
+\begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
 \draw[red,ultra thick] plot[smooth,scale=14.142136] file {bumpingcurve.txt};
@@ -93,7 +93,7 @@
 
 \end{tikzpicture}
 &\hspace{50pt}&
-\begin{tikzpicture}[scale=0.05]
+\begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
 \draw[red,ultra thick] plot[smooth,scale=14.142136] file {bumpingcurve.txt};
@@ -223,10 +223,10 @@ The \emph{Robinson--Schensted--Knuth algorithm RSK} is a bijective algorithm whi
 We can say that the boxes with numbers are moved along bumping route during an RSK insertion step. The insertion step of the RSK algorithm can change the position of some numbers. We will consider the position of the box with a selected number as it changes with time. 
 
 \subsection{Motivations}
-The RSK algorithm is an important tool for algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and plactic monoid\cite{Fulton1991}. The RSK algorithm and operations on the words are crucial to understanding the Littlewood--Richardson coefficients.\\\\ 
+The RSK algorithm is an important tool in algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and plactic monoid\cite{Fulton1991}. The RSK algorithm and operations on the words are crucial to understanding the Littlewood--Richardson coefficients.\\\\ 
 For many years mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson--Schensted--Knuth algorithm to a random input. In the following paragraphs we will see several examples of such considerations. The RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution on interval $(0,1)$ generates the Plancherel measure on Young diagrams\cite{Romik2015a}. The Plancherel measure is an important element of representation theory because it describes how the left regular representation decomposes into irreducible representations\cite{Fulton1991}.\\
 
-The Ulam--Hammersley problem \cite{Baik1999} concerning typical length of the longest increasing subsequence in a random permutation corresponds to the problem concerning typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the interval $(0,1)$.\\
+The Ulam--Hammersley problem \cite{Baik1999} concerning the typical length of the longest increasing subsequence in a random permutation corresponds to the problem concerning the typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the interval $(0,1)$.\\
 
 Logan and Shepp \cite{LoganShepp1977} and Vershik and Kerov \cite{VershikKerov1986} described the limit shape of the insertion tableu $P(X_1, X_2, \ldots, X_n)$ obtained when we apply the RSK algorithm to a random finite sequence.\\
 
@@ -237,10 +237,10 @@ This paper also concerns the asymptotic behavior of the insertion tableau when w
 
 More specifically we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
 \subsection{Result of Romik and Śniady}
-In the proof of theorem \ref{thm:mainthm} we will need the following theorem 5.1 in \cite{Romik2015} proved by Romik and Śniady. 
+In the proof of Theorem \ref{thm:mainthm} we will need the following theorem proved by Romik and Śniady\big(Theorem 5.1 in \cite{Romik2015a}\big). 
 \begin{theorem}
 \label{thm:romthm}
-Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote a position of the new box in the in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. Then this position, after scaling, converges in probability to the limit curve $G(x)$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x):[0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
+Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote the position of the new box in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. Then this position, after scaling, converges in probability to the limit curve $G(x)$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x):[0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
 \begin{figure}
  \begin{center}
 \verker
@@ -248,13 +248,13 @@ Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with t
 \caption{The graph of the function $G(x)$ with specified values for  numbers $x=0.0$, $x=0.2$, $x=0.5$, $x=0.8$ and $x=1.0$.}
 \label{fig:gfunction}
 \end{figure}
-The figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986} is a Lipschitz function with constant $1$. After it is rotated means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ we have:
+Figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986} is a Lipschitz function with constant $1$. After rotation, this means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ we have:
 $$G(x)-\epsilon(1,-1)\prec G(x+\epsilon) \prec G(x)+\epsilon(1,-1),$$
-where the relation $<$ is an order on the plane defined as follows:
-$(x_1,y_1)\prec(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $\prec$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $<$ on the plane.
+where the relation $\prec$ is an order on the plane defined as follows:
+$(x_1,y_1)\prec(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $\prec$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $\prec$ on the plane.
 \end{theorem}
 \section{The main result}
-The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. When the number of boxes tends to infinity then the trajectory of the box converges in probability to the function $$H(A)=\sqrt{A}G(\frac{1}{A}).$$ The curve $H(A)$ is also limit shapes of bumping routes\cite{Romik2016} in the RSK algorithm. Figure \ref{fig:trzy} shows the graph of the function $H(x)$ and the experimentally determined position of the box with the number $w=0.5$ for $n=400$.
+The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. When the number of boxes tends to infinity then the trajectory of the box converges in probability to the function $$H(A)=\sqrt{A}G(\frac{1}{A}).$$ The curve $H(A)$ is also the limit shape of bumping routes\cite{Romik2016} in the RSK algorithm. Figure \ref{fig:trzy} shows the graph of the function $H(x)$ and the experimentally determined position of the box with the number $w=0.5$ for $n=400$.
 \begin{figure}
 \trzy
 \caption{ The trajectory describing the position of the box with the fixed number $w$ at the moment $\floor{An}$ for $n=400$ and numbers $A=1$, $A=2$ and $A=3$.}
@@ -265,7 +265,7 @@ $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots
 
 \begin{theorem}
 \label{thm:mainthm}
-For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$ converges in probability to the limit $H(A)$, when $n$ tends to infinity: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0$$
+For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 \begin{proof}
 We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$. \\\\
@@ -273,8 +273,8 @@ Now we will use this observation in the proof. Let $m=\floor{An}$. The probabili
 \begin{align*}
 \Pos_n\Big(\floor{An}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m}\right)\Big)\\&=\boxi_w\Big(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
 \end{align*}
-The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$. Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
-From the Strong Law of Large Numbers theorem \cite{Durrett2019}, we know that if $n$ tends to infinity, then the limits exist with probability $1$:
+The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so \linebreak[4]{$m'-n'\sim B(m-n,w)$.} Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
+From the Strong Law of Large Numbers theorem \cite{Durrett2019}, we know that if $n$ tends to infinity, then the following limits exist with probability $1$:
 $$
 \begin{matrix}
 \lim_{n\to\infty}\frac{n'}{n}&=&\mathbb{E}[X_j<w]&=&\mathbb{P}(X_j<w)&=&w, \\
