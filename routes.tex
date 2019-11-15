@@ -212,7 +212,7 @@ $A=1$&&$A=2$&&$A=3$
 
 \section{Introduction}
 \subsection{Notations}
-A \emph{partition} of a natural number $n$ is a break up of $n$ into a sum $n=\lambda_1+\lambda_2+\cdots+\lambda_k$ where $\lambda_1\geq \lambda_2\geq\cdots\geq\lambda_k>0$ are positive integer numbers. The vector \linebreak[4]{$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$} is usually used to denote a partition. Let $\lambda\vdash n$ denote that $\lambda$ is a partition of a number $n$. A \emph{Young diagram} $\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$ is a finite collection of boxes arranged in left-justified rows with the row length $\lambda_j$ of the $j-th$ row. Thus the Young diagram $\lambda$ is a graphical interpretation of the partition $\lambda$. A \emph{Young tableau} is a Young diagram filled with numbers. If the entries strictly decrease along each column from top to bottom and weakly increase along each row from left to right, a tableau is called \emph{semistandard}. A \emph{standard Young tableau} is a semistandard Young tableau with $n$ boxes which contains all numbers $1, 2, \ldots, n$. Figure~\ref{fig:diagtab} show examples of Young diagram and standard Young tableau.\\\\
+A \emph{partition} of a natural number $n$ is a break up of $n$ into a sum $n=\lambda_1+\lambda_2+\cdots+\lambda_k$ where $\lambda_1\geq \lambda_2\geq\cdots\geq\lambda_k>0$ are positive integer numbers. The vector \linebreak[4]{$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$} is usually used to denote a partition. Let $\lambda\vdash n$ denote that $\lambda$ is a partition of a number $n$. A \emph{Young diagram} $\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$ is a finite collection of boxes arranged in left-justified rows with the row length $\lambda_j$ of the $j$-th row. Thus the Young diagram $\lambda$ is a graphical interpretation of the partition $\lambda$. A \emph{Young tableau} is a Young diagram filled with numbers. If the entries strictly decrease along each column from top to bottom and weakly increase along each row from left to right, a tableau is called \emph{semistandard}. A \emph{standard Young tableau} is a semistandard Young tableau with $n$ boxes which contains all numbers $1, 2, \ldots, n$. Figure~\ref{fig:diagtab} show examples of Young diagram and standard Young tableau.\\\\
 \begin{figure}
 \rysuj
 \caption{(a) The Young diagram of shape $(4,3,2)\vdash 9$ and (b) a standard Young tableau of shape $(4,3,2)\vdash 9$. }
@@ -236,11 +236,11 @@ Romik and Śniady in \cite{Romik2015a} considered the limit shape of bumping rou
 This paper also concerns the asymptotic behavior of the insertion tableau when we apply the RSK algorithm to a random input. What can we say about the evolution over time of the insertion tableau from the point of view of box dynamics, when we apply the RSK algorithm to a sequence of independent random variables with the uniform distribution $U(0,1)$? How do the boxes move in the insertion tableau? If we investigate the scaled position of a box with a fixed number, will we get a deterministic limit, when the number of boxes tends to infinity?\\
 
 More specifically we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
-\subsection{The result of Romik and Śniady}
-In evidence, we will need the following theorem proved by Romik and Śniady in the theorem. 
+\subsection{Result of Romik and Śniady}
+In the proof of theorem \ref{thm:mainthm} we will need the following theorem 5.1 in \cite{Romik2015} proved by Romik and Śniady. 
 \begin{theorem}
 \label{thm:romthm}
-Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote a position of the new box in the in the insertion tableau $P(X_1), \ldots, X_n, x)$ when we apply the RSK insertion step for the number $z\in[0,1]$ to the previous obtained tableau $P(X_1, \ldots, X_n)$. Then this position, after scaling, converges in probability to the some limit curve: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x):[0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
+Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote a position of the new box in the in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. Then this position, after scaling, converges in probability to the limit curve $G(x)$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x):[0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
 \begin{figure}
  \begin{center}
 \verker
@@ -248,10 +248,10 @@ Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with t
 \caption{The graph of the function $G(x)$ with specified values for  numbers $x=0.0$, $x=0.2$, $x=0.5$, $x=0.8$ and $x=1.0$.}
 \label{fig:gfunction}
 \end{figure}
-The figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve is a Lipschitz function with constant $1$. After rotated it means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ occurs:
+The figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986} is a Lipschitz function with constant $1$. After it is rotated means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ we have:
 $$G(x)-\epsilon(1,-1)<G(x+\epsilon)<G(x)+\epsilon(1,-1),$$
-where the relation $<$ is an order in the plane defined as follows:
-$(x_1,y_1)<(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $<$ retains the order of the points in plane along the line $y=x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $<$ in plane.
+where the relation $<$ is an order on the plane defined as follows:
+$(x_1,y_1)<(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $<$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $<$ on the plane.
 \end{theorem}
 \section{The main result}
 The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. When the number of boxes tends to infinity then the trajectory of the box converges in probability to the function $$H(A)=\sqrt{A}G(\frac{1}{A}).$$ The curve $H(A)$ is also limit shapes of bumping routes\cite{Romik2016} in the RSK algorithm. Figure \ref{fig:trzy} shows the graph of the function $H(x)$ and the experimentally determined position of the box with the number $w=0.5$ for $n=400$.
@@ -260,25 +260,25 @@ The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior 
 \caption{ The trajectory describing the position of the box with the fixed number $w$ at the moment $\floor{An}$ for $n=400$ and numbers $A=1$, $A=2$ and $A=3$.}
 \label{fig:trzy}
 \end{figure}
-More specifically let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ let function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ describe the coordinates of the box with the number $w$ in the insertion tableau:
-$$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$. 
+More specifically let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ we define the function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ by:
+$$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$, where for a tableau $P$ the value $\boxi_w(P)$ is the coordinates in $\mathbb{N}^2$ of the box with the number $w$. 
 
 \begin{theorem}
 \label{thm:mainthm}
-For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$ converges in probability to the limit $H(A)$, when $n$ tends to infinity: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|<\epsilon\Bigg)=1$$
+For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$ converges in probability to the limit $H(A)$, when $n$ tends to infinity: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0$$
 \end{theorem}
 \begin{proof}
 We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$. \\\\
-Now we will use this observation in the proof. Let $m=\floor{An}$. The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with the uniform distribution $U(0,w)$. Let $n'=n'(n)$ and $m'=m'(m)$ denote the numbers of element respectively of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
+Now we will use this observation in the proof. Let $m=\floor{An}$. The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with the uniform distribution $U(0,w)$. Let $n'=n'(n)$ and $m'=m'(m)$ denote the number of elements respectively of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
 \begin{align*}
-\Pos_n\Big(\floor{An}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m_n}\right)\Big)\\&=\boxi_w\Big(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
+\Pos_n\Big(\floor{An}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m}\right)\Big)\\&=\boxi_w\Big(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
 \end{align*}
-The random variable $n'$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$. Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
-From the Khinchin--Kolmogorov--Etemadi Strong Law of Large Numbers theorem, we know that if $n$ tends to infinity, then the limits exist with probability $1$:
+The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so $m'-n'\sim B(m-n,w)$. Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
+From the Strong Law of Large Numbers theorem \cite{Durrett2019}, we know that if $n$ tends to infinity, then the limits exist with probability $1$:
 $$
 \begin{matrix}
-\lim_{n\to\infty}\frac{n'}{n}=&w, \\
-\lim_{n\to\infty}\frac{m'-n'}{m-n}&=&w. \\
+\lim_{n\to\infty}\frac{n'}{n}&=&\mathbb{E}[X_j<w]&=&\mathbb{P}(X_j<w)&=&w, \\
+\lim_{n\to\infty}\frac{m'-n'}{m-n}&=&\mathbb{E}[X_j<w]&=&\mathbb{P}(X_j<w)&=&w. \\
 \end{matrix}
 $$
 Therefore, with probability $1$ also exist the limits:
@@ -290,7 +290,7 @@ and
 \lim_{n\to\infty}\frac{m'}{n}&=\lim_{n\to\infty}\frac{n'}{n}\frac{m'}{n'}\\&=wA.
 \end{align*}\\
 
-We define the function $z:\{1, 2, \ldots m'\}\cup\{m'+1, n'+\frac{1}{2}\}\to [0,1]$ that assigns to a number $t\in\{1, 2, \ldots, m'\}$, the $t-th$ smallest number among $X'_1, X'_2, \ldots, X'_{m'}$ and additionally $z\left(m'+1\right)=w$ and $z\left(n'+\frac{1}{2}\right)=\frac{z\left(n'\right)+z\left(n'+1\right)}{2}$. 
+We define the function $z:\{1, 2, \ldots m'\}\cup\{m'+1, n'+\frac{1}{2}\}\to [0,1]$ that assigns to a number $t\in\{1, 2, \ldots, m'\}$, the $t$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$ and additionally $z\left(m'+1\right)=w$ and $z\left(n'+\frac{1}{2}\right)=\frac{z\left(n'\right)+z\left(n'+1\right)}{2}$. 
 \\
 
 The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. In addition, the sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with the uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a \emph{random increasing sequence with the uniform distribution on the interval $[0,1]$}. Let $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$. Then
@@ -313,7 +313,7 @@ $$
 n+1&j=m'+1 \\
 \end{matrix}
 \right.
-$$ In addition, we will use the fact that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of the inverse permutation $\Pi\strzalka^{-1}$:
+$$ In addition, we will use the fact \cite{Fulton1991} that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of the inverse permutation $\Pi\strzalka^{-1}$:
 $$P\left(\Pi\strzalka\right)=Q\left(\Pi\strzalka^{-1}\right).$$
 Therefore
 \begin{align*}
@@ -346,9 +346,9 @@ Therefore
 \\&=\square_{m'}(T_n),
 \end{align*}
 where with probability one $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
-From theorem \ref{thm:romthm} for each $x\in(0,1)$  we have:
+From Theorem \ref{thm:romthm} for each $x\in(0,1)$  we have:
 \begin{align*}
-\frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} F(x)
+\frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} G(x)
 \end{align*}
 Let $G_{m'}(x)=\frac{\square_{m'}(x)}{\sqrt{Anw}}$. Therefore
 \begin{align*}
@@ -361,11 +361,11 @@ G_{m'}(x)\overset{p}{\to} G(x).$$
 Then for each $x\in(0,1)$ with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ the following inequalities occur:
 $$
 \begin{matrix}
-G(x)-\epsilon(1,-1)< G_{m'}(x) < G(x)+\epsilon(1,-1), \\
-T-\epsilon< T_n < T + \epsilon.
+T-\epsilon< T_n < T + \epsilon, \\
+G(x)-\epsilon(1,-1)< G_{m'}(x) < G(x)+\epsilon(1,-1). 
 \end{matrix}
 $$
-From Theorem \ref{thm:romthm} we have the relation $<$ in the plane. Then:
+From Theorem \ref{thm:romthm} we have the relation $<$ on the plane. Then:
 $$G_{m'}(T_n)<G_{m'}(T + \epsilon)<G_{m'}(T) + \epsilon(1,-1)<G(T) + 2\epsilon(1,-1)$$
 and
 $$G_{m'}(T_n)>G_{m'}(T - \epsilon)>G_{m'}(T) - \epsilon(1,-1)>G(T) - 2\epsilon(1,-1).$$
@@ -376,6 +376,8 @@ Then for each $A\in(1,\infty)$ with probability $1$ for each $\epsilon>0$ exists
 $$\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(\frac{1}{A}\right)\right\|<\epsilon.$$
 Therefore for each $A\in(1,\infty)$:
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|<\epsilon\right)=1.$$
+$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|\leq\epsilon\right)=1.$$
+$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\right)=0.$$
 \end{proof}
 
 
