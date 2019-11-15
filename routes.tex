@@ -249,9 +249,9 @@ Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with t
 \label{fig:gfunction}
 \end{figure}
 The figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986} is a Lipschitz function with constant $1$. After it is rotated means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ we have:
-$$G(x)-\epsilon(1,-1)<G(x+\epsilon)<G(x)+\epsilon(1,-1),$$
+$$G(x)-\epsilon(1,-1)\prec G(x+\epsilon) \prec G(x)+\epsilon(1,-1),$$
 where the relation $<$ is an order on the plane defined as follows:
-$(x_1,y_1)<(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $<$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $<$ on the plane.
+$(x_1,y_1)\prec(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $\prec$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $<$ on the plane.
 \end{theorem}
 \section{The main result}
 The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. When the number of boxes tends to infinity then the trajectory of the box converges in probability to the function $$H(A)=\sqrt{A}G(\frac{1}{A}).$$ The curve $H(A)$ is also limit shapes of bumping routes\cite{Romik2016} in the RSK algorithm. Figure \ref{fig:trzy} shows the graph of the function $H(x)$ and the experimentally determined position of the box with the number $w=0.5$ for $n=400$.
@@ -354,29 +354,25 @@ Let $G_{m'}(x)=\frac{\square_{m'}(x)}{\sqrt{Anw}}$. Therefore
 \begin{align*}
 G_{m'}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
-We know that if $n$ tends to infinity then with probability $1$
-$$T_n \to T $$ and for each $x$ occurs:
-$$
-G_{m'}(x)\overset{p}{\to} G(x).$$
-Then for each $x\in(0,1)$ with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ the following inequalities occur:
-$$
-\begin{matrix}
-T-\epsilon< T_n < T + \epsilon, \\
-G(x)-\epsilon(1,-1)< G_{m'}(x) < G(x)+\epsilon(1,-1). 
-\end{matrix}
-$$
-From Theorem \ref{thm:romthm} we have the relation $<$ on the plane. Then:
-$$G_{m'}(T_n)<G_{m'}(T + \epsilon)<G_{m'}(T) + \epsilon(1,-1)<G(T) + 2\epsilon(1,-1)$$
+We know that with probability $1$, if $n$ tends to infinity then
+$$T_n \to T.$$ 
+Then for each $x\in(0,1)$ with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ occur:
+$$T-\epsilon< T_n < T + \epsilon.$$
+In addition, for each $x$ occur:
+$$G_{m'}(x)\overset{p}{\to} G(x),$$
+$$\mathbb{P}\bigg(G(x)-\epsilon(1,-1)\prec G_{m'}(x) \prec G(x)+\epsilon(1,-1)\bigg)=1-o(1).$$
+From Theorem \ref{thm:romthm} we have:
+$$\mathbb{P}\bigg(G_{m'}(T_n)\prec G_{m'}(T + \epsilon)\prec G_{m'}(T) + \epsilon(1,-1)\prec G(T) + 2\epsilon(1,-1)\bigg)=1-o(1)$$
 and
-$$G_{m'}(T_n)>G_{m'}(T - \epsilon)>G_{m'}(T) - \epsilon(1,-1)>G(T) - 2\epsilon(1,-1).$$
+$$\mathbb{P}\bigg(G_{m'}(T_n)\succ G_{m'}(T - \epsilon)\succ G_{m'}(T) - \epsilon(1,-1)\succ G(T) - 2\epsilon(1,-1)\bigg)=1-o(1).$$
 Thereby:
-$$\left\|G_{m'}(T_n)-G(T)\right\|<2\sqrt{2}\epsilon<4\epsilon.$$
-Then for each $A\in(1,\infty)$ with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ the following inequality is true:
- $$ \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(T\right)\right\|<4\frac{\epsilon}{4\sqrt{A}}$$
-$$\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(\frac{1}{A}\right)\right\|<\epsilon.$$
+$$\mathbb{P}\bigg(\left\|G_{m'}(T_n)-G(T)\right\|<2\sqrt{2}\epsilon<4\epsilon\bigg)=1-o(1).$$
+Then for each $A\in(1,\infty)$ for each $\epsilon>0$ we have:
+ $$ \mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(T\right)\right\|<4\frac{\epsilon}{4\sqrt{A}}\bigg)=1-o(1),$$
+$$\mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(\frac{1}{A}\right)\right\|<\epsilon\bigg)=1-o(1).$$
 Therefore for each $A\in(1,\infty)$:
-$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|<\epsilon\right)=1.$$
-$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|\leq\epsilon\right)=1.$$
+$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|<\epsilon\right)=1,$$
+$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|\leq\epsilon\right)=1,$$
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\right)=0.$$
 \end{proof}
 
