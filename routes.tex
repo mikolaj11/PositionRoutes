@@ -547,7 +547,7 @@ The permutation $\Pi$ is a random permutation with the uniform distribution, so 
 Y_j &=\frac{z\left(\Pi_j^{-1}\right)}{w} \qquad \text{for }j\in{1, 2, \ldots, m'},\\
 T_n &=\frac{z\left(n'+\frac{1}{2}\right)}{w}.
 \end{align*}
-The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of independent random variables with the uniform distribution $U(0,1)$, and the random variable $T_n$ converges with probability $1$ to $\frac{1}{A}$:
+The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of independent random variables with the uniform distribution $U(0,1)$, and the random variable $T_n$ converges almost surely to $\frac{1}{A}$:
 \begin{align*}
 \lim_{n\to\infty}T_n&=\lim_{n\to\infty}\frac{z\left(n'+\frac{1}{2}\right)}{w}\\&=\lim_{n\to\infty}\frac{1}{w}\frac{z\left(n'\right)+z\left(n'+1\right)}{2}\\&=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}+\lim_{n\to\infty}\frac{z\left(n'+1\right)-z\left(n'\right)}{2w}\\&=\lim_{n\to\infty}\frac{n'}{m'}+0\\&=\frac{1}{A}.
 \end{align*}
@@ -558,7 +558,7 @@ Therefore
 \\&=\boxi_{m'+1}\Big(Q\big(Y_1, \ldots, Y_{m'}, T_n\big)\Big).
 \\&=\square_{m'}(T_n),
 \end{align*}
-where with probability one $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.
+where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.
 
 Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
 We define \emph{the order on the plane $\prec$} as follows:
@@ -592,26 +592,26 @@ In addition, the function $G(x)$ is a continuous function in the point $T\in(0,1
 \epsilon(1,-1)\prec G(x)-G(T)\prec \epsilon(1,-1).
 \label{conti}
 \end{align} 
-Moreover with probability $1$: $T_n \to T$. Then there exists $n_0$ such that for each $n>n_0$
+Moreover almost surely $T_n \to T$. Then also $T_n \overset{p}{\to} T$. Using little-$o$ notation e have:
 \begin{align}
-\mathbb{P}(T-\delta<T_n< T+\delta)=1.
+\mathbb{P}(T-\delta<T_n< T+\delta)=1-o(1). 
 \label{convt}
 \end{align}
 If $T_n<T+\delta$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ then:
 \begin{align*}
 G_n(T_n)-G(T)&\prec G_n(T+\gamma)-G(T) \tag{\ref{ineq}}\\&=G_n(T+\gamma)-G(T+\gamma)+G(T+\gamma)-G(T)\\&\prec\epsilon(1,-1)+\epsilon(1,-1) \tag{\ref{convx},\ref{conti}}\\&=2\epsilon(1,-1)
 \end{align*}
-Analogously if $T-\delta<T_n$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\|\leq \epsilon$ then:
+Analogously if $T-\delta<T_n$ and $\left\| G_n(T-\gamma)-G(T-\gamma) \right\|\leq \epsilon$ then:
 \begin{align*}
 G_n(T_n)-G(T)&\succ G_n(T-\gamma)-G(T)\tag{\ref{ineq}} \\&=G_n(T-\gamma)-G(T-\gamma)+G(T-\gamma)-G(T)\\&\succ -\epsilon(1,-1)-\epsilon(1,-1)\tag{\ref{convx},\ref{conti}}\\&=-2\epsilon(1,-1)
 \end{align*}
 Thus
-\begin{align}
-\left\|G_n(T_n)-G(T)\right\|<2 \epsilon \left\| (1,-1) \right\| <4 \epsilon
-\end{align}
-Thereby for sufficiently large values of $n$ we have:
 \begin{align*}
-1&\geq\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon \text{\hspace{5pt}and\hspace{5pt}} \left\| T_n-T\right\| <\gamma\Big) \\&= \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big) \tag{\ref{convt}}\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big)-1\\&=1-o(1)+1-o(1)-1 \tag{\ref{smallo}} \\&=1-o(1),
+\left\|G_n(T_n)-G(T)\right\|<2 \epsilon \left\| (1,-1) \right\| <4 \epsilon
+\end{align*}
+Thereby:
+\begin{align*}
+1&\geq\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon \text{\hspace{5pt}and\hspace{5pt}} \left\| T_n-T\right\| <\gamma\Big) \\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big) + \mathbb{P}(\left\| T_n-T\right\|<\gamma)-1 \\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big)+ \mathbb{P}(\left\| T_n-T\right\|<\gamma)-2\\&=1-o(1)+1-o(1)+1-o(1)-2 \tag{\ref{smallo},\ref{convt}} \\&=1-o(1),
 \end{align*}
 $$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)=1.$$
 Then for each $A\in(1,\infty)$ for each $\epsilon>0$ we have:
