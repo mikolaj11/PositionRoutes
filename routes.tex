@@ -8,9 +8,15 @@
 \usepackage{cite}
 \usepackage{lipsum}
 \usepackage[utf8]{inputenc}
-\usepackage[polish, english]{babel}
+%\usepackage[polish, english]{babel}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{todonotes}
+
+\usepackage{subfiles}
+\usepackage[labelfont={normalsize}]{caption,subfig}
+
+
 
 \newcommand{\verker}
 {
@@ -63,8 +69,7 @@
 \newcommand{\trzy}
 {
 	\colorlet{CiemnoZielony}{green!50!black}
-\begin{center}
-\begin{tabular}{ccccc}
+\subfloat[]{
 \begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
@@ -77,8 +82,13 @@
 \draw[](35,0) -- (35,1) -- (30,1) -- (30,3) -- (27,3) -- (27,4) -- (25,4) -- (25,5) -- (23,5) -- (23,6) -- (21,6) -- (21,7) -- (19,7) -- (19,8) -- (17,8) -- (17,9) -- (15,9) -- (15,11) -- (14,11) -- (14,12) -- (13,12) -- (13,13) -- (12,13) -- (12,14) -- (11,14) -- (11,16) -- (9,16) -- (9,18) -- (7,18) -- (7,19) -- (6,19) -- (6,21) -- (5,21) -- (5,25) -- (4,25) -- (4,26) -- (3,26) -- (3,31) -- (2,31) -- (2,34) -- (0,34) -- (0,0) -- cycle ;
 \traj{27}
 
+%\draw (15,-7) node {$A=1$};
+\draw(20,17) node {$A=1$}; 
 \end{tikzpicture}
-&\hspace{50pt}&
+\label{traj:A}
+}
+\hfill
+\subfloat[]{
 \begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
@@ -91,8 +101,13 @@
 \draw[](53,0) -- (53,1) -- (51,1) -- (51,2) -- (44,2) -- (44,3) -- (41,3) -- (41,4) -- (36,4) -- (36,5) -- (35,5) -- (35,6) -- (33,6) -- (33,7) -- (31,7) -- (31,8) -- (30,8) -- (30,9) -- (28,9) -- (28,10) -- (26,10) -- (26,12) -- (24,12) -- (24,13) -- (22,13) -- (22,15) -- (19,15) -- (19,17) -- (18,17) -- (18,18) -- (17,18) -- (17,20) -- (15,20) -- (15,22) -- (14,22) -- (14,24) -- (13,24) -- (13,26) -- (11,26) -- (11,28) -- (10,28) -- (10,29) -- (9,29) -- (9,32) -- (7,32) -- (7,33) -- (6,33) -- (6,36) -- (5,36) -- (5,39) -- (4,39) -- (4,41) -- (2,41) -- (2,47) -- (1,47) -- (1,52) -- (0,52) -- (0,0) -- cycle ;
 \traj{27,25,21,21,16,16,15,15,13,13,12,12,11,11}
 
+%\draw (25,-7) node {$A=2$}; 
+\draw (30,20) node {$A=2$};
 \end{tikzpicture}
-&\hspace{50pt}&
+\label{traj:B}
+}
+\hfill
+\subfloat[]{
 \begin{tikzpicture}[scale=0.08]
 \begin{scope}
 \clip (0,0) rectangle (42.426407,84.852814);
@@ -104,12 +119,15 @@
 \end{scope}
 \draw[](80,0) -- (80,1) -- (73,1) -- (73,2) -- (65,2) -- (65,3) -- (63,3) -- (63,4) -- (61,4) -- (61,5) -- (58,5) -- (58,6) -- (53,6) -- (53,7) -- (50,7) -- (50,8) -- (49,8) -- (49,9) -- (47,9) -- (47,10) -- (44,10) -- (44,12) -- (42,12) -- (42,13) -- (39,13) -- (39,15) -- (38,15) -- (38,17) -- (36,17) -- (36,18) -- (33,18) -- (33,20) -- (29,20) -- (29,23) -- (28,23) -- (28,24) -- (27,24) -- (27,25) -- (25,25) -- (25,27) -- (23,27) -- (23,28) -- (22,28) -- (22,29) -- (21,29) -- (21,30) -- (20,30) -- (20,33) -- (18,33) -- (18,34) -- (17,34) -- (17,36) -- (16,36) -- (16,37) -- (15,37) -- (15,39) -- (14,39) -- (14,40) -- (13,40) -- (13,42) -- (12,42) -- (12,44) -- (9,44) -- (9,47) -- (8,47) -- (8,49) -- (7,49) -- (7,52) -- (6,52) -- (6,54) -- (5,54) -- (5,56) -- (4,56) -- (4,62) -- (3,62) -- (3,67) -- (2,67) -- (2,70) -- (1,70) -- (1,74) -- (0,74) -- (0,0) -- cycle ;
 \traj{27,25,21,21,16,16,15,15,13,13,12,12,11,11,11,11,9,9,9,9,9,9,9,9,8,8,8,8,8}
+
+%\draw (35,-7) node {$A=3$};
+\draw (45,20) node {$A=3$}; 
 \end{tikzpicture}
-\\
-$A=1$&&$A=2$&&$A=3$
-\end{tabular}
-\end{center}
+\label{traj:C}
 }
+
+}
+
 
 \newcommand{\traj}[1]
 {
@@ -127,22 +145,166 @@ $A=1$&&$A=2$&&$A=3$
 \newcommand{\strzalka}{\hspace{-3pt}\uparrow}
 
 \newcommand{\rysuj}
-{
-	\begin{center}
-		\begin{tabular}{ccc}
+{	\begin{center}
+		\subfloat[]{
 			\begin{tikzpicture}[scale=0.9]
 				\diagram{4,3,2}
 			\end{tikzpicture}
-		
-		& \hspace{30pt} &
+			\label{fig:rysa}
+		}
+		\hspace{30pt}
+		\subfloat[]{
 			\begin{tikzpicture}[scale=0.9]
 				\tableau{{1,2,4,7},{3,6,9},{5,8}}
 			\end{tikzpicture}
-		\\ 
-		(a)
-		&& (b) 		
-		\end{tabular}
+		 \label{fig:rysb}	
+		 }
 	\end{center}
+}
+
+\newcommand{\steprsk}
+{
+\centering
+\hfill
+\subfloat[]{
+	\begin{tikzpicture}[scale=0.75]
+	%\draw[ultra thick] (10,0) -- (0,0) -- (0,10) ;
+	%\fill[red,fill=red,opacity=0.4] (0,0) rectangle +(10,1);
+	\clip (-1.5,-0.5) rectangle (4.5,4.5);
+	%	\fill[blue!10] (1,0) rectangle +(1,1);
+	%	\fill[blue!10] (1,1) rectangle +(1,1);
+	%	\fill[blue!10] (0,2) rectangle +(1,1);
+	
+	
+	\draw (0,0) rectangle +(1,1); 
+	\node at (0.5,0.5) {16}; 
+	\draw (1,0) rectangle +(1,1); 
+	\node at (1.5,0.5) {37}; 
+	\draw (2,0) rectangle +(1,1); 
+	\node at (2.5,0.5) {41}; 
+	\draw (3,0) rectangle +(1,1); 
+	\node at (3.5,0.5) {82}; 
+	\draw (0,1) rectangle +(1,1); 
+	\node at (0.5,1.5) {23}; 
+	\draw (1,1) rectangle +(1,1); 
+	\node at (1.5,1.5) {53}; 
+	\draw (2,1) rectangle +(1,1); 
+	\node at (2.5,1.5) {70}; 
+	\draw (0,2) rectangle +(1,1); 
+	\node at (0.5,2.5) {74}; 
+	\draw (1,2) rectangle +(1,1); 
+	\node at (1.5,2.5) {99}; 
+	
+	
+	%	\draw[->] (-0.3,-0.45) to[bend left=60] (-0.3,0.45);
+	%	\draw[->] (0,1) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	%	\draw[->] (0,2) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	%	\draw[->] (0,3) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	%	
+	%	\tiny
+	%	\node[] at (-1,0) {18};
+	%	\node[] at (-1,1) {37};
+	%	\node[] at (-1,2) {53};
+	%	\node[] at (-1,3) {74};
+	%	
+	\end{tikzpicture}
+	\label{fig:RSKa}
+}
+\hfill
+\subfloat[]{
+\begin{tikzpicture}[scale=0.75]
+%\draw[ultra thick] (10,0) -- (0,0) -- (0,10) ;
+%\fill[red,fill=red,opacity=0.4] (0,0) rectangle +(10,1);
+\clip (-1.5,-0.5) rectangle (4.5,4.5);
+\fill[blue!10] (1,0) rectangle +(1,1);
+\fill[blue!10] (1,1) rectangle +(1,1);
+\fill[blue!10] (0,2) rectangle +(1,1);
+
+
+\draw (0,0) rectangle +(1,1); 
+\node at (0.5,0.5) {16}; 
+\draw (1,0) rectangle +(1,1); 
+\node at (1.5,0.5) {37}; 
+\draw (2,0) rectangle +(1,1); 
+\node at (2.5,0.5) {41}; 
+\draw (3,0) rectangle +(1,1); 
+\node at (3.5,0.5) {82}; 
+\draw (0,1) rectangle +(1,1); 
+\node at (0.5,1.5) {23}; 
+\draw (1,1) rectangle +(1,1); 
+\node at (1.5,1.5) {53}; 
+\draw (2,1) rectangle +(1,1); 
+\node at (2.5,1.5) {70}; 
+\draw (0,2) rectangle +(1,1); 
+\node at (0.5,2.5) {74}; 
+\draw (1,2) rectangle +(1,1); 
+\node at (1.5,2.5) {99}; 
+
+
+\draw[->] (-0.3,-0.45) to[bend left=60] (-0.3,0.45);
+\draw[->] (0,1) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+\draw[->] (0,2) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+\draw[->] (0,3) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+
+\tiny
+\node[] at (-1,0) {18};
+\node[] at (-1,1) {37};
+\node[] at (-1,2) {53};
+\node[] at (-1,3) {74};
+
+\end{tikzpicture}
+\label{fig:RSKb}
+}
+\hfill
+\subfloat[]{
+	\begin{tikzpicture}[scale=0.75]
+	%\draw[ultra thick] (10,0) -- (0,0) -- (0,10) ;
+	%\fill[red,fill=red,opacity=0.4] (0,0) rectangle +(10,1);
+	\clip (-1.5,-0.5) rectangle (4.5,4.5);
+	\fill[blue!10] (1,0) rectangle +(1,1);
+	\fill[blue!10] (1,1) rectangle +(1,1);
+	\fill[blue!10] (0,2) rectangle +(1,1);
+	\fill[blue!10] (0,3) rectangle +(1,1);
+	
+	\draw (0,0) rectangle +(1,1); 
+	\node at (0.5,0.5) {16}; 
+	\draw (1,0) rectangle +(1,1); 
+	\node at (1.5,0.5) {18}; 
+	\draw (2,0) rectangle +(1,1); 
+	\node at (2.5,0.5) {41}; 
+	\draw (3,0) rectangle +(1,1); 
+	\node at (3.5,0.5) {82}; 
+	\draw (0,1) rectangle +(1,1); 
+	\node at (0.5,1.5) {23}; 
+	\draw (1,1) rectangle +(1,1); 
+	\node at (1.5,1.5) {37}; 
+	\draw (2,1) rectangle +(1,1); 
+	\node at (2.5,1.5) {70}; 
+	\draw (0,2) rectangle +(1,1); 
+	\node at (0.5,2.5) {58}; 
+	\draw (1,2) rectangle +(1,1); 
+	\node at (1.5,2.5) {99}; 
+	\draw (0,3) rectangle +(1,1); 
+	\node at (0.5,3.5) {74}; 
+	
+	
+	
+	\draw[->] (-0.3,-0.45) to[bend left=60] (-0.3,0.45);
+	\draw[->] (0,1) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	\draw[->] (0,2) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	\draw[->] (0,3) +(-0.3,-0.45) to[bend left=60] +(-0.3,0.45);
+	
+	\tiny
+	\node[] at (-1,0) {18};
+	\node[] at (-1,1) {37};
+	\node[] at (-1,2) {53};
+	\node[] at (-1,3) {74};
+	
+	\end{tikzpicture}
+	\label{fig:RSKc}
+}
+
+
 }
 
 \newcommand{\tableau}[1]
@@ -169,14 +331,14 @@ $A=1$&&$A=2$&&$A=3$
 }
 
 %% define your title in the usual way
-\title[Hydrodynamic limit of RSK]{Dynamic limit of Robinson--Schensted--Knuth algorithm}
+\title[Hydrodynamic limit of RSK]{Dynamic limit \\ of Robinson--Schensted--Knuth algorithm}
 
 %% define your authors in the usual way
 %% use \addressmark{1}, \addressmark{2} etc for the institutions, and use \thanks{} for contact details
 \author[Mikołaj Marciniak]{Mikołaj Marciniak\thanks{\href{mailto:mikolaj@mat.umk.pl}{mikolaj@mat.umk.pl}. Mikołaj Marciniak was partially supported by Narodowe Centrum Nauki, grant number 2017/26/A/ST1/00189.}\addressmark{1}}
 
 %% then use \addressmark to match authors to institutions here
-\address{\addressmark{1}Academia Copernicana, Faculty of Mathematics and Computer Science, Nicolaus Copernicus University ul. Chopina 12/18, 87-100 Toruń, Poland}
+\address{\addressmark{1}Academia Copernicana, Faculty of Mathematics and Computer Science, Nicolaus Copernicus University, ul.~Chopina 12/18, 87-100 Toruń, Poland}
 
 %% put the date of submission here
 \received{\today}
@@ -187,7 +349,7 @@ $A=1$&&$A=2$&&$A=3$
 %% put your English abstract here, or comment this out if you don't have one yet
 %% please don't use custom commands in your abstract / resume, as these will be displayed online
 %% likewise for citations -- please don't use \cite, and instead write out your citation as something like (author year)
-\abstract{We investigate evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a typical trajectory after scaling converges in probability to some deterministic curve.}
+\abstract{We investigate evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a~typical trajectory after scaling converges in probability to some deterministic curve.}
 
 %% put your French abstract here, or comment this out if you don't have one
 %%\resume{\lipsum[2]}
@@ -207,92 +369,144 @@ $A=1$&&$A=2$&&$A=3$
 
 \begin{document}
 
+%\todo[inline]{właściwym sposobem regulowania odstępów między paragrafami są komendy \texttt{smallskip}, \texttt{medskip}, \texttt{bigskip}}
+	
+	
 \maketitle
 %% note that you DO NOT have to put your abstract here -- it is generated by \maketitle and the \abstract and \resume commands above
 
 \section{Introduction}
-Full version of this paper will be published in the other journal.
+A full version of this paper will be published elsewhere.
+
 \subsection{Notations}
-A \emph{partition} of a natural number $n$ is a break up of $n$ into a sum $n=\lambda_1+\lambda_2+\cdots+\lambda_k$ where $\lambda_1\geq \lambda_2\geq\cdots\geq\lambda_k>0$ are positive integer numbers. The vector \linebreak[4]{$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$} is usually used to denote a partition. Let $\lambda\vdash n$ denote that $\lambda$ is a partition of a number $n$. A \emph{Young diagram} $\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$ is a finite collection of boxes arranged in left-justified rows with the row length $\lambda_j$ of the $j$-th row. Thus the Young diagram $\lambda$ is a graphical interpretation of the partition $\lambda$. A \emph{Young tableau} is a Young diagram filled with numbers. If the entries strictly decrease along each column from top to bottom and weakly increase along each row from left to right, a tableau is called \emph{semistandard}. A \emph{standard Young tableau} is a semistandard Young tableau with $n$ boxes which contains all numbers $1, 2, \ldots, n$. Figure~\ref{fig:diagtab} show examples of Young diagram and standard Young tableau.\\\\
-\begin{figure}
+A \emph{partition} of a natural number $n$ is a break up of $n$ into a sum $n=\lambda_1+\lambda_2+\cdots+\lambda_k$ where $\lambda_1\geq \lambda_2\geq\cdots\geq\lambda_k>0$ are positive integer numbers. The vector \linebreak[4]{$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$} is usually used to denote a partition. Let $\lambda\vdash n$ denote that $\lambda$ is a partition of a number $n$. A \emph{Young diagram} $\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$ is a finite collection of boxes arranged in left-justified rows with the row length $\lambda_j$ of the $j$-th row. Thus the Young diagram $\lambda$ is a graphical interpretation of the partition $\lambda$. A \emph{Young tableau} is a Young diagram filled with numbers. If the entries strictly decrease along each column from top to bottom and weakly increase along each row from left to right, a tableau is called \emph{semistandard}. A \emph{standard Young tableau} is a semistandard Young tableau with $n$ boxes which contains all numbers $1, 2, \ldots, n$. \cref{fig:diagtab} shows examples of a Young diagram and of a standard Young tableau.
+
+\medskip
+
+\begin{figure}[h]
 \rysuj
-\caption{(a) The Young diagram of shape $(4,3,2)\vdash 9$ and (b) a standard Young tableau of shape $(4,3,2)\vdash 9$. }
+\caption{\protect\subref{fig:rysa} The Young diagram of shape $(4,3,2)\vdash 9$ and \protect\subref{fig:rysb} a standard Young tableau of shape $(4,3,2)\vdash 9$. }
 \label{fig:diagtab}
 \end{figure}
-The \emph{Robinson--Schensted--Knuth algorithm RSK} is a bijective algorithm which takes a finite sequence of numbers as the input and returns a pair of Young tableaux $(P,Q)$  with the same shape $\lambda\vdash n$. The semistandard tableau $P$ is called an \emph{insertion tableau}, and the standard tableau $Q$ is called a \emph{recording tableau}. In particular the RSK algorithm assigns to any permutation $\sigma$ a pair of standard Young tableaux $(P,Q)$. A detailed description of the RSK algorithm can be found in \cite{Romik2015}. The RSK algorithm is based on applying the \emph{insertion step} to successive numbers from a given finite sequence $\{X_j\}_{j=1}^n$. The insertion step takes as input the previously obtained tableau $P(X_1, X_2, \ldots, X_{j-1})$ and the next number $X_j$ from the sequence. Next it produces as output a new tableau $P(X_1, X_2, \ldots, X_n)$ with shape "increased" by one box. The RSK-insertion step starts in the first row with the number $x:=X_n$. The insertion step consists of inserting the number $x$ into the first box from left containing a number $y$ greater than $x$. Move to the next row with the number $x:=y$ and repeat the action. At some row we are forced to insert the number at the end of the row, which will end the insertion step. The collection of rearranged boxes is called the \emph{bumping route}. \\
 
-We can say that the boxes with numbers are moved along bumping route during an RSK insertion step. The insertion step of the RSK algorithm can change the position of some numbers. We will consider the position of the box with a selected number as it changes with time. 
+
+
+The \emph{Robinson--Schensted--Knuth algorithm RSK} is a bijective algorithm which takes a finite sequence of numbers as the input and returns a pair of Young tableaux $(P,Q)$  with the same shape $\lambda\vdash n$. The semistandard tableau $P$ is called an \emph{insertion tableau}, and the standard tableau $Q$ is called a \emph{recording tableau}. In particular, the RSK algorithm assigns to any permutation $\sigma$ a pair of standard Young tableaux $(P,Q)$. A detailed description of the RSK algorithm can be found in \cite{Romik2015}. 
+
+
+The RSK algorithm is based on applying the \emph{insertion step} to successive numbers from a given finite sequence $\{X_j\}_{j=1}^n$. The insertion step takes as input the previously obtained tableau $P(X_1, X_2, \ldots, X_{j-1})$ and the next number $X_j$ from the sequence. It produces as the output a new tableau $P(X_1, X_2, \ldots, X_j)$ with shape ``increased'' by one box; this tableau is obtained in the following way, see \cref{fig:RSK}. The RSK-insertion step starts in the first row with the number $x:=X_j$. The insertion step consists of inserting the number $x$ into the leftmost box in this row containing a number $y$ greater than $x$. Move to the next row with the number $x:=y$ and repeat the action. At some row we are forced to insert the number at the end of the row, which will end the insertion step. The collection of rearranged boxes is called the \emph{bumping route}. 
+
+\begin{figure}[h]
+\steprsk
+\caption{\protect\subref{fig:RSKa} The original tableau $P$.
+	\protect\subref{fig:RSKb} The highligted boxes form the bumping route which
+	corresponds to an insertion of the number $18$. \protect\subref{fig:RSKc} The
+	output of RSK insertion step. }
+\label{fig:RSK}
+\end{figure}
+
+We can say that the boxes with numbers are moved along the bumping route during an RSK insertion step. 
+%The insertion step of the RSK algorithm can change the position of some numbers. 
+In this article we will investigate the position of the box with a selected number as it changes with time. 
+
+
 
 \subsection{Motivations}
-The RSK algorithm is an important tool in algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and plactic monoid\cite{Fulton1991}. The RSK algorithm and operations on the words are crucial to understanding the Littlewood--Richardson coefficients.\\\\ 
-For many years mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson--Schensted--Knuth algorithm to a random input. In the following paragraphs we will see several examples of such considerations. The RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution on interval $(0,1)$ generates the Plancherel measure on Young diagrams\cite{Romik2015a}. The Plancherel measure is an important element of representation theory because it describes how the left regular representation decomposes into irreducible representations\cite{Fulton1991}.\\
+The RSK algorithm is an important tool in algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and plactic monoid\cite{Fulton1991}. The RSK algorithm and operations on the words are also crucial to understanding the Littlewood--Richardson coefficients.
 
-The Ulam--Hammersley problem \cite{Baik1999} concerning the typical length of the longest increasing subsequence in a random permutation corresponds to the problem concerning the typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the interval $(0,1)$.\\
+\medskip
 
-Logan and Shepp \cite{LoganShepp1977} and Vershik and Kerov \cite{VershikKerov1986} described the limit shape of the insertion tableu $P(X_1, X_2, \ldots, X_n)$ obtained when we apply the RSK algorithm to a random finite sequence.\\
+For many years mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson--Schensted--Knuth algorithm to a random input. In the following paragraphs we will see several examples of such considerations. The RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution on the interval $(0,1)$ generates the \emph{Plancherel measure} on Young diagrams \cite{Romik2015a}. The Plancherel measure is an important element of the representation theory because it describes how the left regular representation decomposes into irreducible componennts \cite{Fulton1991}.
 
-Romik and Śniady in \cite{Romik2015a} considered the limit shape of bumping routes obtained from the insertion tableau $P(X_1, X_2, \ldots, X_n, w)$, when applying an RSK insertion step with a fixed number $w$ to an existing insertion tableau obtained from a random finite sequence. In \cite{Romik2015a} they considered also the limit shape of \emph{jeu de taquin} obtained from the recording tableau $Q(w, X_1, X_2, \ldots, X_n)$ made from a random finite sequence preceded by a fixed number $w$. \\
+The Ulam--Hammersley problem \cite{Baik1999} concerning the typical length of the longest increasing subsequence in a random permutation corresponds to the problem concerning the typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the interval $(0,1)$.
 
-\subsection{Main problem}
-This paper also concerns the asymptotic behavior of the insertion tableau when we apply the RSK algorithm to a random input. What can we say about the evolution over time of the insertion tableau from the point of view of box dynamics, when we apply the RSK algorithm to a sequence of independent random variables with the uniform distribution $U(0,1)$? How do the boxes move in the insertion tableau? If we investigate the scaled position of a box with a fixed number, will we get a deterministic limit, when the number of boxes tends to infinity?\\
+Logan and Shepp \cite{LoganShepp1977} and Vershik and Kerov \cite{VershikKerov1986} described the limit shape of the insertion tableau $P(X_1, X_2, \ldots, X_n)$ obtained when we apply the RSK algorithm to a random finite sequence.
 
-More specifically we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
-\subsection{Result of Romik and Śniady}
-In the proof of Theorem \ref{thm:mainthm} we will need the following theorem proved by Romik and Śniady\big(Theorem 5.1 in \cite{Romik2015a}\big). 
+Romik and Śniady \cite{Romik2016} considered the limit shape of the bumping routes obtained from the insertion tableau $P(X_1, X_2, \ldots, X_n, w)$, when applying an RSK insertion step with a fixed number $w$ to an existing insertion tableau obtained from a random finite sequence. In \cite{Romik2015a} they considered also the limit shape of \emph{jeu de taquin} obtained from the recording tableau $Q(w, X_1, X_2, \ldots, X_n)$ made from a random finite sequence preceded by a fixed number $w$. 
+
+\subsection{The main problem}
+This paper also concerns the asymptotic behavior of the insertion tableau when we apply the RSK algorithm to a random input. \emph{What can we say about the evolution over time of the insertion tableau from the viewpoint of box dynamics, when we apply the RSK algorithm to a sequence of independent random variables with the uniform distribution $U(0,1)$? How do the boxes move in the insertion tableau? If we investigate the scaled position of a box with a fixed number, will we get a deterministic limit, when the number of boxes tends to infinity?}
+
+More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
+
+\subsection{The result of Romik and Śniady}
+In the proof of \cref{thm:mainthm} we will need the following result of Romik and Śniady \cite[Theorem 5.1]{Romik2015a}. 
+
+Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote the position of the new box in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. 
 \begin{theorem}
 \label{thm:romthm}
-Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote the position of the new box in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. Then this position, after scaling, converges in probability to the limit curve $G(x)$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x):[0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
-\begin{figure}
+The position $\square_n(x)$, after scaling by $\sqrt{n}$, converges in probability to a specific point $G(x)\in [0,2]^2$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x) \colon [0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
+\end{theorem}
+
+\begin{figure}[h]
  \begin{center}
 \verker
 \end{center}
 \caption{The graph of the function $G(x)$ with specified values for  numbers $x=0.0$, $x=0.2$, $x=0.5$, $x=0.8$ and $x=1.0$.}
 \label{fig:gfunction}
 \end{figure}
-Figure~\ref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986} is a Lipschitz function with constant $1$. After rotation, this means that for each $x\geq 0$ and $\epsilon>0$ where $x+\epsilon\leq 1$ we have:
-$$G(x)-\epsilon(1,-1)\prec G(x+\epsilon) \prec G(x)+\epsilon(1,-1),$$
-where the relation $\prec$ is an order on the plane defined as follows:
-$(x_1,y_1)\prec(x_2,y_2)$ only and only if $x_1<x_2$ and $y_1>y_2$. The relation $\prec$ retains the order of the points on the plane along the line $y=-x$. In addition, the function $G(x)$ is also monotonic with respect to the relation $\prec$ on the plane.
-\end{theorem}
+
+
+\cref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977,VershikKerov1986} is a continuous function, then the $G(x)$ is also continuous function. 
+
 \section{The main result}
-The main result is Theorem \ref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. When the number of boxes tends to infinity then the trajectory of the box converges in probability to the function $$H(A)=\sqrt{A}G(\frac{1}{A}).$$ The curve $H(A)$ is also the limit shape of bumping routes\cite{Romik2016} in the RSK algorithm. Figure \ref{fig:trzy} shows the graph of the function $H(x)$ and the experimentally determined position of the box with the number $w=0.5$ for $n=400$.
-\begin{figure}
+
+Our main result is \cref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. It states that when the number of boxes tends to infinity then the (scaled down) trajectory of the box converges in probability to the curve
+$H\colon [1,\infty) \to \mathbb{R}_+^2$ given by
+$$H(A):=\sqrt{A}\ G\left(\frac{1}{A}\right).$$ 
+The same curve $H$ also happens to be the limit shape of the bumping routes \cite{Romik2016} in the RSK algorithm. \cref{fig:trzy} shows the graph of the curve $H$ and the experimentally determined trajectory of the box with the number $w=0.5$.
+
+
+\begin{figure}[h]
 \trzy
-\caption{ The trajectory describing the position of the box with the fixed number $w$ at the moment $\floor{An}$ for $n=400$ and numbers $A=1$, $A=2$ and $A=3$.}
+\caption{ \protect\subref{traj:A}
+The initial shape of the insertion tableau $P(X_1,\dots,X_n,w)$ immediately after the new box
+with the number $w$ was added (the higlighted box in the bottom row) for $n=400$ and $w=0.5$.
+\protect\subref{traj:B}
+The shape of the insertion tableau 
+$P(X_1,\dots,X_n,w,X_{n+1},\dots,X_{\lfloor A n \rfloor})$
+at the time parameter $A=2$. The highlighted boxes indicate the trajectory of the box with the number $w$. The red smooth curve is the plot of $H$.
+\protect\subref{traj:C} Analogous picture for $A=3$.
+}
 \label{fig:trzy}
 \end{figure}
-More specifically let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ we define the function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ by:
-$$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$, where for a tableau $P$ the value $\boxi_w(P)$ is the coordinates in $\mathbb{N}^2$ of the box with the number $w$. 
+
+\pagebreak[3]
+
+More specifically, let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ we define the function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ by:
+$$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$, where for a tableau $P$ we denote by  $\boxi_w(P)\in\mathbb{N}^2$ the coordinates of the box with the number $w$. 
 
 \begin{theorem}
 \label{thm:mainthm}
-For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity: $$\forall_{\epsilon>0} \lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
+For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity. For each $\epsilon>0$: $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 \begin{proof}
-We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$, so it is enough to consider only the subsequence containing numbers no greater than $w$. \\\\
-Now we will use this observation in the proof. Let $m=\floor{An}$. The probability that the same number will occur twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let the sequence $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with the uniform distribution $U(0,w)$. Let $n'=n'(n)$ and $m'=m'(m)$ denote the number of elements respectively of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
+We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$ in the tableau, so it is enough to consider only the subsequence containing numbers no greater than $w$. 
+
+Now we will use this observation in the proof. Let $m=\floor{An}$. The probability that the same number occurs twice in the sequence $(w, X_1, X_2, \ldots)$ is equal to 0, hence without losing generality we assume that the numbers $w, X_1, X_2, \ldots$ are all different. Let $\{X'_j\}_{j=1}^\infty$ be the subsequence of the sequence $\{X_j\}_{j=1}^\infty$ containing all elements of the sequence $\{X_j\}_{j=1}^\infty$, which are less than $w$. The sequence $\{X'_j\}_{j=1}^{\infty}$ is a sequence of independent random variables with the uniform distribution $U(0,w)$. 
+
+Let $n'=n'(n)$ and $m'=m'(m)$ denote the number of elements, respectively, of the sequences $\{X_j\}_{j=1}^n$, $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
 \begin{align*}
 \Pos_n\Big(\floor{An}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m}\right)\Big)\\&=\boxi_w\Big(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
 \end{align*}
-The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so \linebreak[4]{$m'-n'\sim B(m-n,w)$.} Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. \\
-From the Strong Law of Large Numbers theorem \cite{Durrett2019}, we know that if $n$ tends to infinity, then the following limits exist with probability $1$:
-$$
-\begin{matrix}
-\lim_{n\to\infty}\frac{n'}{n}&=&\mathbb{E}[X_j<w]&=&\mathbb{P}(X_j<w)&=&w, \\
-\lim_{n\to\infty}\frac{m'-n'}{m-n}&=&\mathbb{E}[X_j<w]&=&\mathbb{P}(X_j<w)&=&w. \\
-\end{matrix}
-$$
-Therefore, with probability $1$ also exist the limits:
+The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are less than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n'+1}^{m'}$ are less than $w$, so \linebreak[4]{$m'-n'\sim B(m-n,w)$.} Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. 
+
+From the Strong Law of Large Numbers \cite{Durrett2019} we know that if $n$ tends to infinity, then the following limits exist almost surely:
+\begin{align*}
+\lim_{n\to\infty}\frac{n'}{n}&=\mathbb{E}[X_j<w]=\mathbb{P}(X_j<w)= w, \\
+\lim_{n\to\infty}\frac{m'-n'}{m-n}&=\mathbb{E}[X_j<w]=\mathbb{P}(X_j<w)=w. 
+\end{align*}
+Therefore, also the following limits exist almost surely
 \begin{align*}
 \lim_{n\to\infty}\frac{m'}{n'}&= \lim_{n\to\infty}1+\frac{m'-n'}{n'}\\&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}\\&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\left(\frac{m}{n}-1\right)\\&=1+\frac{w}{w}\left(A-1\right)\\&=A
 \end{align*}
 and
 \begin{align*}
 \lim_{n\to\infty}\frac{m'}{n}&=\lim_{n\to\infty}\frac{n'}{n}\frac{m'}{n'}\\&=wA.
-\end{align*}\\
+\end{align*}
 
 We define the function $z:\{1, 2, \ldots m'\}\cup\{m'+1, n'+\frac{1}{2}\}\to [0,1]$ that assigns to a number $t\in\{1, 2, \ldots, m'\}$, the $t$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$ and additionally $z\left(m'+1\right)=w$ and $z\left(n'+\frac{1}{2}\right)=\frac{z\left(n'\right)+z\left(n'+1\right)}{2}$. 
-\\
+
 
 The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. In addition, the sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with the uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a \emph{random increasing sequence with the uniform distribution on the interval $[0,1]$}. Let $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$. Then
 $$\Big\{X'_j\Big\}_{j=1}^{m'}=\Big\{z(\Pi_j)\Big\}_{j=1}^{m'}=z\circ\Pi,$$
@@ -307,20 +521,20 @@ Similarly, the function $z$ acts on a Young tableau by acting on each box indivi
 We denote $\Pi^{-1}=\Big(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}\Big)$ and we define the permutation $$\Pi\strzalka=\Big(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\Big)$$ as a natural extension of the permutation $\Pi$. Then $\Pi\strzalka^{-1}=\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'+1}\Big)$ where
 $$
 \Pi\strzalka^{-1}_j=
-\left\{
-\begin{matrix}
-\Pi_j^{-1}&j\leq n \\
-\Pi_j^{-1}+1&n<j\leq m' \\
-n+1&j=m'+1 \\
-\end{matrix}
-\right.
-$$ In addition, we will use the fact \cite{Fulton1991} that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of the inverse permutation $\Pi\strzalka^{-1}$:
+\begin{cases}
+\Pi_j^{-1}&\text{if } j\leq n, \\
+\Pi_j^{-1}+1& \text{if }n<j\leq m', \\
+n+1& \text{if }j=m'+1. 
+\end{cases}
+$$ 
+In addition, we will use the fact \cite{Fulton1991} that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of the inverse permutation $\Pi\strzalka^{-1}$:
 $$P\left(\Pi\strzalka\right)=Q\left(\Pi\strzalka^{-1}\right).$$
 Therefore
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\right)\bigg).
 \end{align*}
 Now, using the function $z$, we will get the sequence of independent random variables with uniform distribution $U(0,1)$ 
+\pagebreak[2]
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\Big)\bigg)\hspace{50pt}
 \\&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg)
@@ -329,15 +543,13 @@ Now, using the function $z$, we will get the sequence of independent random vari
 \\&=\boxi_{m'+1}\Bigg(Q\bigg(z\Big(\Pi^{-1}_1\Big), \ldots, z\Big(\Pi^{-1}_{m'}\Big), z\Big(n'+\frac{1}{2}\Big)\bigg)\Bigg).
 \end{align*}
 The permutation $\Pi$ is a random permutation with the uniform distribution, so $\Pi^{-1}$ is also a random permutation with the uniform distribution. If we act with a random permutation on a random increasing sequence with the uniform distribution we will get a sequence of  independent random variables with the uniform distribution, thus the sequence $$z\circ\Pi^{-1}=\bigg(z\Big(\Pi^{-1}_1\Big), \ldots, z\Big(\Pi^{-1}_{m'}\Big)\bigg)$$ is a sequence of independent random variables with the uniform distribution $U(0,w)$. We define the random variable $T_n$ and the sequence $\{Y_j\}_{j=1}^{m'}$: 
-$$
-\begin{matrix}
-Y_j=\frac{z\left(\Pi_j^{-1}\right)}{w} & \text{for}\hspace{10pt}j\in{1, 2, \ldots, m'},\\
-T_n=\frac{z\left(n'+\frac{1}{2}\right)}{w}.
-\end{matrix}
-$$
-The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of independent random variables with the uniform distribution $U(0,1)$. In addition, the random variable $T_n$ converges with probability $1$ to $\frac{1}{A}$:
 \begin{align*}
-\lim_{n\to\infty}T_n&=\lim_{n\to\infty}\frac{z\left(n'+\frac{1}{2}\right)}{w}\\&=\lim_{n\to\infty}\frac{1}{w}\frac{z\left(n'\right)+z\left(n'+1\right)}{2}\\&=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}+\lim_{n\to\infty}\frac{z\left(n'+1\right)-z\left(n'\right)}{2w}\\&=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}\\&=\lim_{n\to\infty}\frac{n'}{m'}\\&=\frac{1}{A}.
+Y_j &=\frac{z\left(\Pi_j^{-1}\right)}{w} \qquad \text{for }j\in{1, 2, \ldots, m'},\\
+T_n &=\frac{z\left(n'+\frac{1}{2}\right)}{w}.
+\end{align*}
+The sequence $\{Y_j\}_{j=1}^{m'}$ is a sequence of independent random variables with the uniform distribution $U(0,1)$, and the random variable $T_n$ converges with probability $1$ to $\frac{1}{A}$:
+\begin{align*}
+\lim_{n\to\infty}T_n&=\lim_{n\to\infty}\frac{z\left(n'+\frac{1}{2}\right)}{w}\\&=\lim_{n\to\infty}\frac{1}{w}\frac{z\left(n'\right)+z\left(n'+1\right)}{2}\\&=\lim_{n\to\infty}\frac{z\left(n'\right)}{w}+\lim_{n\to\infty}\frac{z\left(n'+1\right)-z\left(n'\right)}{2w}\\&=\lim_{n\to\infty}\frac{n'}{m'}+0\\&=\frac{1}{A}.
 \end{align*}
 Therefore
 \begin{align*}
@@ -346,35 +558,55 @@ Therefore
 \\&=\boxi_{m'+1}\Big(Q\big(Y_1, \ldots, Y_{m'}, T_n\big)\Big).
 \\&=\square_{m'}(T_n),
 \end{align*}
-where with probability one $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
-From Theorem \ref{thm:romthm} for each $x\in(0,1)$  we have:
+where with probability one $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.
+
+Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
+We define \emph{the order on the plane $\prec$} as follows:
+$(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$.\\
+From the property of Young tableau and RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
+$$G_{n}(x_1)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_1)}{\sqrt{m'}}\prec \sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_2)}{\sqrt{m'}}=G_{n}(x_2).$$
+Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$:
 \begin{align*}
-\frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} G(x)
+G_{n}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
-Let $G_{m'}(x)=\frac{\square_{m'}(x)}{\sqrt{Anw}}$. Therefore
-\begin{align*}
-G_{m'}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
-\end{align*}
-We know that with probability $1$, if $n$ tends to infinity then
+
+
+This means that for each $x\in[0,1]$ and for each $\epsilon>0$ occur: 
+$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|>\epsilon\Big)=0,$$
+$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1.$$
+Using little-$o$ notation we have:
+\begin{align}
+\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1-o(1). \label{smallo}
+\end{align}
+If $\left\|G_n(x)-G(x)\right\|<\epsilon$ then also
+$$\epsilon(1,-1)\prec G_n(x)-G(x)\prec \epsilon(1,-1).$$
+Let $\epsilon>0$.\\
+In addition, the function $G(x)$ is a continuous function in the point $T\in(0,1)$. This means that exists $\delta>0$ that if $|x-T| < 2\delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus $$\epsilon(1,-1)\prec G(x)-G(T)\prec \epsilon(1,-1).$$ Moreover with probability $1$:
 $$T_n \to T.$$ 
-Then for each $x\in(0,1)$ with probability $1$ for each $\epsilon>0$ exists $n_0$ that for each $n>n_0$ occur:
-$$T-\epsilon< T_n < T + \epsilon.$$
-In addition, for each $x$ occur:
-$$G_{m'}(x)\overset{p}{\to} G(x),$$
-$$\mathbb{P}\bigg(G(x)-\epsilon(1,-1)\prec G_{m'}(x) \prec G(x)+\epsilon(1,-1)\bigg)=1-o(1).$$
-From Theorem \ref{thm:romthm} we have:
-$$\mathbb{P}\bigg(G_{m'}(T_n)\prec G_{m'}(T + \epsilon)\prec G_{m'}(T) + \epsilon(1,-1)\prec G(T) + 2\epsilon(1,-1)\bigg)=1-o(1)$$
-and
-$$\mathbb{P}\bigg(G_{m'}(T_n)\succ G_{m'}(T - \epsilon)\succ G_{m'}(T) - \epsilon(1,-1)\succ G(T) - 2\epsilon(1,-1)\bigg)=1-o(1).$$
-Thereby:
-$$\mathbb{P}\bigg(\left\|G_{m'}(T_n)-G(T)\right\|<2\sqrt{2}\epsilon<4\epsilon\bigg)=1-o(1).$$
+Then there exists $n_0$ such that for each $n>n_0$
+$$\mathbb{P}(T-\delta<T_n< T+\delta)=1.$$
+If $T_n<T+\delta$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| < \epsilon$ then:
+\begin{align*}
+G_n(T_n)-G(T)&\prec G_n(T+\gamma)-G(T)\\&=G_n(T+\gamma)-G(T+\gamma)+G(T+\gamma)-G(T)\\&\prec\epsilon(1,-1)+\epsilon(1,-1)\\&=2\epsilon(1,-1)
+\end{align*}
+Analogously if $T-\delta<T_n$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\|<\epsilon$ then:
+\begin{align*}
+G_n(T_n)-G(T)&\succ G_n(T-\gamma)-G(T)\\&=G_n(T-\gamma)-G(T-\gamma)+G(T-\gamma)-G(T)\\&\succ -\epsilon(1,-1)-\epsilon(1,-1)\\&=-2\epsilon(1,-1)
+\end{align*}
+Thus
+$$\left\|G_n(T_n)-G(T)\right\|<2 \epsilon \left\| (1,-1) \right\| <4 \epsilon$$
+Thereby for sufficiently large values of $n$ we have:
+\begin{align*}
+1&\geq\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{10pt}and\hspace{10pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big)\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big)-1\\&=1-o(1)+1-o(1)-1  \\&=1-o(1),
+\end{align*}
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)=1.$$
 Then for each $A\in(1,\infty)$ for each $\epsilon>0$ we have:
- $$ \mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(T\right)\right\|<4\frac{\epsilon}{4\sqrt{A}}\bigg)=1-o(1),$$
-$$\mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-\sqrt{A}G\left(\frac{1}{A}\right)\right\|<\epsilon\bigg)=1-o(1).$$
-Therefore for each $A\in(1,\infty)$:
-$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|<\epsilon\right)=1,$$
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\frac{\epsilon}{4\sqrt{A}}\bigg)=1,$$
+ $$ \lim_{n\to\infty}\mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(\frac{1}{A}\right)\right\|\leq\frac{\epsilon}{\sqrt{A}}\bigg)=1,$$
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|\leq\epsilon\right)=1,$$
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\right)=0.$$
+
+
 \end{proof}
 
 
