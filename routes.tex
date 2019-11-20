@@ -331,7 +331,7 @@
 }
 
 %% define your title in the usual way
-\title[Hydrodynamic limit of RSK]{Dynamic limit \\ of Robinson--Schensted--Knuth algorithm}
+\title[Dynamic limit of RSK]{Dynamic limit \\ of Robinson--Schensted--Knuth algorithm}
 
 %% define your authors in the usual way
 %% use \addressmark{1}, \addressmark{2} etc for the institutions, and use \thanks{} for contact details
@@ -558,56 +558,53 @@ Therefore
 \\&=\boxi_{m'+1}\Big(Q\big(Y_1, \ldots, Y_{m'}, T_n\big)\Big).
 \\&=\square_{m'}(T_n),
 \end{align*}
-where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.
-
+where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
 Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
-We define \emph{the order on the plane $\prec$} as follows:
+We define \emph{the partial order on the plane $\prec$} as follows:
 $(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$.\\
-From the property of Young tableau and RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
+From the a property of the Young tableau and the RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
 \begin{align}
 G_{n}(x_1)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_1)}{\sqrt{m'}}\prec \sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_2)}{\sqrt{m'}}=G_{n}(x_2).
 \label{ineq}
 \end{align}
-Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$:
+Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$, when $n$ tends to infinity.:
 \begin{align*}
 G_{n}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
-
-
-This means that for each $x\in[0,1]$ and for each $\epsilon>0$ occur: 
-$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|>\epsilon\Big)=0,$$
+Using little-$o$ notation this means that for each $x\in[0,1]$ and for each $\epsilon>0$ occur: 
+%$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|>\epsilon\Big)=0,$$
 %$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1.$$
-Using little-$o$ notation we have:
+% we have:
 \begin{align}
 \mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1-o(1). \label{smallo}
 \end{align}
 If $\left\|G_n(x)-G(x)\right\|<\epsilon$ then also
 \begin{align}
-\epsilon(1,-1)\prec G_n(x)-G(x)\prec \epsilon(1,-1).
+-(\epsilon,-\epsilon)\prec G_n(x)-G(x)\prec (\epsilon,-\epsilon).
 \label{convx}
 \end{align}
 Let $\epsilon>0$.\\
-In addition, the function $G(x)$ is a continuous function in the point $T\in(0,1)$. This means that exists $\delta>0$ that if $|x-T| < 2\delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
+The function $G(x)$ is a continuous function in the point $T\in(0,1)$. This means that exists $\delta>0$ that if $|x-T| < 2\delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
 \begin{align}
-\epsilon(1,-1)\prec G(x)-G(T)\prec \epsilon(1,-1).
+-(\epsilon,-\epsilon)\prec G(x)-G(T)\prec (\epsilon,-\epsilon).
 \label{conti}
 \end{align} 
-Moreover almost surely $T_n \to T$. Then also $T_n \overset{p}{\to} T$. Using little-$o$ notation e have:
+In addition, almost surely $T_n \to T$. Then also $T_n \overset{p}{\to} T$. Using little-$o$ notation e have:
 \begin{align}
 \mathbb{P}(T-\delta<T_n< T+\delta)=1-o(1). 
 \label{convt}
 \end{align}
-If $T_n<T+\delta$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ then:
+Furthermore if $T_n<T+\delta$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ then:
 \begin{align*}
-G_n(T_n)-G(T)&\prec G_n(T+\gamma)-G(T) \tag{\ref{ineq}}\\&=G_n(T+\gamma)-G(T+\gamma)+G(T+\gamma)-G(T)\\&\prec\epsilon(1,-1)+\epsilon(1,-1) \tag{\ref{convx},\ref{conti}}\\&=2\epsilon(1,-1)
+G_n(T_n)-G(T)&\prec G_n(T+\gamma)-G(T) \tag{\ref{ineq}}\\&=G_n(T+\gamma)-G(T+\gamma)+G(T+\gamma)-G(T)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{\ref{convx},\ref{conti}}\\&=(2\epsilon,-2\epsilon).
 \end{align*}
 Analogously if $T-\delta<T_n$ and $\left\| G_n(T-\gamma)-G(T-\gamma) \right\|\leq \epsilon$ then:
 \begin{align*}
-G_n(T_n)-G(T)&\succ G_n(T-\gamma)-G(T)\tag{\ref{ineq}} \\&=G_n(T-\gamma)-G(T-\gamma)+G(T-\gamma)-G(T)\\&\succ -\epsilon(1,-1)-\epsilon(1,-1)\tag{\ref{convx},\ref{conti}}\\&=-2\epsilon(1,-1)
+G_n(T_n)-G(T)&\succ G_n(T-\gamma)-G(T)\tag{\ref{ineq}} \\&=G_n(T-\gamma)-G(T-\gamma)+G(T-\gamma)-G(T)\\&\succ -(\epsilon,-\epsilon)-(\epsilon,-\epsilon)\tag{\ref{convx},\ref{conti}}\\&=-(2\epsilon,-2\epsilon).
 \end{align*}
-Thus
+Thus if $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ and $\left\| G_n(T-\gamma)-G(T-\gamma) \right\|\leq \epsilon$ and \linebreak[4]{$\left\| T_n-t\right\|<\gamma$} then:
 \begin{align*}
-\left\|G_n(T_n)-G(T)\right\|<2 \epsilon \left\| (1,-1) \right\| <4 \epsilon
+\left\|G_n(T_n)-G(T)\right\|< \left\| (2\epsilon,-2\epsilon) \right\| <4 \epsilon .
 \end{align*}
 Thereby:
 \begin{align*}
