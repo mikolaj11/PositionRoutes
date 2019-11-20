@@ -338,7 +338,7 @@
 \author[Mikołaj Marciniak]{Mikołaj Marciniak\thanks{\href{mailto:mikolaj@mat.umk.pl}{mikolaj@mat.umk.pl}. Mikołaj Marciniak was partially supported by Narodowe Centrum Nauki, grant number 2017/26/A/ST1/00189.}\addressmark{1}}
 
 %% then use \addressmark to match authors to institutions here
-\address{\addressmark{1}Academia Copernicana, Faculty of Mathematics and Computer Science, Nicolaus Copernicus University, ul.~Chopina 12/18, 87-100 Toruń, Poland}
+\address{\addressmark{1}Interdisciplinary PhD School "Academia Copernicana", Faculty of Mathematics and Computer Science, Nicolaus Copernicus University in Toruń, ul.~Chopina 12/18, 87-100 Toruń, Poland}
 
 %% put the date of submission here
 \received{\today}
@@ -473,7 +473,7 @@ at the time parameter $A=2$. The highlighted boxes indicate the trajectory of th
 
 \pagebreak[3]
 
-More specifically, let $w\in[0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ we define the function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ by:
+More specifically, let $w\in(0,1]$ be a fixed number. Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. For every $n\in\mathbb{N}$ we define the function $\Pos_n:\{n+1, n+2, \ldots\}\to\mathbb{N}^2$ by:
 $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_j\right)\biggr)$$ for $j\in\{n+1, n+2, \ldots\}$, where for a tableau $P$ we denote by  $\boxi_w(P)\in\mathbb{N}^2$ the coordinates of the box with the number $w$. 
 
 \begin{theorem}
@@ -562,12 +562,12 @@ where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.
 Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
 We define \emph{the partial order on the plane $\prec$} as follows:
 $(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$.\\
-From the a property of the Young tableau and the RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
+From a property of the Young tableau and the RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
 \begin{align}
 G_{n}(x_1)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_1)}{\sqrt{m'}}\prec \sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_2)}{\sqrt{m'}}=G_{n}(x_2).
 \label{ineq}
 \end{align}
-Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$, when $n$ tends to infinity.:
+Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$, when $n$ tends to infinity:
 \begin{align*}
 G_{n}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
