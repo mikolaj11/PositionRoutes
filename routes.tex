@@ -349,7 +349,7 @@
 %% put your English abstract here, or comment this out if you don't have one yet
 %% please don't use custom commands in your abstract / resume, as these will be displayed online
 %% likewise for citations -- please don't use \cite, and instead write out your citation as something like (author year)
-\abstract{We investigate evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a~typical trajectory after scaling converges in probability to some deterministic curve.}
+\abstract{We investigate the evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a~typical trajectory after scaling converges in probability to some deterministic curve.}
 
 %% put your French abstract here, or comment this out if you don't have one
 %%\resume{\lipsum[2]}
@@ -429,6 +429,9 @@ This paper also concerns the asymptotic behavior of the insertion tableau when w
 
 More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
 
+\subsection{Facts}
+$$F_{SC}(t)=\frac{1}{2}+\frac{1}{\pi}\bigg(\frac{t\sqrt{1-t^2}}{4}+\sin^{-1}\Big(\frac{t}{2}\Big)\bigg)$$
+C.D.N.
 \subsection{The result of Romik and Śniady}
 In the proof of \cref{thm:mainthm} we will need the following result of Romik and Śniady \cite[Theorem 5.1]{Romik2015a}. 
 
@@ -478,7 +481,7 @@ $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots
 
 \begin{theorem}
 \label{thm:mainthm}
-For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity. For each $\epsilon>0$: $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
+For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity. In other words, for each $\epsilon>0$: $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 \begin{proof}
 We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$ in the tableau, so it is enough to consider only the subsequence containing numbers no greater than $w$. 
@@ -559,15 +562,17 @@ Therefore
 \\&=\square_{m'}(T_n),
 \end{align*}
 where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
+
 Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
 We define \emph{the partial order on the plane $\prec$} as follows:
 $(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$.\\
 From a property of the Young tableau and the RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
+Hence
 \begin{align}
-G_{n}(x_1)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_1)}{\sqrt{m'}}\prec \sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x_2)}{\sqrt{m'}}=G_{n}(x_2).
+G_{n}(x_1)\prec G_{n}(x_2).
 \label{ineq}
 \end{align}
-Therefore from \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$, when $n$ tends to infinity:
+From \cref{thm:romthm} for each $x\in(0,1)$ the random variable $G_n(x)$ converges in probability to the limit $G(x)$, when $n$ tends to infinity:
 \begin{align*}
 G_{n}(x)=\sqrt{\frac{m'}{n}\frac{1}{Aw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Aw}{Aw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
@@ -580,41 +585,38 @@ Using little-$o$ notation this means that for each $x\in[0,1]$ and for each $\ep
 \end{align}
 If $\left\|G_n(x)-G(x)\right\|<\epsilon$ then also
 \begin{align}
--(\epsilon,-\epsilon)\prec G_n(x)-G(x)\prec (\epsilon,-\epsilon).
+(-\epsilon,\epsilon)\prec G_n(x)-G(x)\prec (\epsilon,-\epsilon).
 \label{convx}
 \end{align}
 Let $\epsilon>0$.\\
-The function $G(x)$ is a continuous function in the point $T\in(0,1)$. This means that exists $\delta>0$ that if $|x-T| < 2\delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
+The function $G(x)$ is a continuous function in the point $T\in(0,1)$. This means that there exists $\delta>0$ that if $|x-T| < 2\delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
 \begin{align}
--(\epsilon,-\epsilon)\prec G(x)-G(T)\prec (\epsilon,-\epsilon).
+(-\epsilon,\epsilon)\prec G(x)-G(T)\prec (\epsilon,-\epsilon).
 \label{conti}
 \end{align} 
-In addition, almost surely $T_n \to T$. Then also $T_n \overset{p}{\to} T$. Using little-$o$ notation e have:
+In addition, almost surely $T_n \to T$. Then also $T_n \overset{p}{\to} T$. Using little-$o$ notation we have:
 \begin{align}
 \mathbb{P}(T-\delta<T_n< T+\delta)=1-o(1). 
 \label{convt}
 \end{align}
-Furthermore if $T_n<T+\delta$ and $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ then:
+Furthermore if $T_n<T+\delta$ and $\left\| G_n(T+\delta)-G(T+\delta) \right\| \leq \epsilon$ then:
 \begin{align*}
-G_n(T_n)-G(T)&\prec G_n(T+\gamma)-G(T) \tag{\ref{ineq}}\\&=G_n(T+\gamma)-G(T+\gamma)+G(T+\gamma)-G(T)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{\ref{convx},\ref{conti}}\\&=(2\epsilon,-2\epsilon).
+G_n(T_n)-G(T)&\prec G_n(T+\delta)-G(T) \tag{\ref{ineq}}\\&=G_n(T+\delta)-G(T+\delta)+G(T+\delta)-G(T)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{\ref{convx},\ref{conti}}\\&=(2\epsilon,-2\epsilon).
 \end{align*}
-Analogously if $T-\delta<T_n$ and $\left\| G_n(T-\gamma)-G(T-\gamma) \right\|\leq \epsilon$ then:
+Analogously if $T-\delta<T_n$ and $\left\| G_n(T-\delta)-G(T-\delta) \right\|\leq \epsilon$ then:
 \begin{align*}
-G_n(T_n)-G(T)&\succ G_n(T-\gamma)-G(T)\tag{\ref{ineq}} \\&=G_n(T-\gamma)-G(T-\gamma)+G(T-\gamma)-G(T)\\&\succ -(\epsilon,-\epsilon)-(\epsilon,-\epsilon)\tag{\ref{convx},\ref{conti}}\\&=-(2\epsilon,-2\epsilon).
+G_n(T_n)-G(T)&\succ G_n(T-\delta)-G(T)\tag{\ref{ineq}} \\&=G_n(T-\delta)-G(T-\delta)+G(T-\delta)-G(T)\\&\succ (-\epsilon,\epsilon)+(-\epsilon,\epsilon)\tag{\ref{convx},\ref{conti}}\\&=(-2\epsilon,2\epsilon).
 \end{align*}
-Thus if $\left\| G_n(T+\gamma)-G(T+\gamma) \right\| \leq \epsilon$ and $\left\| G_n(T-\gamma)-G(T-\gamma) \right\|\leq \epsilon$ and \linebreak[4]{$\left\| T_n-t\right\|<\gamma$} then:
+Thus if $\left\| G_n(T+\delta)-G(T+\delta) \right\| \leq \epsilon$ and $\left\| G_n(T-\delta)-G(T-\delta) \right\|\leq \epsilon$ and \linebreak[4]{$\left\| T_n-t\right\|<\delta$} then:
 \begin{align*}
 \left\|G_n(T_n)-G(T)\right\|< \left\| (2\epsilon,-2\epsilon) \right\| <4 \epsilon .
 \end{align*}
 Thereby:
 \begin{align*}
-1&\geq\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)\\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon \text{\hspace{5pt}and\hspace{5pt}} \left\| T_n-T\right\| <\gamma\Big) \\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon\text{\hspace{5pt}and\hspace{5pt}} \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big) + \mathbb{P}(\left\| T_n-T\right\|<\gamma)-1 \\&\geq \mathbb{P}\Big(\left\|G_n(T+\gamma)-G(T+\gamma)\right\|\leq \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\gamma)-G(T-\gamma)\right\|\leq \epsilon\Big)+ \mathbb{P}(\left\| T_n-T\right\|<\gamma)-2\\&=1-o(1)+1-o(1)+1-o(1)-2 \tag{\ref{smallo},\ref{convt}} \\&=1-o(1),
+&\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\| > 4\epsilon\bigg)\leq \\&\leq  \mathbb{P}\Big(\left\|G_n(T+\delta)-G(T+\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left\|G_n(T-\delta)-G(T-\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left\| T_n-T\right\|\geq \delta\Big)\\&\leq  \mathbb{P}\Big(\left\|G_n(T+\delta)-G(T+\delta)\right\|> \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\delta)-G(T-\delta)\right\|> \epsilon\Big)+ \mathbb{P}\Big(\left\| T_n-T\right\|\geq \delta\Big)\\&=o(1).
 \end{align*}
-$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\epsilon\bigg)=1.$$
 Then for each $A\in(1,\infty)$ for each $\epsilon>0$ we have:
-$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\|\leq 4\frac{\epsilon}{4\sqrt{A}}\bigg)=1,$$
- $$ \lim_{n\to\infty}\mathbb{P}\bigg(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{Awn}}-G\left(\frac{1}{A}\right)\right\|\leq\frac{\epsilon}{\sqrt{A}}\bigg)=1,$$
-$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|\leq\epsilon\right)=1,$$
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\| > 4\frac{\epsilon}{4\sqrt{A}}\bigg)=0,$$
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\right)=0.$$
 
 
