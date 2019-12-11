@@ -447,7 +447,7 @@ G(x)&=\Big(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2}\Big).
 \label{fig:gfunction}
 \end{figure}
 
-The function $G(x) \colon [0,1]\to[0,2]^2$ is a certain special parameterization of the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees. \cref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the function $G(x)$ is continuous and increasing due to the first coordinate and decreasing due to the second coordinate. \\
+The function $G(x) \colon [0,1]\to[0,2]^2$ is a certain special parameterization of the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees (see \cite{Romik2015a}). \cref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the function $G(x)$ is continuous and increasing due to the first coordinate and decreasing due to the second coordinate. \\
 
 \subsection{The result of Romik and Śniady}
 In the proof of \cref{thm:mainthm} we will need the following result of Romik and Śniady \cite[Theorem 5.1]{Romik2015a}. 
@@ -455,16 +455,18 @@ In the proof of \cref{thm:mainthm} we will need the following result of Romik an
 Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote the position of the new box in the insertion tableau $P(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. 
 \begin{theorem}
 \label{thm:romthm}
-The position $\square_n(x)$, after scaling by $\sqrt{n}$, converges in probability to a specific point $G(x)\in [0,2]^2$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x),$$ where $G(x) \colon [0,1]\to[0,2]^2$ is the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees.
+The position $\square_n(x)$, after scaling by $\sqrt{n}$, converges in probability to a specific point $G(x)\in [0,2]^2$: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x).$$ 
 \end{theorem}
 
 \subsection{The partial order on the plane}
+\label{order}
 We define \emph{the partial order on the plane $\prec$} as follows:
 $(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$. \\
 
 The function $G(x)$ is \emph{monotonic due to the relation $\prec$}. It means that if $x_1\leq x_2$ then $G(x_1)\prec G(x_2)$. Likewise from a property of the RSK insertion step for each natural number $n\in \mathbb{N}$, the function $\square_n(x)$ is monotonic due to the relation $\prec$. It means that if $x_1\leq x_2$ then $\square_n(x_1)\prec \square_n(x_2)$.
 
 \subsection{The random increasing sequence}
+\label{incseq}
 Let $w\in(0,1]$ be a fixed number and let $\{X'_j\}_{j=1}^{m'}$ be a sequence of independent random variables with the uniform distribution $U(0,w)$. We define the function $z:\{1, 2, \ldots m'\}\to [0,w]$ that assigns to a number $t\in\{1, 2, \ldots, m'\}$, the $t$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$.
 
 
@@ -531,10 +533,9 @@ and
 
 We define the function $z:\{1, 2, \ldots m'\}\cup\{m'+1, n'+\frac{1}{2}\}\to [0,1]$ that assigns to a number $t\in\{1, 2, \ldots, m'\}$, the $t$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$ and additionally $z\left(m'+1\right)=w$ and $z\left(n'+\frac{1}{2}\right)=\frac{z\left(n'\right)+z\left(n'+1\right)}{2}$. 
 
-
-The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. In addition, the sequence $\{X'_j\}_{j=1}^{m'}$ is a random permutation $\Pi$ with the uniform distribution of the sequence $\{z(j)\}_{j=1}^{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a \emph{random increasing sequence with the uniform distribution on the interval $[0,1]$}. Let $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$. Then
+From \cref{incseq} we have:
 $$\Big\{X'_j\Big\}_{j=1}^{m'}=\Big\{z(\Pi_j)\Big\}_{j=1}^{m'}=z\circ\Pi,$$
-where $z$ is the function that acts pointwise on every element of the permutation $\Pi$. 
+where $\{z(j)\}_{j=1}^{m'}$ is the random increasing sequence and $\Pi$ is a random permutation. The function $z$ acts pointwise on every element of the permutation $\Pi$. 
 Similarly, the function $z$ acts on a Young tableau by acting on each box individually. Then
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_w\Big(P\left(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big)
@@ -585,9 +586,7 @@ Therefore
 where almost surely $T_n \to T=\frac{1}{A}\in(0,1)$, when $n$ tends to infinity.\\
 
 Let $$G_{n}(x):=\frac{\square_{m'}(x)}{\sqrt{Anw}}.$$ \\
-We define \emph{the partial order on the plane $\prec$} as follows:
-$(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$.\\
-From a property of the Young tableau and the RSK inserion step we know that if $x_1\leq x_2$ then $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
+From the \cref{order} we know that if $x_1\leq x_2$ then: $$\square_{m'}(x_1)\prec \square_{m'}(x_2),$$
 Hence
 \begin{align}
 G_{n}(x_1)\prec G_{n}(x_2).
@@ -604,7 +603,7 @@ Using little-$o$ notation this means that for each $x\in[0,1]$ and for each $\ep
 \begin{align}
 \mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1-o(1). \label{smallo}
 \end{align}
-If $\left\|G_n(x)-G(x)\right\|<\epsilon$ then also
+If $\left\|G_n(x)-G(x)\right\|\leq \epsilon$ then also
 \begin{align}
 (-\epsilon,\epsilon)\prec G_n(x)-G(x)\prec (\epsilon,-\epsilon).
 \label{convx}
