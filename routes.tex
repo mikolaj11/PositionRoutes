@@ -16,6 +16,10 @@
 \usepackage{subfiles}
 \usepackage[labelfont={normalsize}]{caption,subfig}
 
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+    
+\newcommand*{\bigs}[1]{\vcenter{\hbox{\scalebox{3.5}{\ensuremath#1}}}}
 
 
 \newcommand{\verker}
@@ -430,9 +434,10 @@ This paper also concerns the asymptotic behavior of the insertion tableau when w
 More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}\ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
 \section{Tools}
 \subsection{The function $G(x)$}
+\label{wzory}
 We define the functions $F_{SC}, \Omega_{\star}, u, v, G$ by:
 \begin{align*}
-F_{SC}(x)&=\frac{1}{2}+\frac{1}{\pi}\bigg(\frac{x\sqrt{1-x^2}}{4}+\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)\hspace{30pt}&\big(-2\leq x \leq 2\big),\\
+F_{SC}(x)&=\frac{1}{2}+\frac{1}{\pi}\bigg(\frac{x\sqrt{4-x^2}}{4}+\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)\hspace{30pt}&\big(-2\leq x \leq 2\big),\\
 \Omega_{\star}(x)&=\frac{2}{\pi}\bigg(\sqrt{1-x^2}+x\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)&\big(-2\leq x \leq 2\big),\\
 u(x)&=F_{SC}^{-1}(x),\\
 v(x)&=\Omega_{\star}(u(x)),\\
@@ -641,6 +646,54 @@ $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\
 
 \end{proof}
 
+\section{Asymptotic behavior of the function $H(A)$}
+
+Let $A=\frac{1}{x}$. In this chapter we will describe the asymptotic behavior of the function $H\big(\frac{1}{x}\big)$ when $x$ tends to zero. For this purpose, we will use the formulas given in \cref{wzory}.
+
+$$H\big(1/x\big)=\sqrt{\frac{1}{x}}G(x)=\frac{1}{2\sqrt{x}}\bigg(v(x)+u(x), v(x)-u(x)\bigg).$$
+We define the function $f(x):[0,2]\to [0,\sqrt{\frac{3\pi}{2}}]$ by
+$$f(x)=\sqrt[3]{\frac{3\pi}{2} F_{sc}(x^2-2)}.$$
+The function $F_{sc}$ is inversible, so the function $f$ also is inversible and the above formula can be transformed into a form
+$$f^{-1}(y)=\sqrt{F_{sc}^{-1}\bigg(\frac{2}{3\pi}y^3\bigg)+2}.$$
+Therefore for $x\in[0,1]$ we have:
+$$F_{sc}^{-1}(x)=\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2.$$
+Next we determine the taylor series of the function $f(x)$.
+$$f(x)=x-\frac{1}{40}x^3-\frac{39}{22400}x^5-O(x^7).$$
+We use some formulas and determine the series of inverse function $f^{-1}(y)$.
+$$f^{-1}(y)=y+\frac{1}{40}y^3+\frac{81}{22400}y^5+O(y^7).$$
+Of course $O\big(f^{-1}(y)\big)=O(y)$.
+Then for $x\in[0,1]$ occurs
+\begin{align*}
+F_{sc}^{-1}(x)&=\left(\left(\sqrt[3]{\frac{3\pi}{2}x}\right)+\frac{1}{40}\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^3+\frac{81}{22400}\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^5+O\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^7\right)^2-2\\&=-2+\left(\frac{3\pi}{2}x\right)^{\frac{2}{3}}+\frac{1}{20}\left(\frac{3\pi}{2}x\right)^{\frac{4}{3}}+\frac{11}{1400}\left(\frac{3\pi}{2}x\right)^{\frac{6}{3}}+O\left(x^{\frac{8}{3}}\right)
+\end{align*}
+Additionally we determine the taylor series of the function $\Omega_{\star}(t^2-2)+t^2-2$
+$$\Omega_{\star}(t^2-2)+t^2-2=\frac{4}{3\pi}t^3+\frac{1}{30\pi}t^5+\frac{3}{1120\pi}t^7+O\left(t^{9}\right)$$
+Thereby
+\begin{align*}
+&v(x)+u(x)\\&=\Omega_{\star}\big(u(x)\big)+u(x)\\&=\Omega_{\star}\big(F_{sc}^{-1}(x)\big)+F_{sc}^{-1}(x)\\&=\Omega_{\star}\bigs(\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2\bigs)+\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2\\
+&=\frac{4}{3\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^3+\frac{1}{30\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^5+\frac{3}{1120\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^7+O\left(x^{\frac{9}{3}}\right)\\
+&=O\left(x^{\frac{9}{3}}\right)+\frac{4}{3\pi}\Bigg(\bigg(\frac{3\pi}{2}x\bigg)^{\frac{1}{3}}+\frac{1}{40}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{3}{3}}+\frac{81}{22400}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{5}{3}}+O\left(x^{\frac{7}{3}}\right)\Bigg)^3+...\\
+&=O\left(x^{\frac{9}{3}}\right)+\frac{4}{3\pi}\Bigg(\bigg(\frac{3\pi}{2}x\bigg)^{\frac{1}{3}}+\frac{1}{40}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{3}{3}}+\frac{81}{22400}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{5}{3}}\Bigg)^3+...\\
+&=2x+\frac{1}{5}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}x^{\frac{5}{3}}+\frac{1}{28}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}x^{\frac{7}{3}}+O\left(x^3\right)
+\end{align*}
+and
+\begin{align*}
+&v(x)-u(x)\\&=v(x)+u(x)-2u(x)\\&=v(x)+u(x)-2F_{sc}^{-1}(x)\\&=2x+\frac{1}{5}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}x^{\frac{5}{3}}+\frac{1}{28}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}x^{\frac{7}{3}}+4-2\left(\frac{3\pi}{2}x\right)^{\frac{2}{3}}-\frac{1}{10}\left(\frac{3\pi}{2}x\right)^{\frac{4}{3}}-\frac{11}{700}\left(\frac{3\pi}{2}x\right)^{\frac{6}{3}}+O\left(x^{\frac{8}{3}}\right)
+\end{align*}
+Thus
+\begin{align*}
+\frac{v(x)+u(x)}{2\sqrt{x}}&=\sqrt{x}+\frac{1}{10}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}x^{\frac{7}{6}}+\frac{1}{56}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}x^{\frac{11}{6}}+O\left(x^{\frac{15}{6}}\right)
+\end{align*}
+and
+
+%%\begin{align*}
+%%&\frac{v(x)-u(x)}{2\sqrt{x}}\\&=\frac{2}{\sqrt{x}}-\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}x^{\frac{1}{6}}+x^{\frac{3}{6}}-\frac{1}{20}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-5pt}x^{\frac{5}{6}}+\frac{1}{10}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}x^{\frac{7}{6}}-\frac{11}{1400}\left(\frac{3\pi}{2}\right)^{\frac{6}{3}}\hspace{-5pt}x^{\frac{9}{6}}+\frac{1}{56}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-5pt}x^{\frac{11}{6}}+O\left(x^{\frac{13}{6}}\right)
+%%\end{align*}
+
+\begin{align*}
+&\frac{v(x)-u(x)}{2\sqrt{x}}\\&=
+\frac{2}{\sqrt{x}}-\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}x^{\frac{1}{6}}+x^{\frac{3}{6}}-\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\frac{x^{\frac{5}{6}}}{20}+\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\frac{x^{\frac{7}{6}}}{10}-\left(\frac{3\pi}{2}\right)^{\frac{6}{3}}\frac{11x^{\frac{9}{6}}}{1400}+\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\frac{x^{\frac{11}{6}}}{56}+O\left(x^{\frac{13}{6}}\right)
+\end{align*}
 
 %% if you use biblatex then this generates the bibliography
 %% if you use some other method then remove this and do it your own way
