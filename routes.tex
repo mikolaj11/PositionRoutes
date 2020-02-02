@@ -438,12 +438,11 @@ More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w
 We define the functions $F_{SC}, \Omega_{\star}, u, v, G$ by:
 \begin{align*}
 F_{SC}(x)&=\frac{1}{2}+\frac{1}{\pi}\bigg(\frac{x\sqrt{4-x^2}}{4}+\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)\hspace{30pt}&\big(-2\leq x \leq 2\big),\\
-\Omega_{\star}(x)&=\frac{2}{\pi}\bigg(\sqrt{1-x^2}+x\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)&\big(-2\leq x \leq 2\big),\\
+\Omega_{\star}(x)&=\frac{2}{\pi}\bigg(\sqrt{4-x^2}+x\sin^{-1}\Big(\frac{x}{2}\Big)\bigg)&\big(-2\leq x \leq 2\big),\\
 u(x)&=F_{SC}^{-1}(x),\\
 v(x)&=\Omega_{\star}(u(x)),\\
 G(x)&=\Big(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2}\Big).
 \end{align*}
-\vspace{-12pt}
 \begin{figure}[h]
  \begin{center}
 \verker
@@ -451,9 +450,8 @@ G(x)&=\Big(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2}\Big).
 \caption{The graph of the function $G(x)$ with specified values for  numbers $x=0.0$, $x=0.2$, $x=0.5$, $x=0.8$ and $x=1.0$.}
 \label{fig:gfunction}
 \end{figure}
-
-The function $G(x) \colon [0,1]\to[0,2]^2$ is a certain special parameterization of the Logan--Sheep--Vershik--Kerov curve rotated by 45 degrees (see \cite[Chapter 5.1]{Romik2015a}). \cref{fig:gfunction} shows the graph of the function $G(x)$. Moreover the function $G(x)$ is continuous and increasing in the first coordinate and decreasing in the second coordinate. \\
-
+\cref{fig:gfunction} shows the graph of the function $G(x)$. \\
+The function $F_{SC}$ is the cumulative distribution function of the \emph{semicircle distribution}. The function $\Omega_{\star}$ is the limit shape of the Young Tableau obtained from the \emph{Plancherel growth process}. This curve is called the Logan--Sheep--Vershik--Kerov curve. The function $\big(u(x), v(x)\big)$ is a special parameterisation of the function $\Omega_{\star}(x)$ and describes the limit position of the new box in the RSK insertion step applied with the number $x$ to the random Young Tableau. The function $G(x) \colon [0,1]\to[0,2]^2$ is the function $\big(u(x), v(x)\big)$ rotated by 45 degrees (see \cite[Chapter 5.1]{Romik2015a}). Moreover the function $G(x)$ is continuous and increasing in the first coordinate and decreasing in the second coordinate. 
 \subsection{The result of Romik and Śniady}
 In the proof of \cref{thm:mainthm} we will need the following result of Romik and Śniady \cite[Theorem 5.1]{Romik2015a}. 
 
