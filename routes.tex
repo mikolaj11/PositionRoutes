@@ -506,7 +506,7 @@ $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots
 
 \begin{theorem}
 \label{thm:mainthm}
-For each number $A\in(1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity. In other words, for each $\epsilon>0$: $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
+For each number $A\in[1,\infty)$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, converges in probability to the limit $H(A)$, when $n$ tends to infinity. In other words, for each $\epsilon>0$: $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 \begin{proof}
 We apply the RSK algorithm to a random sequence of real numbers containing the number $w$ and investigate the position of the box with the number $w$ in the insertion tableau. An insertion step applied to a number greater that $w$ does not change the position of the number $w$ in the tableau, so it is enough to consider only the subsequence containing numbers not greater than $w$. 
@@ -637,11 +637,60 @@ Thereby:
 \begin{align*}
 &\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\| > 4\epsilon\bigg)\leq \\&\leq  \mathbb{P}\Big(\left\|G_n(T+\delta)-G(T+\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left\|G_n(T-\delta)-G(T-\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left| T_n-T\right|\geq \delta\Big)\\&\leq  \mathbb{P}\Big(\left\|G_n(T+\delta)-G(T+\delta)\right\|> \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(T-\delta)-G(T-\delta)\right\|> \epsilon\Big)+ \mathbb{P}\Big(\left| T_n-T\right|\geq \delta\Big)\\&=o(1).\tag{\ref{smallo},\ref{convt}}
 \end{align*}
-Then for each $A\in(1,\infty)$ and each $\epsilon>0$ we have:
+Then for each $A\in[1,\infty)$ and each $\epsilon>0$ we have:
 $$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(T_n)-G(T)\right\| > 4\frac{\epsilon}{4\sqrt{A}}\bigg)=0,$$
 $$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\right)=0.$$
 
 
+\end{proof}
+
+\section{The uniform convergence on the interval}
+
+\begin{theorem}
+For each  number $A\in[1,R]$ the random variable $\Pos_n(\floor{An})$, after scaling by $\sqrt{wn}$, 
+converges in probability to the limit $H(A)$, when $n$ tends to infinity. Moreover, the convergence is uniform, i.e.  for each $\epsilon>0$
+
+$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{A\in[1,R]} \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
+
+\end{theorem}
+
+\begin{proof}
+From proof of \cref{thm:mainthm} we know that $G_n(T_n)$ converges in probability to the limit $G(T)$, when $n$ tends to infinity for $T=\frac{1}{A}\in[\frac{1}{R},1]$.\\
+The function $G(x)$ is also increasing in the order $\prec$. In addition $G(x)$ is the continuous function on the closed interval $[\frac{1}{R},1]$. Then from the Heine-Cantor theorem the function $G(x)$ is uniformly continuous on the interval $[\frac{1}{R},1]$. 
+This means that for each $\epsilon>0$ there exists $\delta>0$ that for each $x\in[\frac{1}{R}, 1]$ if $|x-T| < \delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
+
+\begin{align*}
+(-\epsilon,\epsilon)\prec G(x)-G(T)\prec (\epsilon,-\epsilon).
+\end{align*}
+
+Let $\delta>0$. We split the interval $[\frac{1}{R}, 1]$ into the $p$ equal intervals of lengths $\frac{1-\frac{1}{R}}{p}<\delta$ for a some natural number $p$. Let $x_0, x_1, \ldots, x_n$ denote the ends of these intervals. Let $T_n\in[\frac{1}{R},1]$. We choose a number $n_0$ so that 
+\begin{align*}
+T_n, T\in(x_k, x_{k+1})\text{ for a some number }k\in\{0, 1, \ldots, p-1\} 
+\end{align*}
+and
+\begin{align*}
+||G_n(x_k) -G(x_k)||<\epsilon \text{ for all }n>n_0\text{ and all } k\in\{0, 1, \ldots, p\}. 
+\end{align*}
+Thereby
+\begin{align*}
+G_n(T_n)-G(T)&\prec G_n(x_{k+1})-G(T) \tag{\ref{ineq}}\\&\prec(\epsilon,-\epsilon)+G(x_{k+1})-G(T)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{\ref{ineq}}\\&=(2\epsilon,-2\epsilon).
+\end{align*}
+Analogously
+\begin{align*}
+G_n(T_n)-G(T)&\succ G_n(x_{k})-G(T) \tag{\ref{ineq}}\\&\succ(-\epsilon,\epsilon)+G(x_{k})-G(T)\\&\succ (-\epsilon,\epsilon)+(-\epsilon,\epsilon) \tag{\ref{ineq}}\\&=(-2\epsilon,2\epsilon).
+\end{align*}
+Thus
+\begin{align*}
+\left\|G_n(T_n)-G(T)\right\|< \left\| (2\epsilon,-2\epsilon) \right\| <4 \epsilon .
+\end{align*}
+Obviously if $T_n=x_k$ for a some number $k\in{0, 1, \ldots, p}$ then the inequality also is fulfil. Then for each $A\in[1,R]$ and each $\epsilon>0$ we have:
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{T\in[\frac{1}{R},1]}\sqrt{A}\left\|G_{n}(T_n)-G(T)\right\| > 4\sqrt{A}\epsilon\bigg)=0.$$
+Using the inequality $A\leq R$ we obtain
+
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{T\in[\frac{1}{R},1]}\sqrt{A}\left\|G_{n}(T_n)-G(T)\right\| > 4\sqrt{R}\epsilon\bigg)=0,$$
+$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{A\in[1,R]} \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>4\sqrt{R}\epsilon\Bigg)=0.$$
+Thus for each $\epsilon>0$ occur
+$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{A\in[1,R]} \left\|\frac{\Pos_n\left(\floor{An}\right)}{\sqrt{wn}}-H\left(A\right)\right\|>\epsilon\Bigg)=0.$$
 \end{proof}
 
 \section{Asymptotic behavior of the function $H(A)$}
