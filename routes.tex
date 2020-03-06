@@ -59,9 +59,10 @@
     coordinates {
     (2,0)
     };
-	\fill[thick,draw=black,fill=white] ({100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))+1/2)},{100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))-1/2)}) circle (100*0.03) node[anchor=south] {\tiny \large \hspace{30pt}$G(0.8)$};
-	\fill[thick,draw=black,fill=white] ({100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))-1/2)},{100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))+1/2)}) circle (100*0.03) node[anchor=south west] {\tiny \large $G(0.2)$};
-	\fill[thick,draw=black,fill=white] ({100*(1/pi*(0*rad(asin(0/2))+sqrt(4-0*0))+0/2)},{100*(1/pi*(0*rad(asin(0/2))+sqrt(4-0*0))-0/2)}) circle (100*0.03) node[anchor=south west] {\tiny \large $G(0.5)$};
+	\fill[thick,draw=black,fill=white] ({100*(1/pi*(1.5*rad(asin(0.5/2))+sqrt(4-1.5*1.5))+0.5/2)},{100*(1/pi*(0.5*rad(asin(1.5/2))+sqrt(4-0.5*0.5))-0.5/2)}) circle (100*0.03) node[anchor=south] {\tiny \large \hspace{45pt}$G(0.6)$};
+	\fill[thick,draw=black,fill=white] ({100*(1/pi*(0.5*rad(asin(1.5/2))+sqrt(4-0.5*0.5))-0.5/2)},{100*(1/pi*(1.5*rad(asin(0.5/2))+sqrt(4-1.5*1.5))+0.5/2)}) circle (100*0.03) node[anchor=south west] {\tiny \large \hspace{-10pt} $G(0.4)$};
+	\fill[thick,draw=black,fill=white] ({100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))+1/2)},{100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))-1/2)}) circle (100*0.03) node[anchor=south] {\tiny \large \hspace{50pt}$G(0.8)$};
+	\fill[thick,draw=black,fill=white] ({100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))-1/2)},{100*(1/pi*(1*rad(asin(1/2))+sqrt(4-1*1))+1/2)}) circle (100*0.03) node[anchor=south west] {\tiny \large \hspace{-8pt} $G(0.2)$};
 	\fill[thick,draw=black,fill=white] ({100*(1/pi*(-2*rad(asin(-2/2))+sqrt(4-2*2))-2/2)},{100*(1/pi*(-2*rad(asin(-2/2))+sqrt(4-2*2))+2/2)}) circle (100*0.03) node[anchor=west] {\tiny \large \hspace{4pt}$G(0.0)$};
 	\fill[thick,draw=black,fill=white] ({100*(1/pi*(2*rad(asin(2/2))+sqrt(4-2*2))+2/2)},{100*(1/pi*(2*rad(asin(2/2))+sqrt(4-2*2))-2/2)}) circle (100*0.03) node[anchor=south] {\tiny \large $G(1.0)$};
 
@@ -335,11 +336,11 @@
 }
 
 %% define your title in the usual way
-\title[Dynamic limit of RSK]{Dynamic limit \\ of Robinson--Schensted--Knuth algorithm}
+\title[Hydrodynamic limit of RSK]{Hydrodynamic limit \\ of Robinson--Schensted--Knuth algorithm}
 
 %% define your authors in the usual way
 %% use \addressmark{1}, \addressmark{2} etc for the institutions, and use \thanks{} for contact details
-\author[Mikołaj Marciniak]{Mikołaj Marciniak\thanks{\href{mailto:mikolaj@mat.umk.pl}{mikolaj@mat.umk.pl}. Mikołaj Marciniak was partially supported by Narodowe Centrum Nauki, grant number 2017/26/A/ST1/00189.}\addressmark{1}}
+\author[Mikołaj Marciniak]{Mikołaj Marciniak\thanks{\href{mailto:marciniak@mat.umk.pl}{marciniak@mat.umk.pl}. Mikołaj Marciniak was partially supported by Narodowe Centrum Nauki, grant number 2017/26/A/ST1/00189.}\addressmark{1}}
 %% cudzyslow “...		”
 %% then use \addressmark to match authors to institutions here
 \address{\addressmark{1}Interdisciplinary Doctoral School “Academia Copernicana”, Faculty of Mathematics and Computer Science, Nicolaus Copernicus University in Toruń, ul.~Chopina 12/18, 87-100 Toruń, Poland}
@@ -353,7 +354,7 @@
 %% put your English abstract here, or comment this out if you don't have one yet
 %% please don't use custom commands in your abstract / resume, as these will be displayed online
 %% likewise for citations -- please don't use \cite, and instead write out your citation as something like (author year)
-\abstract{We investigate the evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a~typical trajectory after scaling converges in probability to some deterministic curve.}
+\abstract{We investigate the evolution in time of the position of a fixed number in the insertion tableau when the Robinson--Schensted--Knuth algorithm is applied to a sequence of random numbers. When the length of the sequence tends to infinity, a~typical trajectory after scaling converges uniformly in probability to some deterministic curve.}
 
 %% put your French abstract here, or comment this out if you don't have one
 %%\resume{\lipsum[2]}
@@ -404,7 +405,7 @@ The RSK algorithm is based on applying the \emph{insertion step} to successive n
 \caption{\protect\subref{fig:RSKa} The original tableau $P$.
 	\protect\subref{fig:RSKb} The highligted boxes form the bumping route which
 	corresponds to an insertion of the number $18$. The numbers next to the arrows describe the bumped boxes with the numbers.\protect\subref{fig:RSKc} The
-	output of RSK insertion step. }
+	output of the RSK insertion step. }
 \label{fig:RSK}
 \end{figure}
 
@@ -421,7 +422,7 @@ The RSK algorithm is an important tool in algebraic combinatorics, especially in
 
 For many years mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson--Schensted--Knuth algorithm to a random input. In the following paragraphs we will see several examples of such considerations. 
 
-The RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution on the unit interval $(0,1)$ generates the \emph{Plancherel measure} on Young diagrams \cite[CHapter 1.8]{Romik2015}. The Plancherel measure is an important element of the representation theory because it describes how the left regular representation decomposes into irreducible componennts \cite[Chapter 3.3]{Fulton1991}.
+The RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution $U(0,1)$ on the unit interval $(0,1)$ generates the \emph{Plancherel measure} on Young diagrams \cite[CHapter 1.8]{Romik2015}. The Plancherel measure is an important element of the representation theory of the symmetric group because it describes how the left regular representation decomposes into irreducible componennts \cite[Chapter 3.3]{Fulton1991}.
 
 The Ulam--Hammersley problem appears in \cite[CHapter 1.1]{Romik2015} and concerns the typical length of the longest increasing subsequence in a random permutation. This problem corresponds to the problem of typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the unit interval $(0,1)$.
 
@@ -432,7 +433,7 @@ Romik and Śniady \cite{Romik2016} considered the limit shape of the bumping rou
 \subsection{The main problem}
 This paper also concerns the asymptotic behavior of the insertion tableau when we apply the RSK algorithm to a random input. \emph{What can we say about the evolution over time of the insertion tableau from the viewpoint of box dynamics, when we apply the RSK algorithm to a sequence of independent random variables with the uniform distribution $U(0,1)$? How do the boxes move in the insertion tableau? If we investigate the scaled position of a box with a fixed number, will we get a deterministic limit, when the number of boxes tends to infinity?}
 
-More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}, \ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$.
+More specifically, we consider the insertion tableau $P(X_1, X_2, \ldots, X_n, w, X_{n+1}, \ldots, X_m)$ obtained by the RSK algorithm applied to a random finite sequence containing a fixed number $w$ at some index. The box with this fixed number $w$ is being bumped by the RSK insertion step along the bumping routes. We will describe the scaled limit position of the box with the number $w$ depending on the ratio of the numbers $m$ and $n$. This problem was also present by Duzhin and Vasilii in \cite{Duzhin2019}, but they misjudged the shape of the limit function.
 \section{Tools}
 \subsection{The function $G(x)$}
 \label{wzory}
@@ -444,12 +445,13 @@ u(x)&=F_{SC}^{-1}(x) \hspace{30pt}&\big(0\leq x \leq 1\big),\\
 v(x)&=\Omega_{\star}(u(x)) \hspace{30pt}&\big(0\leq x \leq 1\big),\\
 G(x)&=\Big(\frac{v(x)+u(x)}{2},\frac{v(x)-u(x)}{2}\Big) \hspace{30pt}&\big(0\leq x \leq 1\big).
 \end{align*}
-The function $F_{SC}$ is the cumulative distribution function of the \emph{Wigner's semicircle distribution}. The function $\Omega_{\star}$ is the limit shape of the Young Tableau obtained from the \emph{Plancherel growth process}. This curve is called the Logan--Sheep--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986}. The function $x \mapsto \big(u(x), v(x)\big)$ is a special parameterisation of the function $\Omega_{\star}$ and describes the limit position of the new box in the RSK insertion step applied with the number $x$ to the random Young Tableau \cite[Chapter 5.1]{Romik2015a}. The function $G\colon [0,1] \to \mathbb{R}_+^2$ is the function $\big(u(x), v(x)\big)$ rotated by 45 degrees (see \cite[Chapter 5.1]{Romik2015a}). Moreover the function $G(x)$ is continuous and increasing in the first coordinate and decreasing in the second coordinate.
+The function $F_{SC}$ is the cumulative distribution function of the \emph{Wigner's semicircle distribution}. The function $\Omega_{\star}$ is the limit shape of the Young Tableau obtained from the \emph{Plancherel growth process}. This curve is called the Logan--Shepp--Vershik--Kerov curve \cite{LoganShepp1977}\cite{VershikKerov1986}. The function $x \mapsto \big(u(x), v(x)\big)$ is a special parameterisation of the function $\Omega_{\star}$ and describes the limit position of the new box in the RSK insertion step applied with the number $x$ to the random Young Tableau \cite[Chapter 5.1]{Romik2015a}. The function $G\colon [0,1] \to \mathbb{R}_+^2$ is the function $\big(u(x), v(x)\big)$ rotated by 45 degrees (see \cite[Chapter 5.1]{Romik2015a}). Moreover the function $G(x)$ is continuous and increasing in the first coordinate and decreasing in the second coordinate.
 \begin{figure}
  \begin{center}
 \verker
 \end{center}
-\caption{The graph of the function $G(x)$ with specified values for the argument $x=0.0$, $x=0.2$, $x=0.5$, $x=0.8$ and $x=1.0$.}
+\caption{The graph of the function $G(x)$ with specified values for the argument\\
+$x=0.0$, $x=0.2$, $x=0.4$, $x=0.6$ $x=0.8$ and $x=1.0$.}
 \label{fig:gfunction}
 \end{figure}
 \cref{fig:gfunction} shows the graph of the function $G\colon [0,1] \to \mathbb{R}_+^2$. \\
@@ -460,7 +462,7 @@ In the proof of \cref{thm:mainthm} we will need the following result of Romik an
 Let $\{X_j\}_{j=1}^\infty$ be a  sequence of independent random variables with the uniform distribution $U(0,1)$. Let $\square_n(x)\in \mathbb{N}^2$ denote the position of the box with the maximal number in the recording tableau $Q(X_1, \ldots, X_n, x)$ when we apply the RSK insertion step for the number $x\in[0,1]$ to the previously obtained tableau $P(X_1, \ldots, X_n)$. 
 \begin{theorem}
 \label{thm:romthm}
-For each $x\in[0,1]$ the position $\square_n(x)$, after scaling by $\sqrt{n}$, converges in probability to a specific point $G(x)\in [0,2]^2$, when $n$ tends to infinity: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x).$$ 
+For each $x\in[0,1]$ the position $\square_n(x)$, after scaling by $\frac{1}{\sqrt{n}}$, converges in probability to a specific point $G(x)\in [0,2]^2$, when $n$ tends to infinity: $$\frac{\square_n(x)}{\sqrt{n}}\overset{p}{\to}G(x).$$ 
 \end{theorem}
 
 \subsection{The partial order on the plane}
@@ -508,7 +510,7 @@ $$\Pos_n\left(j\right)=\boxi_w\biggl(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots
 
 \begin{theorem}
 \label{thm:mainthm}
-Let $R\in(1, \infty)$ be a real number. For each number $T\in[1,R)$ the random variable $\Pos_n(\floor{Tn})$, after scaling by $\frac{1}{\sqrt{wn}}$, converges in probability to $H(T)$, when $n$ tends to infinity. Moreover, the convergence is uniform, i.e.  for each $\epsilon>0$
+Let $R\in(1, \infty)$ be a real number. For each number $T\in[1,R]$ the random variable $\Pos_n(\floor{Tn})$, after scaling by $\frac{1}{\sqrt{wn}}$, converges in probability to $H(T)$, when $n$ tends to infinity. Moreover, the convergence is uniform, i.e.  for each $\epsilon>0$
 $$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 
@@ -547,7 +549,7 @@ We define the function $z:\{1, 2, \ldots m'\}\cup\{m'+1, n'+\frac{1}{2}\}\to [0,
 From the property of the random increasing sequence with the uniform distribution (\cref{incseq}) we have:
 $$\Big\{X'_j\Big\}_{j=1}^{m'}=\Big\{z(\Pi_j)\Big\}_{j=1}^{m'}=z\circ\Pi,$$
 where $\{z(j)\}_{j=1}^{m'}$ is a random increasing sequence with the uniform distribution on the interval $[0,w]$ and $\Pi$ is a random permutation of range $m'$ with the uniform distribution . The function $z$ acts pointwise on every element of the permutation $\Pi$. 
-Similarly, the function $z$ acts on a Young tableau by acting on each box individually. Then
+Similarly, the function $z$ acts on the insertion tableau by acting on each box individually. Since the function $z$ is increasing, the function $z$ by acting on the input of the RSK algorithm change pointwise the numbers in the insertion tableau. Then
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_w\Big(P\left(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big)
 \\&= \boxi_w\bigg(P\Big(z(\Pi_1), \ldots, z\left(\Pi_{n'}\right), w, z\left(\Pi_{n'+1}\right), \ldots, z\left(\Pi_{m'}\right)\Big)\bigg)
@@ -558,9 +560,9 @@ We denote the inverse permutation to $\Pi$ by $\Pi^{-1}=\Big(\Pi^{-1}_1, \ldots,
 $$
 \Pi\strzalka^{-1}_j=
 \begin{cases}
-\Pi_j^{-1}&\text{if } j\leq n, \\
-\Pi_j^{-1}+1& \text{if }n<j\leq m', \\
-n+1& \text{if }j=m'+1. 
+\Pi_j^{-1}&\text{if } j\leq n', \\
+\Pi_j^{-1}+1& \text{if }n'<j\leq m', \\
+n'+1& \text{if }j=m'+1. 
 \end{cases}
 $$ 
 In addition, we will use the fact \cite{Schuetzenberger1963} that for any permutation $\Pi\strzalka$ the insertion tableau of $\Pi\strzalka$ is equal to the recording tableau of the inverse permutation $\Pi\strzalka^{-1}$:
@@ -569,13 +571,13 @@ Therefore
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\right)\bigg).
 \end{align*}
-Now, by changing the number $n'+1$ to the number $n'$ we get the inverse permutation $\Pi^{-1}$ 
+Now, by changing the number $n'+1$ to the number $n'+\frac{1}{2}$ we get the inverse permutation $\Pi^{-1}$ 
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\Big)\bigg)\hspace{50pt}
 \\&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg)
-\\&=\boxi_{m'}\bigg(Q\Big(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg)
+\\&=\boxi_{m'}\bigg(Q\Big(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg).
 \end{align*}
-and using the function $z$, we will get a sequence of independent random variables with the uniform distribution $U(0,1)$ 
+Since the function $z$ is increasing, the function $z$ by acting on the input of the RSK algorithm not change the content of the recording tableau. Using the function $z$, we will get a sequence of independent random variables with the uniform distribution $U(0,1)$ 
 \pagebreak[2]
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'}\bigg(Q\Big(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg)
@@ -715,7 +717,7 @@ Therefore for $x\in[0,1]$ we have:
 $$F_{sc}^{-1}(x)=\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2.$$
 Next we determine the Taylor series of the function $f(x)$.
 $$f(x)=x-\frac{1}{40}x^3-\frac{39}{22400}x^5-O(x^7).$$
-We use some formulas and determine the series of inverse function $f^{-1}(y)$.
+We use the formulas for the coefficients of the series of the inverse function given by Morse and Feshbach in \cite{Morse1953} and we determine the series of inverse function $f^{-1}(y)$.
 $$f^{-1}(y)=y+\frac{1}{40}y^3+\frac{81}{22400}y^5+O(y^7).$$
 Of course $O\big(f^{-1}(y)\big)=O(y)$.
 Then for $x\in[0,1]$ occurs
@@ -751,7 +753,7 @@ and
 &\frac{v(A)-u(A)}{2\sqrt{A}}\\&=
 \frac{2}{\sqrt{A}}-\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}A^{\frac{1}{6}}+A^{\frac{3}{6}}-\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-3pt}\frac{A^{\frac{5}{6}}}{20}+\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-3pt}\frac{A^{\frac{7}{6}}}{10}-\left(\frac{3\pi}{2}\right)^{\frac{6}{3}}\frac{11A^{\frac{9}{6}}}{1400}+\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-3pt}\frac{A^{\frac{11}{6}}}{56}+O\left(A^{\frac{13}{6}}\right)
 \end{align*}
-We see that the function $H(T)$ behaves asymptotically like the function $(\frac{1}{\sqrt{T}}, 2\sqrt{T})$
+We see that the function $H$ behaves asymptotically like the function $(\frac{1}{\sqrt{T}}, 2\sqrt{T})$. The function $H$ describes the asymptotic position of the box with a fixed number $w$. The $x$-coordinate of this position after scaling tends to the $OY$ axis. If we did not scale it, would it also be similar? Will the box with the number $w$ be move to the first column? We expect that almost surely yes. How long will we have to wait for this? We expect that if the number $w$ appears in the RSK algorithm after $n$ steps, the waiting time for the number in the first column is $O(n^2)$. Is this really true? More formally, let $\{X_j\}_{j=1}^\infty$ be a sequence of independent random variables with the uniform distribution $U(0,1)$. What is the probability that the box with a fixed number $w$ will be in the first column in the insertion tableau $P(x_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{\floor{Tn^2}})$ depending on parameter $T$?
 
 %% if you use biblatex then this generates the bibliography
 %% if you use some other method then remove this and do it your own way
