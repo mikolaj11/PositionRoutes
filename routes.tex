@@ -278,7 +278,7 @@
 	\draw (2,1) rectangle +(1,1); 
 	\node at (2.5,1.5) {70}; 
 	\draw (0,2) rectangle +(1,1); 
-	\node at (0.5,2.5) {58}; 
+	\node at (0.5,2.5) {53}; 
 	\draw (1,2) rectangle +(1,1); 
 	\node at (1.5,2.5) {99}; 
 	\draw (0,3) rectangle +(1,1); 
@@ -328,7 +328,7 @@
 }
 
 %% define your title in the usual way
-\title[Hydrodynamic limit of RSK]{Hydrodynamic limit \\ of Robinson--Schensted--Knuth algorithm}
+\title[Hydrodynamic limit of RSK]{Hydrodynamic limit \\ of the Robinson--Schensted--Knuth algorithm}
 
 %% define your authors in the usual way
 %% use \addressmark{1}, \addressmark{2} etc for the institutions, and use \thanks{} for contact details
@@ -367,6 +367,7 @@
 \begin{document}
 
 %\todo[inline]{właściwym sposobem regulowania odstępów między paragrafami są komendy \texttt{smallskip}, \texttt{medskip}, \texttt{bigskip}}
+\todo[inline]{nazwac krzywe: "Position routes"?, być może warto nie nazywać granicy hydrodynamiczną}
 	
 	
 \maketitle
@@ -376,8 +377,6 @@
 
 \subsection{Notations}
 A \emph{partition} of a natural number $n$ is a break up of $n$ into a sum $n=\lambda_1+\lambda_2+\cdots+\lambda_k$ where $\lambda_1\geq \lambda_2\geq\cdots\geq\lambda_k>0$ are positive integer numbers. The vector \linebreak[4]{$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$} is usually used to denote a partition. Let $\lambda\vdash n$ denote that $\lambda$ is a partition of a number $n$. A \emph{Young diagram} $\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)$ is a finite collection of boxes arranged in left-justified rows with the row length $\lambda_j$ of the $j$-th row. Thus the Young diagram $\lambda$ is a graphical interpretation of the partition $\lambda$. A \emph{Young tableau} is a Young diagram filled with numbers. If the entries strictly decrease along each column from top to bottom and weakly increase along each row from left to right, a tableau is called \emph{semistandard}. A \emph{standard Young tableau} is a semistandard Young tableau with $n$ boxes which contains all numbers $1, 2, \ldots, n$. \cref{fig:diagtab} shows examples of a Young diagram and of a standard Young tableau.
-
-\medskip
 
 \begin{figure}[h]
 \rysuj
@@ -404,23 +403,21 @@ The RSK algorithm is based on applying the \emph{insertion step} to successive n
 We can say that the boxes with numbers are moved along the bumping route during an RSK insertion step. 
 %The insertion step of the RSK algorithm can change the position of some numbers. 
 In this article we will investigate the position of the box with a selected number and how this position is changing over time. 
-
+\todo[inline]{nadać nazwę i zdefioniować}
 
 
 \subsection{Motivations}
-The RSK algorithm is an important tool in algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and plactic monoid\cite[Lecture 4]{Fulton1991}. 
-
-\medskip
+The RSK algorithm is an important tool in algebraic combinatorics, especially in the context of Littlewood--Richardson coefficients and the plactic monoid\cite[Lecture 4]{Fulton1991}. 
 
 For many years mathematicians have been studying the asymptotic behavior of the insertion tableau when we apply the Robinson--Schensted--Knuth algorithm to a random input. In the following paragraphs we will see several examples of such considerations. 
 
-The Ulam--Hammersley problem \cite[Chapter 1.1]{Romik2015} concerns the typical length of the longest increasing subsequence in a random permutation. This problem corresponds to the problem of typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the unit interval $(0,1)$.
+The Ulam--Hammersley problem \cite[Chapter 1.1]{Romik2015} concerns the typical length of the longest increasing subsequence in a random permutation. This problem corresponds to the problem of finding the typical length of the first row in the Young tableau obtained by the RSK algorithm from the sequence of independent random variables $\{X_j\}_{j=1}^n$ with the uniform distribution $U(0,1)$ on the unit interval $(0,1)$.
 
 More generally, the RSK algorithm applied to the sequence of independent and identically distributed random variables with the uniform distribution $U(0,1)$ on the unit interval $(0,1)$ generates the \emph{Plancherel measure} on Young diagrams \cite[Chapter 1.8]{Romik2015}. The Plancherel measure is an important element of the representation theory of the symmetric groups because it describes how the left regular representation decomposes into irreducible components \cite[Chapter 3.3]{Fulton1991}.
 
 Logan and Shepp \cite{LoganShepp1977} and Vershik and Kerov \cite{VershikKerov1986} described the limit shape of the insertion tableau $P(X_1, X_2, \ldots, X_n)$ obtained when we apply the RSK algorithm to a random finite sequence.
 
-Romik and Śniady \cite{Romik2016} considered the limit shape of the bumping routes obtained when applying an RSK insertion step with a fixed number $w$ to an existing insertion tableau $P(X_1, X_2, \ldots, X_n)$ obtained from a random finite sequence. In \cite{Romik2015a} they considered also the limit shape of \emph{jeu de taquin} obtained from the recording tableau $Q(w, X_1, X_2, \ldots, X_n)$ made from a random finite sequence preceded by a fixed number $w$. 
+Romik and Śniady \cite{Romik2016} considered the limit shape of the bumping routes obtained when applying an RSK insertion step with a fixed number $w$ to an existing insertion tableau $P(X_1, X_2, \ldots, X_n)$ obtained from a random finite sequence. In \cite{Romik2015a} they also considered the limit shape of \emph{jeu de taquin} obtained from the recording tableau $Q(w, X_1, X_2, \ldots, X_n)$ made from a random finite sequence preceded by a fixed number $w$. 
 
 \subsection{The main problem}
 This paper also concerns the asymptotic behavior of the insertion tableau when we apply the RSK algorithm to a random input. \emph{What can we say about the evolution over time of the insertion tableau from the viewpoint of box dynamics, when we apply the RSK algorithm to a sequence of independent random variables with the uniform distribution $U(0,1)$? How do the boxes move in the insertion tableau? If we investigate the scaled position of a box with a fixed number, will we get a deterministic limit, when the number of boxes tends to infinity?}
@@ -460,20 +457,21 @@ For each $x\in[0,1]$ the position $\square_n(x)$, after scaling by $\frac{1}{\sq
 \subsection{The partial order on the plane}
 \label{order}
 We define \emph{the partial order $\prec$ on the plane} as follows:
-$(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$. \\
+$(x_1,y_1)\prec(x_2,y_2)$ if and only if $x_1\leq x_2$ and $y_1\geq y_2$. 
 
-For example the function $G$ is \emph{increasing with respect to the relation $\prec$}, i.e. if $x_1\leq x_2$ then $G(x_1)\prec G(x_2)$. Likewise, from a property of the RSK insertion step, for each natural number $n\in \mathbb{N}$ the function $\square_n$ is increasing with respect to the relation $\prec$, i.e. if $x_1\leq x_2$ then $\square_n(x_1)\prec \square_n(x_2)$.
-
+For example the function $G$ is \emph{increasing with respect to the relation $\prec$}, i.e. if $x_1\leq x_2$ then $G(x_1)\prec G(x_2)$. Likewise, from a property of the Insertion tableau (each row of is non-decreasing), for each natural number $n\in \mathbb{N}$ the function $\square_n$ is increasing with respect to the relation $\prec$, i.e. if $x_1\leq x_2$ then $\square_n(x_1)\prec \square_n(x_2)$.
+%\todo[inline]{wyjaśnij z jakiej właśności konkretnie korzystasz}
 \subsection{The random increasing sequence}
 \label{incseq}
-Let $w\in(0,1]$ be a fixed number and let $\{X'_j\}_{j=1}^{m'}$ be a finite sequence of independent random variables with the uniform distribution $U(0,w)$. For $j\in\{1, 2, \ldots, m'\}$ we define $z(j)$ as $j$-th order statistic, i.e. the $j$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a \emph{random increasing sequence with the uniform distribution on the interval $[0,w]$}. \\
+Let $w\in(0,1]$ be a fixed number and let $\{X'_j\}_{j=1}^{m'}$ be a finite sequence of independent random variables with the uniform distribution $U(0,w)$. For $j\in\{1, 2, \ldots, m'\}$ we define $z(j)$ as the $j$-th order statistic, i.e. the $j$-th smallest number among $X'_1, X'_2, \ldots, X'_{m'}$. The sequence $\{z(j)\}_{j=1}^{m'}$ contains all elements of the sequence $\{X'_j\}_{j=1}^{m'}$ in the ascending order. The sequence $\{z(j)\}_{j=1}^{m'}$ will be called a \emph{random increasing sequence with the uniform distribution on the interval $[0,w]$}. 
 
-In addition, the sequence $\{X'_j\}_{j=1}^{m'}$ is a some permutation $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$ of the sequence $\{z(j)\}_{j=1}^{m'}$. Thus
+In addition, the sequence $\{X'_j\}_{j=1}^{m'}$ is some permutation $\Pi=\left(\Pi_1, \Pi_2, \ldots, \Pi_{m'}\right)$ of the sequence $\{z(j)\}_{j=1}^{m'}$. Thus
 $$\Big\{X'_j\Big\}_{j=1}^{m'}=\Big\{z(\Pi_j)\Big\}_{j=1}^{m'}=z\circ\Pi,$$
 where $z$ is the function that acts pointwise on every element of the permutation $\Pi$. The permutation $\Pi$ is a random permutation with the uniform distribution. We see that a finite sequence of independent random variables with the uniform distribution $U(0,w)$ has the same distribution as a finite random increasing sequence with the uniform distribution on the interval $[0,w]$ permuted by a random permutation with the uniform distribution.
 
 \section{The main result}
 
+\subsection{Statement of Main Result}
 Our main result is \cref{thm:mainthm} describing the asymptotic behavior of the box with a fixed number. It states that when the number of boxes tends to infinity then the (scaled down) trajectory of the box converges in probability to the curve
 $H\colon [1,\infty) \to \mathbb{R}_+^2$ given by
 $$H(T):=\sqrt{T}\ G\left(\frac{1}{T}\right).$$ 
@@ -506,7 +504,23 @@ Let $R\in(1, \infty)$ be a real number. For each number $T\in[1,R]$ the random v
 $$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\Bigg)=0.$$
 \end{theorem}
 
-\subsection{The convergence}
+%\todo[inline]{brakujący podrozdział tu lub gdzieś indziej}
+\subsection{The strategy of the proof of \cref{thm:mainthm}}
+The proof will be presented in consecutive subsections of this section. 
+Here we present the sketch of the proof.
+
+First, we prove the pointwise convergence in the following way.
+\begin{itemize}
+\item We skip the numbers that are larger than $w$.
+\item We restrict our attention only to the permutation generated by the numbers.  
+\item We use the property of the RSK algorithm that the insertion tableau is equal to the recording tableau of the inverse permutation.
+\item We return to the sequence of the numbers from the interval $[0,1]$.
+\item We apply the Romik-Sniady result about bumping routes to deduce the pointwise convergence.
+ \end{itemize}
+ 
+Second, using the second Dini theorem, we prove the uniform convergence.
+
+\subsection{The pointwise convergence}
 
 First, we prove only the pointwise convergence, i.e. we prove that for each number $T\in[1,\infty)$ and for each $\epsilon>0$
 $$	\lim_{n\to\infty}\mathbb{P}\Bigg( \left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\Bigg)=0.$$ 
@@ -518,7 +532,7 @@ Now we will use this observation in the proof. Let $m=\floor{Tn}$. The probabili
 
 Let $n'=n'(n)$ and $m'=m'(n)$ denote the number of elements, respectively, of the sequences $\{X_j\}_{j=1}^n$ and $\{X_j\}_{j=1}^m$ which are smaller than $w$. Then there is an equality:
 \begin{align*}
-\Pos_n\Big(\floor{Tn}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m}\right)\Big)\\&=\boxi_w\Big(P\left(X_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
+\Pos_n\Big(\floor{Tn}\Big)&=\boxi_w\Big(P\left(X_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{m}\right)\Big)\\&=\boxi_w\Big(P\left(X'_1, \ldots, X'_{n'}, w, X'_{n'+1}, \ldots, X'_{m'}\right)\Big).
 \end{align*}
 The random variable $n'=\sum_{j=1}^{n}[X_j<w]$ counts how many numbers from the sequence $\{X_j\}_{j=1}^{n}$ are smaller than $w$, so $n'$ is a random variable with the binomial distribution with parameters $n$ and $w$. We denote it $n'\sim B(n,w)$. Likewise, the random variable $m'-n'$ counts how many numbers from the sequence $\{X_j\}_{j=n+1}^{m}$ are smaller than $w$, so \linebreak[4]{$m'-n'\sim B(m-n,w)$.} Moreover, the random variables $n'$ and $m'-n'$ are independent, because the random variables $X_1, X_2, \ldots$ are independent. 
 
@@ -529,7 +543,13 @@ From the Strong Law of Large Numbers \cite[Theorem 2.4.1]{Durrett2019} we know t
 \end{align*}
 Therefore, also the following limits exist almost surely
 \begin{align*}
-\lim_{n\to\infty}\frac{m'}{n'}&= \lim_{n\to\infty}1+\frac{m'-n'}{n'}\\&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}\\&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\left(\frac{m}{n}-1\right)\\&=1+\frac{w}{w}\left(T-1\right)\\&=T
+\lim_{n\to\infty}\frac{m'}{n'}
+&= 1+\lim_{n\to\infty}\frac{m'-n'}{n'}\\
+&= 1+\lim_{n\to\infty}\frac{m-n}{n}\\
+%&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\frac{m-n}{n}\\
+%&=1+\lim_{n\to\infty}\frac{m'-n'}{m-n}\frac{1}{\frac{n'}{n}}\left(\frac{m}{n}-1\right)\\
+%&=1+\frac{w}{w}\left(T-1\right)\\
+&=T
 \end{align*}
 and
 \begin{align*}
@@ -563,12 +583,13 @@ Therefore
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(P\left(\Pi_1, \ldots, \Pi_{n'}, m'+1, \Pi_{n'+1}, \ldots, \Pi_{m'}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}\right)\bigg)\\&=\boxi_{m'+1}\bigg(Q\left(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\right)\bigg).
 \end{align*}
-Now, by changing the number $n'+1$ to the number $n'+\frac{1}{2}$ we get the inverse permutation $\Pi^{-1}$ 
+Now, by replacing the number $n'+1$ with the number $n'+\frac{1}{2}$ we get the inverse permutation $\Pi^{-1}$ %\todo{na pewno with?}
 \begin{align*}
 \Pos_n\left(m\right)&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+1\Big)\bigg)\hspace{50pt}
 \\&=\boxi_{m'+1}\bigg(Q\Big(\Pi\strzalka^{-1}_1, \ldots, \Pi\strzalka^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg)
 \\&=\boxi_{m'}\bigg(Q\Big(\Pi^{-1}_1, \ldots, \Pi^{-1}_{m'}, n'+\frac{1}{2}\Big)\bigg).
 \end{align*}
+%\todo[inline]{oczyszczenie dalszych dowodów - skrót końcówki " Essentially it just expresses thatpointwise convergence + monotonicity yields uniform convergence.  Is there a moresuccinct way to show this?" }
 
 Since the function $z$ is increasing, the function $z$ by acting on the input of the RSK algorithm not change the content of the recording tableau. Using the function $z$, we will get a sequence of independent random variables with the uniform distribution $U(0,1)$. Indeed
 \pagebreak[2]
@@ -608,149 +629,37 @@ From \cref{thm:romthm} for each $x\in[0,1]$ the random variable $G_n(x)$ converg
 \begin{align*}
 G_{n}(x)=\sqrt{\frac{m'}{n}\frac{1}{Tw}} \hspace{5pt} \frac{\square_{m'}(x)}{\sqrt{m'}}\overset{p}{\to} \sqrt{\frac{Tw}{Tw}}\hspace{5pt}G(x)=G(x).
 \end{align*}
-Using little-$o$ notation this means that for each $x\in[0,1]$ and for each $\epsilon>0$ 
-%$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|>\epsilon\Big)=0,$$
-%$$\lim_{n\to\infty}\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1.$$
-% we have:
-\begin{align}
-\mathbb{P}\Big(\left\|G_n(x)-G(x)\right\|\leq\epsilon\Big)=1-o(1). \label{smallo}
-\end{align}
-If $\left\|G_n(x)-G(x)\right\|\leq \epsilon$ then also
-\begin{align}
-(-\epsilon,\epsilon)\prec G_n(x)-G(x)\prec (\epsilon,-\epsilon).
-\label{convx}
-\end{align}
-\\
-Let $\epsilon>0$. The function $G(x)$ is a continuous function in the point $A=\frac{1}{T}$. This means that there exists $\delta>0$ that if $|x-A| < 2\delta$ then $\left\|G(x)-G(A)\right\|<\epsilon$. Thus 
-\begin{align}
-(-\epsilon,\epsilon)\prec G(x)-G(A)\prec (\epsilon,-\epsilon).
-\label{conti}
-\end{align} 
-In addition, almost surely $A_n \to A$. Then also $A_n \overset{p}{\to} A$. Using little-$o$ notation we have:
-\begin{align}
-\mathbb{P}(A-\delta<A_n< A+\delta)=1-o(1). 
-\label{convt}
-\end{align}
-
-If $A_n<A+\delta$ and $\left\| G_n(A+\delta)-G(A+\delta) \right\| \leq \epsilon$ then:
-\begin{align*}
-G_n(A_n)-G(A)&\prec G_n(A+\delta)-G(A) \tag{by \ref{ineq}}\\&=G_n(A+\delta)-G(A+\delta)+G(A+\delta)-G(A)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{by \ref{convx},\ref{conti}}\\&=(2\epsilon,-2\epsilon).
-\end{align*}
-Analogously, if $A-\delta<A_n$ and $\left\| G_n(A-\delta)-G(A-\delta) \right\|\leq \epsilon$ then:
-\begin{align*}
-G_n(A_n)-G(A)&\succ (-2\epsilon,2\epsilon).
-\end{align*}
-Thus if $\left\| G_n(A+\delta)-G(A+\delta) \right\| \leq \epsilon$ and $\left\| G_n(A-\delta)-G(A-\delta) \right\|\leq \epsilon$ and \linebreak[4]{$\left| A_n-A\right|<\delta$} then:
-\begin{align*}
-\left\|G_n(A_n)-G(A)\right\|< \left\| (2\epsilon,-2\epsilon) \right\| <4 \epsilon .
-\end{align*}
-Thereby:
-\begin{align*}
-&\mathbb{P}\bigg(\left\|G_{n}(A_n)-G(A)\right\| > 4\epsilon\bigg)\leq \\&\leq  \mathbb{P}\Big(\left\|G_n(A+\delta)-G(A+\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left\|G_n(A-\delta)-G(A-\delta)\right\|> \epsilon \text{\hspace{15pt}or\hspace{12pt}}\left| A_n-A\right|\geq \delta\Big)\\&\leq  \mathbb{P}\Big(\left\|G_n(A+\delta)-G(A+\delta)\right\|> \epsilon \Big) +\mathbb{P}\Big( \left\|G_n(A-\delta)-G(A-\delta)\right\|> \epsilon\Big)+ \mathbb{P}\Big(\left| A_n-A\right|\geq \delta\Big)\\&=o(1).\tag{by \ref{smallo},\ref{convt}}
-\end{align*}
-Then for each $T\in[1,\infty)$ and each $\epsilon>0$ we have:
-$$\lim_{n\to\infty}\mathbb{P}\bigg(\left\|G_{n}(A_n)-G(A)\right\| > 4\frac{\epsilon}{4\sqrt{T}}\bigg)=0,$$
-$$\lim_{n\to\infty}\mathbb{P}\left(\left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\right)=0.$$
-Here we finished the proof of the pointwise convergence.
 \end{proof}
 
 \subsection{The uniform convergence on the interval}
 
-In this section we prove the uniform convergence on the interval $[1, \infty)$. 
+In this section we prove the uniform convergence on the interval $[1, R]$. 
 \begin{proof}
-We know that $G_n(A_n)$ converges in probability to the limit $G(A)$, when $n$ tends to infinity for $A=\frac{1}{T}\in[\frac{1}{R},1]$. 
+For each $x$, the sequence $G_n(x)$ converges in probability to the limit $G(x)$, 
+when $n$ tends to infinity. Both coordinates of each function $G_n(x)$ are monotonic 
+and the limit function $G(x)$ is continuous. Then from the Second Dini's Theorem 
+we get that for each $x$, the sequence $G_n(x)$ converges uniformly in probability 
+to the limit $G(x)$, when $n$ tends to infinity.
 
-The function $G$ is increasing with respect to the relation $\prec$. In addition, $G$ is a continuous function on the closed interval $[\frac{1}{R},1]$. Then from the Heine--Cantor theorem the function $G(x)$ is uniformly continuous on the interval $[\frac{1}{R},1]$. 
-This means that for each $\epsilon>0$ there exists $\delta>0$ that for each $x, A\in[\frac{1}{R}, 1]$ if $|x-A| < \delta$ then $\left\|G(x)-G(T)\right\|<\epsilon$. Thus 
-
-\begin{align*}
-(-\epsilon,\epsilon)\prec G(x)-G(A)\prec (\epsilon,-\epsilon).
-\end{align*}
-
-Let $\delta>0$. We split the interval $[\frac{1}{R}, 1]$ into $p$ equal intervals of length $\frac{1-\frac{1}{R}}{p}<\delta$ for a some natural number $p$. Let $x_0, x_1, \ldots, x_p$ denote the endpoints of these intervals. Let $A_n\in[\frac{1}{R},1]$. We assume there exists the limit $\lim_{n\to\infty}A_n=A$. We choose a number $n_0$ so that for a some number $k\in\{0, 1, \ldots, p\}$
-\begin{align*}
-A_n, A\in(x_k, x_{k+1})\text{ for each number }n>n_0 \text{ or }A=x_k 
-\end{align*}
-and
-\begin{align*}
-||G_n(x_k) -G(x_k)||<\epsilon \text{ for all }n>n_0\text{ and all } k\in\{0, 1, \ldots, p\}. 
-\end{align*}
-Thereby if $A_n, A\in(x_k, x_{k+1})$ then
-\begin{align*}
-G_n(A_n)-G(A)&\prec G_n(x_{k+1})-G(A) \tag{by \ref{ineq}}\\&\prec(\epsilon,-\epsilon)+G(x_{k+1})-G(A)\\&\prec (\epsilon,-\epsilon)+(\epsilon,-\epsilon) \tag{by \ref{ineq}}\\&=(2\epsilon,-2\epsilon).
-\end{align*}
-and analogously
-\begin{align*}
-G_n(A_n)-G(A)&\succ (-2\epsilon,2\epsilon).
-\end{align*}
-Thus
-\begin{align*}
-\left\|G_n(A_n)-G(A)\right\|< \left\| (2\epsilon,-2\epsilon) \right\| <4 \epsilon .
-\end{align*}
-Obviously if $A=x_k$ for a some number $k\in\{0, 1, \ldots, p\}$ then the inequality also is fulfilled. Then for each $A\in[1,R]$ and each $\epsilon>0$ we have:
-$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{A\in[\frac{1}{R},1]}\sqrt{T}\left\|G_{n}(A_n)-G(A)\right\| > 4\sqrt{T}\epsilon\bigg)=0.$$
+Since $$\left\|G_n(A_n)-G(A)\right\| \leq \left\|G_n(A_n)-G(A_n)\right\| + \left\|G(A_n)-G(A)\right\|,$$ 
+the sequence $G_n(A_n)$ converges uniformly in probability to the limit $G(A)$, when $n$ tends to infinity. 
+Then for each $A\in[1,R]$ and each $\epsilon>0$ we have:
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{A\in[\frac{1}{R},1]}\left\|G_{n}(A_n)-G(A)\right\| 
+> \epsilon\bigg)=0.$$
 Using the inequality $T\leq R$ we obtain
 
-$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{A\in[\frac{1}{R},1]}\sqrt{T}\left\|G_{n}(A_n)-G(A)\right\| > 4\sqrt{R}\epsilon\bigg)=0,$$
-$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>4\sqrt{R}\epsilon\Bigg)=0.$$
+$$\lim_{n\to\infty}\mathbb{P}\bigg(\sup_{A\in[\frac{1}{R},1]}\sqrt{T}\left\|G_{n}(A_n)-G(A)\right\| 
+> \sqrt{R}\epsilon\bigg)=0,$$
+$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}
+{\sqrt{wn}}-H\left(T\right)\right\|>\sqrt{R}\epsilon\Bigg)=0.$$
 Thus for each $\epsilon>0$ we have
-$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\Bigg)=0.$$
+$$	\lim_{n\to\infty}\mathbb{P}\Bigg(\sup_{T\in[1,R]} \left\|\frac{\Pos_n\left(\floor{Tn}\right)}
+{\sqrt{wn}}-H\left(T\right)\right\|>\epsilon\Bigg)=0.$$
 \end{proof}
 
-\section{Asymptotic behavior of the function $H$}
+\subsection{Further questions}
+We see that the function $H$ behaves asymptotically for $T\to\infty$ like the function $(\frac{1}{\sqrt{T}}, 2\sqrt{T})$. The function $H$ describes the asymptotic position of the box with a fixed number $w$. The $x$-coordinate of this position after scaling tends to zero. If we did not scale it, would it also be similar? Will the box with the number $w$ be moved to the first column? We expect that almost surely yes. How long will we have to wait for this? We expect that if the number $w$ appears in the RSK algorithm after $n$ steps, the waiting time for the number in the first column is $O(n^2)$. Is this really true? More formally, let $\{X_j\}_{j=1}^\infty$ be a sequence of independent random variables with the uniform distribution $U(0,1)$. What is the probability that the box with a fixed number $w$ will be in the first column in the insertion tableau $P(x_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{\floor{Tn^2}})$ depending on parameter $T$?
 
-In this chapter we will describe the asymptotic behavior of the function $H\left(T\right)=\left(H_1\left(T\right), H_2\left(T\right)\right)$ when $T$ tends to infinity. Let $A=\frac{1}{T}$. For this purpose, we will use the formulas given in \cref{wzory}.
-
-$$H(T)=H\big(1/A\big)=\sqrt{\frac{1}{A}}G(A)=\frac{1}{2\sqrt{A}}\bigg(v(A)+u(A), v(A)-u(A)\bigg).$$
-We define the function $f:[0,2]\to [0,\sqrt{\frac{3\pi}{2}}]$ by
-$$f(x)=\sqrt[3]{\frac{3\pi}{2} F_{sc}(x^2-2)}.$$
-The function $F_{sc}$ is invertible, so the function $f$ also is invertible and the above formula can be transformed into the form
-$$f^{-1}(y)=\sqrt{F_{sc}^{-1}\bigg(\frac{2y^3}{3\pi}\bigg)+2}.$$
-Therefore for $x\in[0,1]$ we have
-$$F_{sc}^{-1}(x)=\left(f^{-1}\left(\sqrt[3]{\frac{3\pi}{2}x}\right)\right)^{2}-2.$$
-Next we calculate directly the derivatives of the function $f$ and thus we determine the Taylor series of the function $f$ at the point zero
-$$f(x)=x-\frac{1}{40}x^3-\frac{39}{22400}x^5-O(x^7).$$
-We use the Lagrange inversion formula for the coefficients of the series of the inverse function given by Morse and Feshbach in \cite{Morse1953} and we determine the series of inverse function $f^{-1}(y)$.
-$$f^{-1}(y)=y+\frac{1}{40}y^3+\frac{81}{22400}y^5+O(y^7).$$
-Of course $O\big(f^{-1}(y)\big)=O(y)$.
-Then for $x\in[0,1]$ we have
-\begin{align*}
-F_{sc}^{-1}(x)&=\left(\left(\sqrt[3]{\frac{3\pi}{2}x}\right)+\frac{1}{40}\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^3+\frac{81}{22400}\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^5+O\left(\sqrt[3]{\frac{3\pi}{2}x}\right)^7\right)^2-2\\&=-2+\left(\frac{3\pi}{2}x\right)^{\frac{2}{3}}+\frac{1}{20}\left(\frac{3\pi}{2}x\right)^{\frac{4}{3}}+\frac{11}{1400}\left(\frac{3\pi}{2}x\right)^{\frac{6}{3}}+O\left(x^{\frac{8}{3}}\right).
-\end{align*}
-
-Additionally we calculate directly the derivatives and we determine the Taylor series of the function $\Omega_{\star}(t^2-2)+t^2-2$ at the point zero
-$$\Omega_{\star}(t^2-2)+t^2-2=\frac{4}{3\pi}t^3+\frac{1}{30\pi}t^5+\frac{3}{1120\pi}t^7+O\left(t^{9}\right).$$
-Thereby
-\begin{align*}
-&v(x)+u(x)\\&=\Omega_{\star}\big(u(x)\big)+u(x)\\&=\Omega_{\star}\big(F_{sc}^{-1}(x)\big)+F_{sc}^{-1}(x)\\&=\Omega_{\star}\bigs(\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2\bigs)+\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^{2}-2\\
-&=\frac{4}{3\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^3+\frac{1}{30\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^5+\frac{3}{1120\pi}\Bigg(f^{-1}\bigg(\sqrt[3]{\frac{3\pi}{2}x}\bigg)\Bigg)^7+O\left(x^{\frac{9}{3}}\right)\\
-&=O\left(x^{\frac{9}{3}}\right)+\frac{4}{3\pi}\Bigg(\bigg(\frac{3\pi}{2}x\bigg)^{\frac{1}{3}}+\frac{1}{40}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{3}{3}}+\frac{81}{22400}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{5}{3}}+O\left(x^{\frac{7}{3}}\right)\Bigg)^3+\cdots\\
-&=O\left(x^{\frac{9}{3}}\right)+\frac{4}{3\pi}\Bigg(\bigg(\frac{3\pi}{2}x\bigg)^{\frac{1}{3}}+\frac{1}{40}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{3}{3}}+\frac{81}{22400}\bigg(\frac{3\pi}{2}x\bigg)^{\frac{5}{3}}\Bigg)^3+\cdots\\
-&=2x+\frac{1}{5}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}x^{\frac{5}{3}}+\frac{1}{28}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}x^{\frac{7}{3}}+O\left(x^3\right)
-\end{align*}
-and
-\begin{align*}
-&v(x)-u(x)\\&=v(x)+u(x)-2u(x)\\&=v(x)+u(x)-2F_{sc}^{-1}(x)\\&=2x+\frac{1}{5}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}x^{\frac{5}{3}}+\frac{1}{28}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}x^{\frac{7}{3}}+4-2\left(\frac{3\pi}{2}x\right)^{\frac{2}{3}}-\frac{1}{10}\left(\frac{3\pi}{2}x\right)^{\frac{4}{3}}-\frac{11}{700}\left(\frac{3\pi}{2}x\right)^{\frac{6}{3}}+O\left(x^{\frac{8}{3}}\right).
-\end{align*}
-Thus
-\begin{align*}
-H_1(T)&=\frac{v(A)+u(A)}{2\sqrt{A}}\\&=\frac{1}{\sqrt{T}}+\frac{1}{10}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\left(\frac{1}{T}\right)^{\frac{7}{6}}+\frac{1}{56}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\left(\frac{1}{T}\right)^{\frac{11}{6}}+O\left(\left(\frac{1}{T}\right)^{\frac{15}{6}}\right)
-\end{align*}
-and
-
-%%\begin{align*}
-%%&\frac{v(x)-u(x)}{2\sqrt{x}}\\&=\frac{2}{\sqrt{x}}-\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}x^{\frac{1}{6}}+x^{\frac{3}{6}}-\frac{1}{20}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-5pt}x^{\frac{5}{6}}+\frac{1}{10}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\hspace{-5pt}x^{\frac{7}{6}}-\frac{11}{1400}\left(\frac{3\pi}{2}\right)^{\frac{6}{3}}\hspace{-5pt}x^{\frac{9}{6}}+\frac{1}{56}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\hspace{-5pt}x^{\frac{11}{6}}+O\left(x^{\frac{13}{6}}\right)
-%%\end{align*}
-
-\begin{align*}
-H_2(T)&=\frac{v(A)-u(A)}{2\sqrt{A}}\\&=
-2\sqrt{T}-\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\left(\frac{1}{T}\right)^{\frac{1}{6}}+\left(\frac{1}{T}\right)^{\frac{3}{6}}-\frac{1}{20}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\left(\frac{1}{T}\right)^{\frac{5}{6}}+\frac{1}{10}\left(\frac{3\pi}{2}\right)^{\frac{2}{3}}\left(\frac{1}{T}\right)^{\frac{7}{6}}\\&\hspace{100pt}-\frac{11}{1400}\left(\frac{3\pi}{2}\right)^{\frac{6}{3}}\left(\frac{1}{T}\right)^{\frac{9}{6}}+\frac{1}{56}\left(\frac{3\pi}{2}\right)^{\frac{4}{3}}\left(\frac{1}{T}\right)^{\frac{11}{6}}+O\left(\left(\frac{1}{T}\right)^{\frac{13}{6}}\right).
-\end{align*}
-\subsection{Summary}
-We see that the function $H$ behaves asymptotically for $T\to\infty$ like the function $(\frac{1}{\sqrt{T}}, 2\sqrt{T})$. The function $H$ describes the asymptotic position of the box with a fixed number $w$. The $x$-coordinate of this position after scaling tends to zero. If we did not scale it, would it also be similar? Will the box with the number $w$ be move to the first column? We expect that almost surely yes. How long will we have to wait for this? We expect that if the number $w$ appears in the RSK algorithm after $n$ steps, the waiting time for the number in the first column is $O(n^2)$. Is this really true? More formally, let $\{X_j\}_{j=1}^\infty$ be a sequence of independent random variables with the uniform distribution $U(0,1)$. What is the probability that the box with a fixed number $w$ will be in the first column in the insertion tableau $P(x_1, \ldots, X_n, w, X_{n+1}, \ldots, X_{\floor{Tn^2}})$ depending on parameter $T$?
-
-%% if you use biblatex then this generates the bibliography
-%% if you use some other method then remove this and do it your own way
 \section*{Acknowledgments}
 I would like to thank my supervisor, Professor Piotr Śniady, for his support, the understanding, the patience, the positive outlook, the guidance, the valuable advice, the useful and constructive recommendations during writing this article. I would like to thank also to doctor Jacinta Torres for the help with the text editing.
 
